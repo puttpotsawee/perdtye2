@@ -30,5 +30,8 @@ class Answer extends Eloquent implements UserInterface, RemindableInterface {
 	public function credit(){
 		return $this->belongsTo('Member','idmember','idmember');
 	}
+	public function question(){
+		return $this->belongsTo('Question','idQuestion','idquestion');
+	}
 
 }
