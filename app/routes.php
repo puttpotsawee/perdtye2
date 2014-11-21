@@ -15,3 +15,9 @@ Route::get('/', function()
 {
 	return View::make('hello');
 });
+
+Route::get('firstPage', function()
+{
+
+	return View::make('firstPage');
+});
