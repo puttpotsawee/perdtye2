@@ -23,8 +23,6 @@ class Product extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var array
 	 */
-	protected $hidden = array('password', 'remember_token');
-
 	protected $fillable = array('*');
 
 	// public function relationship(){

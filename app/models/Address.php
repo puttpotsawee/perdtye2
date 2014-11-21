@@ -25,7 +25,7 @@ class Address extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	// protected $hidden = array('password', 'remember_token');
 
-	protected $fillable = array('country','zipcode','province','city','district','road','house_number');
+	protected $fillable = array('*');
 
 	public function member(){
 		return $this->belongsTo('Member','idmember','idmember');

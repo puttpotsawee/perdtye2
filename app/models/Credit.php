@@ -25,7 +25,7 @@ class Credit extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	// protected $hidden = array('password', 'remember_token');
 
-	protected $fillable = array('cardnumber','cardname','expiredate');
+	protected $fillable = array('*');
 
 	public function member(){
 		return $this->belongsTo('Member','idmember','idmember');
