@@ -25,3 +25,9 @@ Route::get('pae', function()
 {
     return 'pae!!';
     });
+
+Route::get('member',function()
+{
+
+	return Member::find(1)->credit;
+});
