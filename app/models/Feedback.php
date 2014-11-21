@@ -5,7 +5,7 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class Member extends Eloquent implements UserInterface, RemindableInterface {
+class Feedback extends Eloquent implements UserInterface, RemindableInterface {
 
 	use UserTrait, RemindableTrait;
 
@@ -14,17 +14,25 @@ class Member extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var string
 	 */
-	protected $table = 'Member';
-	protected $primaryKey = 'idmember';
+	protected $table = 'Feedback';
+	protected $primaryKey = 'idFeedback';
 	protected $timestamp = false;
+	protected $fillable = array();
 
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
 	 * @var array
 	 */
-	protected $hidden = array('password', 'remember_token');
+	public function feedback_giver(){
+		return $this->belongsTo('Member','idmember','idreceiver');
+	}
+	public function feedback_receiver(){
+		return $this->belongsTo('Member','idmember','idreceiver');
+	}
+	public function product(){
+		return $this->belongsTo('Product','idProduct','idproduct');
+	}
 
-	protected $fillable = array();
 
 }
