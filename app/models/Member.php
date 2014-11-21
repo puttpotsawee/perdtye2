@@ -27,6 +27,11 @@ class Member extends Eloquent implements UserInterface, RemindableInterface {
 
 	protected $fillable = array();
 
+
+	// public function relationship(){
+	// 	return $this->hasMany('Credit','foreign_key','local_key');
+	// }
+
 	public function credit(){
 		return $this->hasMany('Credit','idmember','idmember');
 	}
@@ -41,5 +46,14 @@ class Member extends Eloquent implements UserInterface, RemindableInterface {
 	}
 	public function trnasaction(){
 		return $this->hasMany('Transaction','idmember','idmember');
+	}
+	public function feedback_giver(){
+		return $this->hasMany('Feedback','idgiver','idmember');
+	}
+	public function feedback_receiver(){
+		return $this->hasMany('Feedback','idreceiver','idmember');
+	}
+	public function auction_list(){
+		return $this->hasMany('Auction_list','idreceiver','idmember');
 	}
 }
