@@ -5,7 +5,7 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class Member extends Eloquent implements UserInterface, RemindableInterface {
+class Answer extends Eloquent implements UserInterface, RemindableInterface {
 
 	use UserTrait, RemindableTrait;
 
@@ -14,8 +14,8 @@ class Member extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var string
 	 */
-	protected $table = 'Member';
-	protected $primaryKey = 'idmember';
+	protected $table = 'Answer';
+	protected $primaryKey = 'idAnswer';
 	protected $timestamp = false;
 
 	/**
@@ -23,8 +23,12 @@ class Member extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var array
 	 */
-	protected $hidden = array('password', 'remember_token');
+	// protected $hidden = array('password', 'remember_token');
 
 	protected $fillable = array();
+
+	public function credit(){
+		return $this->belongsTo('Member','idmember','idmember');
+	}
 
 }

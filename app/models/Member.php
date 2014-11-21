@@ -25,41 +25,45 @@ class Member extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password', 'remember_token');
 
-	protected $fillable = array();
+	protected $fillable = array(
+		'username','email','password','name','surname','phonenumber'
+		);
 
 
 	// public function relationship(){
 	// 	return $this->hasMany('Credit','foreign_key','local_key');
 	// }
 
+
 	public function credit(){
-		return $this->hasMany('Credit','idmember',$primaryKey);
+		return $this->hasMany('Credit','idmember','idmember');
 	}
 	public function address(){
-		return $this->hasMany('Address','idmember',$primaryKey);
+		return $this->hasMany('Address','idmember','idmember');
 	}
 	public function answer(){
-		return $this->hasMany('Answer','idmember',$primaryKey);
+		return $this->hasMany('Answer','idmember','idmember');
 	}
 	public function question(){
-		return $this->hasMany('Question','idmember',$primaryKey);
+		return $this->hasMany('Question','idmember','idmember');
 	}
 	public function trnasaction(){
-		return $this->hasMany('Transaction','idmember',$primaryKey);
+		return $this->hasMany('Transaction','idmember','idmember');
 	}
 	public function feedback_giver(){
-		return $this->hasMany('Feedback','idgiver',$primaryKey);
+		return $this->hasMany('Feedback','idgiver','idmember');
 	}
 	public function feedback_receiver(){
-		return $this->hasMany('Feedback','idreceiver',$primaryKey);
+		return $this->hasMany('Feedback','idreceiver','idmember');
 	}
 	public function auction_list(){
-		return $this->hasMany('Auction_list','idmember',$primaryKey);
+		return $this->hasMany('Auction_list','idmember','idmember');
+	}
 	public function report(){
-		return $this->hasMany('Report','idmember',$primaryKey);
+		return $this->hasMany('Report','idmember','idmember');
 	}
 	public function seller(){
-		return $this->hasOne('Seller','idseller',$primaryKey)
+		return $this->hasOne('Seller','idseller','idmember');
 	}
 
 }

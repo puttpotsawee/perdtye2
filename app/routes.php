@@ -29,5 +29,5 @@ Route::get('pae', function()
 Route::get('member',function()
 {
 
-	return Member::find(1)->credit;
+	return Credit::find(1)->member;
 });
