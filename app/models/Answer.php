@@ -17,6 +17,7 @@ class Answer extends Eloquent implements UserInterface, RemindableInterface {
 	protected $table = 'Answer';
 	protected $primaryKey = 'idAnswer';
 	protected $timestamp = false;
+	protected $fillable = array('*');
 
 	/**
 	 * The attributes excluded from the model's JSON form.
@@ -25,7 +26,6 @@ class Answer extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	// protected $hidden = array('password', 'remember_token');
 
-	protected $fillable = array();
 
 	public function credit(){
 		return $this->belongsTo('Member','idmember','idmember');
