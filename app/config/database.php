@@ -54,12 +54,12 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'forge',
-			'username'  => 'forge',
-			'password'  => '',
+			'host'      => 'db4free.net',
+			'database'  => 'perdtye',
+			'username'  => 'perdtye',
+			'password'  => 'se2014',
 			'charset'   => 'utf8',
-			'collation' => 'utf8_unicode_ci',
+			'collation' => 'utf8mb4_unicode_ci',
 			'prefix'    => '',
 		),
 
