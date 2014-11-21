@@ -14,17 +14,24 @@ class Member extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var string
 	 */
-	protected $table = 'Member';
-	protected $primaryKey = 'idmember';
+	protected $table = 'Seller';
+	protected $primaryKey = 'idseller';
 	protected $timestamp = false;
+	protected $fillable = array();
 
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *
 	 * @var array
 	 */
-	protected $hidden = array('password', 'remember_token');
 
-	protected $fillable = array();
-
+	public function member(){
+		return $this->belongsTo('Member','idmember','idseller');
+	}
+	public function product(){
+		return $this->hasMany('Product','idseller','idseller');
+	}
+	public function transaction(){
+		return $this->hasMany('Transaction','idseller','idseller');
+	}
 }
