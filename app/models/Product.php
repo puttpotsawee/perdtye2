@@ -25,7 +25,7 @@ class Product extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $hidden = array('password', 'remember_token');
 
-	protected $fillable = array();
+	protected $fillable = array('*');
 
 	// public function relationship(){
 	// 	return $this->hasMany('Credit','foreign_key','local_key');
@@ -45,5 +45,8 @@ class Product extends Eloquent implements UserInterface, RemindableInterface {
 	}
 	public function question(){
 		return $this->hasMany('Question','idproduct',$primaryKey);
+	}
+	public function feedback(){
+		return $this->hasMany('Feedback','idproduct',$primaryKey);
 	}
 }
