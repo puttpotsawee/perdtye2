@@ -1,6 +1,6 @@
 <?php
 
-class MemberController extends BaseController {
+class SessionController extends BaseController {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -20,5 +20,25 @@ class MemberController extends BaseController {
 		return View::make('hello');
 	}
 
-	
+	public function create()
+	{
+		//this responsible for showing the login form
+    	return View::make("login");
+	}
+
+	public function store()
+	{
+		//this resposible for loggin the user in
+		if(Auth::attempt(Input::only('username','password')))
+		{
+			return Auth::user();
+		}
+		return 'failed!';
+
+	}
+
+	protected function isPostRequest()
+  	{
+    return Input::server("REQUEST_METHOD") == "POST";
+  	}
 }

@@ -29,7 +29,38 @@ Route::get('pae', function()
 Route::get('member',function()
 {
 
-	return Credit::find(1)->member;
+	return testUser::all();
 });
 
-Route::get('login','MemberController@login');
+Route::get('test',function()
+{
+    return DB::connection()->getDatabaseName();
+});
+
+Route::get('try',function()
+{
+    return DB::select('select * from Member', array(1));
+});
+
+Route::get('login','SessionController@create');
+Route::resource('session','SessionController');
+
+Route::get('createUser',function()
+{
+
+    $tst = new testUser;
+    $tst->username = 'kkk';
+    $tst->password = Hash::make('1234');
+    $tst->save();
+
+    // testUser::create([
+    //     'username'=>'paekuy',
+    //     'password'=>Hash::make('1234'),
+    //     // 'email'=>'fuck@pae.in.th',
+    //     // 'name'=>'pradinan',
+    //     // 'surname'=>'petchre',
+    //     // 'phonenumber'=>'0811111111',
+    //     // 'status'=>'super' 
+    //         ]);
+
+});
