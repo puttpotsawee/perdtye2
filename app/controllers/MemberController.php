@@ -22,7 +22,32 @@ class MemberController extends BaseController {
 
 	public function login()
 	{
-		return View::make('login');
+		if ($this->isPostRequest()) {
+			// $validator = $this->getLoginValidator();
+
+			// if ($validator->passes()) {
+			// 	$credentials = $this->getLoginCredentials();
+
+			// 	if (Auth::attempt($credentials)) {
+			// 		return Redirect::route("user/profile");
+			// 	}
+
+			// 	return Redirect::back()->withErrors([
+			// 		"password" => ["Credentials invalid."]
+			// 		]);
+			// } else {
+			// 	return Redirect::back()
+			// 	->withInput()
+			// 	->withErrors($validator);
+			// }
+			return 'hahahaha';
+		}
+
+    return View::make("login");
 	}
 
+	protected function isPostRequest()
+  	{
+    return Input::server("REQUEST_METHOD") == "POST";
+  	}
 }
