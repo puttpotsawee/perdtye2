@@ -29,7 +29,7 @@ Route::get('pae', function()
 Route::get('member',function()
 {
 
-	return testUser::all();
+	return Member::all();
 });
 
 Route::get('test',function()
@@ -39,7 +39,7 @@ Route::get('test',function()
 
 Route::get('try',function()
 {
-    return DB::select('select * from Member', array(1));
+    return DB::select('select * from testUser', array(1));
 });
 
 Route::get('login','SessionController@create');
@@ -47,20 +47,14 @@ Route::resource('session','SessionController');
 
 Route::get('createUser',function()
 {
-
-    $tst = new testUser;
-    $tst->username = 'kkk';
-    $tst->password = Hash::make('1234');
-    $tst->save();
-
-    // testUser::create([
-    //     'username'=>'paekuy',
-    //     'password'=>Hash::make('1234'),
-    //     // 'email'=>'fuck@pae.in.th',
-    //     // 'name'=>'pradinan',
-    //     // 'surname'=>'petchre',
-    //     // 'phonenumber'=>'0811111111',
-    //     // 'status'=>'super' 
-    //         ]);
-
+    $member = new Member;
+    $member->username='paekuy2';
+    $member->password=Hash::make('1234');
+    $member->email='fuck@pae.in.th';
+    $member->name='pradinan';
+    $member->surname='petchre';
+    $member->phonenumber='0811111111';
+    $member->status='super';
+    $member->save();
+    
 });
