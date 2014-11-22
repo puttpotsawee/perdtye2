@@ -43,7 +43,16 @@ Route::get('try',function()
 });
 
 Route::get('login','SessionController@create');
+Route::get('logout', 'SessionController@destroy');
 Route::resource('session','SessionController');
+
+Route::get('profile','MemberController@showProfile')->before('Auth');
+Route::get('profile/edit','MemberController@editProfile')->before('Auth');
+Route::get('report','MemberController@report')->before('Auth');
+Route::get('feedback','MemberController@seeFeedback')->before('Auth');
+
+Route::get('register','MemberController@register')
+
 
 Route::get('createUser',function()
 {

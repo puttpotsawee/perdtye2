@@ -23,6 +23,10 @@ class SessionController extends BaseController {
 	public function create()
 	{
 		//this responsible for showing the login form
+		if(Auth::check()){
+			//this is when user have already logged in
+			return Redirect::to('/');
+		}
     	return View::make("login");
 	}
 
@@ -31,14 +35,20 @@ class SessionController extends BaseController {
 		//this resposible for loggin the user in
 		if(Auth::attempt(Input::only('username','password')))
 		{
-			return Auth::user();
+			return "Welcome ".Auth::user()->name;
 		}
 		return 'failed!';
 
 	}
 
-	protected function isPostRequest()
-  	{
-    return Input::server("REQUEST_METHOD") == "POST";
-  	}
+	public function destroy()
+	{
+		//this is used when user's logging out
+		Auth::logout();
+		return Redirect::to('/');
+	}
+	public function index()
+	{
+
+	}
 }

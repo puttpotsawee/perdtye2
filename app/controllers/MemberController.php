@@ -20,5 +20,26 @@ class MemberController extends BaseController {
 		return View::make('hello');
 	}
 
-	
+	public
+
+	public function showProfile()
+	{
+
+	}
+	public function editProfile()
+	{
+
+	}
+	public function report()
+	{
+
+	}
+	public function seeFeedback()
+	{
+
+	}
+	public function register()
+	{
+		
+	}
 }
