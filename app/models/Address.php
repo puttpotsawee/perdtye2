@@ -16,7 +16,7 @@ class Address extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $table = 'Address';
 	protected $primaryKey = 'idaddress';
-	protected $timestamp = false;
+	public $timestamps = false;
 
 	/**
 	 * The attributes excluded from the model's JSON form.

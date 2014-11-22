@@ -16,7 +16,7 @@ class Auction_list extends Eloquent implements UserInterface, RemindableInterfac
 	 */
 	protected $table = 'Auction_list';
 	protected $primaryKey = 'idAuction_list';
-	protected $timestamp = false;
+	public $timestamps = false;
 
 	/**
 	 * The attributes excluded from the model's JSON form.

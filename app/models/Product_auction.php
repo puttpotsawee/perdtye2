@@ -16,7 +16,7 @@ class Product_auction extends Eloquent implements UserInterface, RemindableInter
 	 */
 	protected $table = 'Product_auction';
 	protected $primaryKey = 'idproduct_auction';
-	protected $timestamp = false;
+	public $timestamps = false;
 
 	/**
 	 * The attributes excluded from the model's JSON form.

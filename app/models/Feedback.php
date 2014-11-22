@@ -16,7 +16,7 @@ class Feedback extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $table = 'Feedback';
 	protected $primaryKey = 'idFeedback';
-	protected $timestamp = false;
+	public $timestamps = false;
 	protected $fillable = array('*');
 
 	/**

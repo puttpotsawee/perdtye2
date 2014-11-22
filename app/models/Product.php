@@ -16,7 +16,7 @@ class Product extends Eloquent implements UserInterface, RemindableInterface {
 	 */
 	protected $table = 'Product';
 	protected $primaryKey = 'idProduct';
-	protected $timestamp = false;
+	public $timestamps = false;
 
 	/**
 	 * The attributes excluded from the model's JSON form.

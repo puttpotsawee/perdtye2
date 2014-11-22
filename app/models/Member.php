@@ -15,8 +15,9 @@ class Member extends Eloquent implements UserInterface, RemindableInterface {
 	 * @var string
 	 */
 	protected $table = 'Member';
+	public $timestamps = false;
 	protected $primaryKey = 'idmember';
-	protected $timestamp = false;
+	
 	// protected $incrementing = false; 
 
 	/**

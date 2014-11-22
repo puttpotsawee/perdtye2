@@ -16,7 +16,7 @@ class Transaction extends Eloquent implements UserInterface, RemindableInterface
 	 */
 	protected $table = 'Transaction';
 	protected $primaryKey = 'idTransaction';
-	protected $timestamp = false;
+	public $timestamps = false;
 	protected $fillable = array('*');
 
 	public function member(){

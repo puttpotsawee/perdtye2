@@ -16,7 +16,7 @@ class Product_direct extends Eloquent implements UserInterface, RemindableInterf
 	 */
 	protected $table = 'Product_direct';
 	protected $primaryKey = 'idproduct_direct';
-	protected $timestamp = false;
+	public $timestamps = false;
 
 	/**
 	 * The attributes excluded from the model's JSON form.
