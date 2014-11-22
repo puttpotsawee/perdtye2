@@ -30,7 +30,7 @@ return array(
 
 	/*
 	|--------------------------------------------------------------------------
-	| Database Connections
+	| Database Connection
 	|--------------------------------------------------------------------------
 	|
 	| Here are each of the database connections setup for your application.
