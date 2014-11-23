@@ -5,6 +5,11 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
+/**
+ * Address
+ *
+ * @property-read \Member $member
+ */
 class Address extends Eloquent implements UserInterface, RemindableInterface {
 
 	use UserTrait, RemindableTrait;

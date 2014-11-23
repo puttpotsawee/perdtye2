@@ -5,6 +5,16 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
+/**
+ * testuser
+ *
+ * @property string $username
+ * @property string $password
+ * @property integer $id
+ * @method static \Illuminate\Database\Query\Builder|\testUser whereUsername($value)
+ * @method static \Illuminate\Database\Query\Builder|\testUser wherePassword($value)
+ * @method static \Illuminate\Database\Query\Builder|\testUser whereId($value)
+ */
 class testUser extends Eloquent implements UserInterface, RemindableInterface {
 
 	use UserTrait, RemindableTrait;
@@ -14,24 +24,10 @@ class testUser extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var string
 	 */
-	protected $table = 'test';
+	protected $table = 'testUser';
 	protected $primaryKey = 'id';
-	protected $timestamp = false;
-	// protected $incrementing = false; 
-
-	/**
-	 * The attributes excluded from the model's JSON form.
-	 *
-	 * @var array
-	 */
-	
-	protected $fillable = array('username','password');
-
-
-	// public function relationship(){
-	// 	return $this->hasMany('Credit','foreign_key','local_key');
-	// }
-
+	public $timestamps = false;
+	protected $fillable = array('*');
 
 	
 
