@@ -19,14 +19,14 @@ use Illuminate\Auth\Reminders\RemindableInterface;
  * @property-read \Member $member
  * @property-read \Seller $seller
  * @property-read \Product $product
- * @method static \Illuminate\Database\Query\Builder|\Transaction whereIdTransaction($value) 
- * @method static \Illuminate\Database\Query\Builder|\Transaction whereIdseller($value) 
- * @method static \Illuminate\Database\Query\Builder|\Transaction whereIdmember($value) 
- * @method static \Illuminate\Database\Query\Builder|\Transaction whereIdproduct($value) 
- * @method static \Illuminate\Database\Query\Builder|\Transaction wherePrice($value) 
- * @method static \Illuminate\Database\Query\Builder|\Transaction whereQuantity($value) 
- * @method static \Illuminate\Database\Query\Builder|\Transaction whereStatus($value) 
- * @method static \Illuminate\Database\Query\Builder|\Transaction whereTimestamp($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Transaction whereIdTransaction($value)
+ * @method static \Illuminate\Database\Query\Builder|\Transaction whereIdseller($value)
+ * @method static \Illuminate\Database\Query\Builder|\Transaction whereIdmember($value)
+ * @method static \Illuminate\Database\Query\Builder|\Transaction whereIdproduct($value)
+ * @method static \Illuminate\Database\Query\Builder|\Transaction wherePrice($value)
+ * @method static \Illuminate\Database\Query\Builder|\Transaction whereQuantity($value)
+ * @method static \Illuminate\Database\Query\Builder|\Transaction whereStatus($value)
+ * @method static \Illuminate\Database\Query\Builder|\Transaction whereTimestamp($value)
  */
 class Transaction extends Eloquent implements UserInterface, RemindableInterface {
 

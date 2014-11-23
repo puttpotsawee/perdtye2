@@ -18,13 +18,13 @@ use Illuminate\Auth\Reminders\RemindableInterface;
  * @property-read \Illuminate\Database\Eloquent\Collection|\Answer[] $answer
  * @property-read \Member $member
  * @property-read \Product $transaction
- * @method static \Illuminate\Database\Query\Builder|\Question whereIdQuestion($value) 
- * @method static \Illuminate\Database\Query\Builder|\Question whereIdproduct($value) 
- * @method static \Illuminate\Database\Query\Builder|\Question whereIdmember($value) 
- * @method static \Illuminate\Database\Query\Builder|\Question whereTimestamp($value) 
- * @method static \Illuminate\Database\Query\Builder|\Question whereTopic($value) 
- * @method static \Illuminate\Database\Query\Builder|\Question whereContent($value) 
- * @method static \Illuminate\Database\Query\Builder|\Question whereType($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Question whereIdQuestion($value)
+ * @method static \Illuminate\Database\Query\Builder|\Question whereIdproduct($value)
+ * @method static \Illuminate\Database\Query\Builder|\Question whereIdmember($value)
+ * @method static \Illuminate\Database\Query\Builder|\Question whereTimestamp($value)
+ * @method static \Illuminate\Database\Query\Builder|\Question whereTopic($value)
+ * @method static \Illuminate\Database\Query\Builder|\Question whereContent($value)
+ * @method static \Illuminate\Database\Query\Builder|\Question whereType($value)
  */
 class Question extends Eloquent implements UserInterface, RemindableInterface {
 

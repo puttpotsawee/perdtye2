@@ -45,7 +45,14 @@ class MemberController extends BaseController {
 			//user not found
 			return "Token is invalid";
 		} else {
-			
+			$thisToken = $thisUser->comfirm_token
+			if($token==$thisToken){
+				// this mean the token is correct
+				$thisUser->status = 'buyer';
+				$thisUser->save();
+			} else {
+				return "Token is invalid";
+			}
 		}
 	}
 }

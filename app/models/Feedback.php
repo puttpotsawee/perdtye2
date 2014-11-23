@@ -18,13 +18,13 @@ use Illuminate\Auth\Reminders\RemindableInterface;
  * @property-read \Member $feedback_giver
  * @property-read \Member $feedback_receiver
  * @property-read \Product $product
- * @method static \Illuminate\Database\Query\Builder|\Feedback whereIdFeedback($value) 
- * @method static \Illuminate\Database\Query\Builder|\Feedback whereIdgiver($value) 
- * @method static \Illuminate\Database\Query\Builder|\Feedback whereIdreceiver($value) 
- * @method static \Illuminate\Database\Query\Builder|\Feedback whereIdproduct($value) 
- * @method static \Illuminate\Database\Query\Builder|\Feedback whereScore($value) 
- * @method static \Illuminate\Database\Query\Builder|\Feedback whereContent($value) 
- * @method static \Illuminate\Database\Query\Builder|\Feedback whereTimestamp($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Feedback whereIdFeedback($value)
+ * @method static \Illuminate\Database\Query\Builder|\Feedback whereIdgiver($value)
+ * @method static \Illuminate\Database\Query\Builder|\Feedback whereIdreceiver($value)
+ * @method static \Illuminate\Database\Query\Builder|\Feedback whereIdproduct($value)
+ * @method static \Illuminate\Database\Query\Builder|\Feedback whereScore($value)
+ * @method static \Illuminate\Database\Query\Builder|\Feedback whereContent($value)
+ * @method static \Illuminate\Database\Query\Builder|\Feedback whereTimestamp($value)
  */
 class Feedback extends Eloquent implements UserInterface, RemindableInterface {
 

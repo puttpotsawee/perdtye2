@@ -36,6 +36,8 @@ use Illuminate\Auth\Reminders\RemindableInterface;
  * @method static \Illuminate\Database\Query\Builder|\Member whereSurname($value)
  * @method static \Illuminate\Database\Query\Builder|\Member wherePhonenumber($value)
  * @method static \Illuminate\Database\Query\Builder|\Member whereRememberToken($value)
+ * @property string $confirm_token
+ * @method static \Illuminate\Database\Query\Builder|\Member whereConfirmToken($value)
  */
 class Member extends Eloquent implements UserInterface, RemindableInterface {
 

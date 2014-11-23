@@ -85,3 +85,8 @@ Route::get('sendMail',function()
 {
     
 });
+
+Route::get('kuy',function()
+{
+    return View::make('home');
+});

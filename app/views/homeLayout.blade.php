@@ -62,7 +62,7 @@ body {
                     <ul class="nav navbar-nav">
                         
                         <li>
-                            <a><b><Sukhumvit>{{$name}}</Sukhumvit></b></a>
+                            <a><b><Sukhumvit>Test User</Sukhumvit></b></a>
                         </li>
                     </ul>
 
