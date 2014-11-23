@@ -35,7 +35,7 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var string
 	 */
-	protected $table = 'Question';
+	protected $table = 'question';
 	protected $primaryKey = 'idQuestion';
 	public $timestamps = false;
 	protected $fillable = array('*');

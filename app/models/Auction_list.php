@@ -29,7 +29,7 @@ class Auction_list extends Eloquent implements UserInterface, RemindableInterfac
 	 *
 	 * @var string
 	 */
-	protected $table = 'Auction_list';
+	protected $table = 'auction_list';
 	protected $primaryKey = 'idAuction_list';
 	public $timestamps = false;
 

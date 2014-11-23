@@ -19,7 +19,7 @@ class Address extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var string
 	 */
-	protected $table = 'Address';
+	protected $table = 'address';
 	protected $primaryKey = 'idaddress';
 	public $timestamps = false;
 

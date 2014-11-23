@@ -29,7 +29,7 @@ class Credit extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var string
 	 */
-	protected $table = 'Credit';
+	protected $table = 'credit';
 	protected $primaryKey = 'idcredit';
 	public $timestamps = false;
 

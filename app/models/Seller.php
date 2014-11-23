@@ -27,7 +27,7 @@ class Seller extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var string
 	 */
-	protected $table = 'Seller';
+	protected $table = 'seller';
 	protected $primaryKey = 'idseller';
 	public $timestamps = false;
 	protected $fillable = array('*');

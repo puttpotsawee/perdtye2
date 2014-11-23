@@ -27,7 +27,7 @@ class Product_direct extends Eloquent implements UserInterface, RemindableInterf
 	 *
 	 * @var string
 	 */
-	protected $table = 'Product_direct';
+	protected $table = 'product_direct';
 	protected $primaryKey = 'idproduct_direct';
 	public $timestamps = false;
 
