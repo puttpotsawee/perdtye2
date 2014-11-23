@@ -79,41 +79,30 @@ Route::get('createUser',function()
     
 });
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-=======
-Route::get('profile/activate/{username}/{token}','MemberController@activateMember');
->>>>>>> origin/membersystem
 
->>>>>>> FETCH_HEAD
+
+Route::get('profile/activate/{username}/{token}','MemberController@activateMember');
+
+
 Route::get('sendMail',function()
 {
     
 });
-<<<<<<< HEAD
-=======
 
-<<<<<<< HEAD
->>>>>>> FETCH_HEAD
 Route::get('test', function()
 {
  	return Member::all();
 });
-<<<<<<< HEAD
 
 Route::get('signup',function()
 {
     return View::make('signup');
 });
 Route::post('signup', 'SignupController@signup');
-=======
-Route::resource('signup','SignupController');
 
-=======
+
 Route::get('kuy',function()
 {
     return View::make('home');
 });
->>>>>>> origin/membersystem
->>>>>>> FETCH_HEAD
+
