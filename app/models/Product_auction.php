@@ -32,7 +32,7 @@ class Product_auction extends Eloquent implements UserInterface, RemindableInter
 	 *
 	 * @var string
 	 */
-	protected $table = 'Product_auction';
+	protected $table = 'product_auction';
 	protected $primaryKey = 'idproduct_auction';
 	public $timestamps = false;
 

@@ -30,7 +30,7 @@ class Answer extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var string
 	 */
-	protected $table = 'Answer';
+	protected $table = 'answer';
 	protected $primaryKey = 'idAnswer';
 	public $timestamps = false;
 	protected $fillable = array('*');

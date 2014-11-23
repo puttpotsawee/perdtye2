@@ -29,7 +29,7 @@ class Report extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var string
 	 */
-	protected $table = 'Report';
+	protected $table = 'report';
 	protected $primaryKey = 'idReport';
 	public $timestamps = false;
 	protected $fillable = array('*');

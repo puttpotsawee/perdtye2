@@ -62,7 +62,7 @@ class Product extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var string
 	 */
-	protected $table = 'Product';
+	protected $table = 'product';
 	protected $primaryKey = 'idProduct';
 	public $timestamps = false;
 
