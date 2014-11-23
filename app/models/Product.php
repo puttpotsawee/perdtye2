@@ -33,25 +33,25 @@ use Illuminate\Auth\Reminders\RemindableInterface;
  * @property-read \Illuminate\Database\Eloquent\Collection|\Transaction[] $transaction
  * @property-read \Illuminate\Database\Eloquent\Collection|\Question[] $question
  * @property-read \Illuminate\Database\Eloquent\Collection|\Feedback[] $feedback
- * @method static \Illuminate\Database\Query\Builder|\Product whereIdProduct($value) 
- * @method static \Illuminate\Database\Query\Builder|\Product whereIdseller($value) 
- * @method static \Illuminate\Database\Query\Builder|\Product whereType($value) 
- * @method static \Illuminate\Database\Query\Builder|\Product whereProductName($value) 
- * @method static \Illuminate\Database\Query\Builder|\Product whereBrand($value) 
- * @method static \Illuminate\Database\Query\Builder|\Product whereModel($value) 
- * @method static \Illuminate\Database\Query\Builder|\Product whereProperty($value) 
- * @method static \Illuminate\Database\Query\Builder|\Product whereDimension($value) 
- * @method static \Illuminate\Database\Query\Builder|\Product whereCondition($value) 
- * @method static \Illuminate\Database\Query\Builder|\Product whereDefect($value) 
- * @method static \Illuminate\Database\Query\Builder|\Product whereMissingPart($value) 
- * @method static \Illuminate\Database\Query\Builder|\Product wherePaymentMethod($value) 
- * @method static \Illuminate\Database\Query\Builder|\Product whereRefundPolicy($value) 
- * @method static \Illuminate\Database\Query\Builder|\Product whereReturnCharge($value) 
- * @method static \Illuminate\Database\Query\Builder|\Product wherePackagingMethod($value) 
- * @method static \Illuminate\Database\Query\Builder|\Product wherePackagingCharge($value) 
- * @method static \Illuminate\Database\Query\Builder|\Product whereShippingMethod($value) 
- * @method static \Illuminate\Database\Query\Builder|\Product whereShippingFee($value) 
- * @method static \Illuminate\Database\Query\Builder|\Product wherePicUrl($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Product whereIdProduct($value)
+ * @method static \Illuminate\Database\Query\Builder|\Product whereIdseller($value)
+ * @method static \Illuminate\Database\Query\Builder|\Product whereType($value)
+ * @method static \Illuminate\Database\Query\Builder|\Product whereProductName($value)
+ * @method static \Illuminate\Database\Query\Builder|\Product whereBrand($value)
+ * @method static \Illuminate\Database\Query\Builder|\Product whereModel($value)
+ * @method static \Illuminate\Database\Query\Builder|\Product whereProperty($value)
+ * @method static \Illuminate\Database\Query\Builder|\Product whereDimension($value)
+ * @method static \Illuminate\Database\Query\Builder|\Product whereCondition($value)
+ * @method static \Illuminate\Database\Query\Builder|\Product whereDefect($value)
+ * @method static \Illuminate\Database\Query\Builder|\Product whereMissingPart($value)
+ * @method static \Illuminate\Database\Query\Builder|\Product wherePaymentMethod($value)
+ * @method static \Illuminate\Database\Query\Builder|\Product whereRefundPolicy($value)
+ * @method static \Illuminate\Database\Query\Builder|\Product whereReturnCharge($value)
+ * @method static \Illuminate\Database\Query\Builder|\Product wherePackagingMethod($value)
+ * @method static \Illuminate\Database\Query\Builder|\Product wherePackagingCharge($value)
+ * @method static \Illuminate\Database\Query\Builder|\Product whereShippingMethod($value)
+ * @method static \Illuminate\Database\Query\Builder|\Product whereShippingFee($value)
+ * @method static \Illuminate\Database\Query\Builder|\Product wherePicUrl($value)
  */
 class Product extends Eloquent implements UserInterface, RemindableInterface {
 
@@ -62,7 +62,7 @@ class Product extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var string
 	 */
-	protected $table = 'Product';
+	protected $table = 'product';
 	protected $primaryKey = 'idProduct';
 	public $timestamps = false;
 

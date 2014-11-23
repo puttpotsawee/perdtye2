@@ -47,6 +47,7 @@ class SessionController extends BaseController {
 		Auth::logout();
 		return Redirect::to('/');
 	}
+	
 	public function index()
 	{
 

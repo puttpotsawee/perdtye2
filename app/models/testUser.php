@@ -24,7 +24,7 @@ class testUser extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var string
 	 */
-	protected $table = 'testUser';
+	protected $table = 'testuser';
 	protected $primaryKey = 'id';
 	public $timestamps = false;
 	protected $fillable = array('*');

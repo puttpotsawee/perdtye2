@@ -14,11 +14,11 @@ use Illuminate\Auth\Reminders\RemindableInterface;
  * @property string $timestamp
  * @property string $content
  * @property-read \Member $member
- * @method static \Illuminate\Database\Query\Builder|\Report whereIdReport($value) 
- * @method static \Illuminate\Database\Query\Builder|\Report whereIdmember($value) 
- * @method static \Illuminate\Database\Query\Builder|\Report whereTopic($value) 
- * @method static \Illuminate\Database\Query\Builder|\Report whereTimestamp($value) 
- * @method static \Illuminate\Database\Query\Builder|\Report whereContent($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Report whereIdReport($value)
+ * @method static \Illuminate\Database\Query\Builder|\Report whereIdmember($value)
+ * @method static \Illuminate\Database\Query\Builder|\Report whereTopic($value)
+ * @method static \Illuminate\Database\Query\Builder|\Report whereTimestamp($value)
+ * @method static \Illuminate\Database\Query\Builder|\Report whereContent($value)
  */
 class Report extends Eloquent implements UserInterface, RemindableInterface {
 
@@ -29,7 +29,7 @@ class Report extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var string
 	 */
-	protected $table = 'Report';
+	protected $table = 'report';
 	protected $primaryKey = 'idReport';
 	public $timestamps = false;
 	protected $fillable = array('*');

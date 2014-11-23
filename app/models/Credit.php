@@ -14,11 +14,11 @@ use Illuminate\Auth\Reminders\RemindableInterface;
  * @property string $cardname
  * @property string $expiredate
  * @property-read \Member $member
- * @method static \Illuminate\Database\Query\Builder|\Credit whereIdcredit($value) 
- * @method static \Illuminate\Database\Query\Builder|\Credit whereIdmember($value) 
- * @method static \Illuminate\Database\Query\Builder|\Credit whereCardnumber($value) 
- * @method static \Illuminate\Database\Query\Builder|\Credit whereCardname($value) 
- * @method static \Illuminate\Database\Query\Builder|\Credit whereExpiredate($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Credit whereIdcredit($value)
+ * @method static \Illuminate\Database\Query\Builder|\Credit whereIdmember($value)
+ * @method static \Illuminate\Database\Query\Builder|\Credit whereCardnumber($value)
+ * @method static \Illuminate\Database\Query\Builder|\Credit whereCardname($value)
+ * @method static \Illuminate\Database\Query\Builder|\Credit whereExpiredate($value)
  */
 class Credit extends Eloquent implements UserInterface, RemindableInterface {
 
@@ -29,7 +29,7 @@ class Credit extends Eloquent implements UserInterface, RemindableInterface {
 	 *
 	 * @var string
 	 */
-	protected $table = 'Credit';
+	protected $table = 'credit';
 	protected $primaryKey = 'idcredit';
 	public $timestamps = false;
 

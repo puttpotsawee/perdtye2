@@ -9,6 +9,24 @@ use Illuminate\Auth\Reminders\RemindableInterface;
  * Address
  *
  * @property-read \Member $member
+ * @property integer $idaddress
+ * @property integer $idmember
+ * @property string $country
+ * @property string $zipcode
+ * @property string $province
+ * @property string $city
+ * @property string $district
+ * @property string $road
+ * @property string $house_number
+ * @method static \Illuminate\Database\Query\Builder|\Address whereIdaddress($value)
+ * @method static \Illuminate\Database\Query\Builder|\Address whereIdmember($value)
+ * @method static \Illuminate\Database\Query\Builder|\Address whereCountry($value)
+ * @method static \Illuminate\Database\Query\Builder|\Address whereZipcode($value)
+ * @method static \Illuminate\Database\Query\Builder|\Address whereProvince($value)
+ * @method static \Illuminate\Database\Query\Builder|\Address whereCity($value)
+ * @method static \Illuminate\Database\Query\Builder|\Address whereDistrict($value)
+ * @method static \Illuminate\Database\Query\Builder|\Address whereRoad($value)
+ * @method static \Illuminate\Database\Query\Builder|\Address whereHouseNumber($value)
  */
 class Address extends Eloquent implements UserInterface, RemindableInterface {
 

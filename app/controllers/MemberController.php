@@ -38,4 +38,21 @@ class MemberController extends BaseController {
 		return "see feedback Page";
 	}
 	
+	public function activateMember($username,$token)
+	{
+		$thisUser = Member::where('username','=',$username);
+		if($thisUser->count(0)){
+			//user not found
+			return "Token is invalid";
+		} else {
+			$thisToken = $thisUser->comfirm_token
+			if($token==$thisToken){
+				// this mean the token is correct
+				$thisUser->status = 'buyer';
+				$thisUser->save();
+			} else {
+				return "Token is invalid";
+			}
+		}
+	}
 }
