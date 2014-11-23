@@ -51,7 +51,7 @@ Route::get('profile/edit','MemberController@editProfile')->before('Auth');
 Route::get('report','MemberController@report')->before('Auth');
 Route::get('feedback','MemberController@seeFeedback')->before('Auth');
 
-Route::get('register','MemberController@register')
+
 
 
 Route::get('createUser',function()

@@ -37,7 +37,7 @@ class SessionController extends BaseController {
 		{
 			return "Welcome ".Auth::user()->name;
 		}
-		return 'failed!';
+		return Redirect::back()->withInput()->with('flash_error','the username and password is incorrect');
 
 	}
 
