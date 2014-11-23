@@ -68,7 +68,6 @@ Route::get('createUser',function()
     
 });
 
-<<<<<<< HEAD
 Route::get('sendMail',function()
 {
     Mail::send('emails.welcome', array('body'=>'hello'), function($message)
@@ -76,10 +75,13 @@ Route::get('sendMail',function()
         $message->to('junrai82@gmail.com', 'John Smith')->subject('Welcome!');
     });
 });
-=======
 Route::get('test', function()
 {
  	return Member::all();
 });
-Route::resource('signup','SignupController');
->>>>>>> origin/master
+
+Route::get('signup',function()
+{
+    return View::make('signup');
+});
+Route::post('signup', 'SignupController@signup');
