@@ -25,6 +25,15 @@ Route::get('pae', function()
 {
     return 'pae!!';
     });
+Route::get('home',function()
+{
+    return View::make('home')->with('name','Potsawee Vechpanich');
+});
+
+Route::get('email',function()
+{
+    return View::make('emails.welcome')->with('name','Potsawee Vechpanich');
+});
 
 Route::get('member',function()
 {
@@ -41,6 +50,8 @@ Route::get('try',function()
 {
     return DB::select('select * from testUser', array(1));
 });
+
+Route::get('testClasss','EmailController@showWelcome');
 
 Route::get('login','SessionController@create');
 Route::get('logout', 'SessionController@destroy');
@@ -70,8 +81,8 @@ Route::get('createUser',function()
 
 Route::get('sendMail',function()
 {
-    Mail::send('emails.welcome', array('body'=>'hello'), function($message)
+    Mail::send('emails.welcome', array('name'=>'Pradinan P.'), function($message)
     {
-        $message->to('junrai82@gmail.com', 'John Smith')->subject('Welcome!');
+        $message->to('pradinaan@gmail.com', 'Pradinan P.')->subject('Welcome!');
     });
 });

@@ -1,6 +1,6 @@
 <?php
 
-class MemberController extends BaseController {
+class EmailController extends BaseController {
 
 	/*
 	|--------------------------------------------------------------------------
@@ -20,25 +20,11 @@ class MemberController extends BaseController {
 		return View::make('hello');
 	}
 
-
-	public function showProfile()
+	public function test()
 	{
-		// $email = new EmailController;
-		// $s = $email->test();
-		$s = 'hahahaha';
-		return $s;
+		return 'hello';
 	}
-	public function editProfile()
-	{
-		return "edit Profile Page";
-	}
-	public function report()
-	{
-		return "report Page";
-	}
-	public function seeFeedback()
-	{
-		return "see feedback Page";
-	}
+	
+	
 	
 }
