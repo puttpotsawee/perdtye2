@@ -68,10 +68,7 @@ Route::get('createUser',function()
     
 });
 
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/master
 Route::get('sendMail',function()
 {
     Mail::send('emails.welcome', array('body'=>'hello'), function($message)
@@ -85,7 +82,4 @@ Route::get('test', function()
  	return Member::all();
 });
 Route::resource('signup','SignupController');
-<<<<<<< HEAD
 
-=======
->>>>>>> origin/master
