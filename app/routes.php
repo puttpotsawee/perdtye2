@@ -58,3 +58,12 @@ Route::get('createUser',function()
     $member->save();
     
 });
+
+Route::get('test', function()
+{
+ 	return Member::all();
+});
+
+Route::resource('signup','SignupController');
+//Route::get('signup','SignupController@create');
+//Route::post('signup/store','SignupController@store');
