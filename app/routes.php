@@ -106,3 +106,8 @@ Route::get('kuy',function()
     return View::make('home');
 });
 
+//Route to search
+Route::get('search', 'SearchController@index');
+Route::post('search', 'SearchController@search');
+//Route to item details
+Route::get('item/{idProduct}', 'BrowseController@view');
