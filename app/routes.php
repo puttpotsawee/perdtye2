@@ -79,26 +79,24 @@ Route::get('createUser',function()
     
 });
 
-<<<<<<< HEAD
-=======
+
 Route::get('profile/activate/{username}/{token}','MemberController@activateMember');
->>>>>>> origin/membersystem
+
 
 Route::get('sendMail',function()
 {
     
 });
 
-<<<<<<< HEAD
+
 Route::get('test', function()
 {
  	return Member::all();
 });
 Route::resource('signup','SignupController');
 
-=======
+
 Route::get('kuy',function()
 {
     return View::make('home');
 });
->>>>>>> origin/membersystem
