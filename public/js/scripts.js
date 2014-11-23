@@ -13,3 +13,13 @@ $("#toTop").click(function () {
    //This strange selector seems to work universally
    $("html, body").animate({scrollTop: 0}, 1000);
 });
+
+$(':radio').change(
+  function(){
+    $('.choice').text( this.value + ' stars' );
+  } 
+); 
+$.validate({
+        modules : 'date, security, sweden'
+        
+    });

@@ -15,11 +15,11 @@ use Illuminate\Auth\Reminders\RemindableInterface;
  * @property string $content
  * @property-read \Member $credit
  * @property-read \Question $question
- * @method static \Illuminate\Database\Query\Builder|\Answer whereIdAnswer($value) 
- * @method static \Illuminate\Database\Query\Builder|\Answer whereIdmember($value) 
- * @method static \Illuminate\Database\Query\Builder|\Answer whereIdquestion($value) 
- * @method static \Illuminate\Database\Query\Builder|\Answer whereTimestamp($value) 
- * @method static \Illuminate\Database\Query\Builder|\Answer whereContent($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Answer whereIdAnswer($value)
+ * @method static \Illuminate\Database\Query\Builder|\Answer whereIdmember($value)
+ * @method static \Illuminate\Database\Query\Builder|\Answer whereIdquestion($value)
+ * @method static \Illuminate\Database\Query\Builder|\Answer whereTimestamp($value)
+ * @method static \Illuminate\Database\Query\Builder|\Answer whereContent($value)
  */
 class Answer extends Eloquent implements UserInterface, RemindableInterface {
 

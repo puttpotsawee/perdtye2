@@ -14,11 +14,11 @@ use Illuminate\Auth\Reminders\RemindableInterface;
  * @property string $timestamp
  * @property float $bid_price
  * @property-read \Product_auction $product_auction
- * @method static \Illuminate\Database\Query\Builder|\Auction_list whereIdAuctionList($value) 
- * @method static \Illuminate\Database\Query\Builder|\Auction_list whereIdproductAuction($value) 
- * @method static \Illuminate\Database\Query\Builder|\Auction_list whereIdmember($value) 
- * @method static \Illuminate\Database\Query\Builder|\Auction_list whereTimestamp($value) 
- * @method static \Illuminate\Database\Query\Builder|\Auction_list whereBidPrice($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Auction_list whereIdAuctionList($value)
+ * @method static \Illuminate\Database\Query\Builder|\Auction_list whereIdproductAuction($value)
+ * @method static \Illuminate\Database\Query\Builder|\Auction_list whereIdmember($value)
+ * @method static \Illuminate\Database\Query\Builder|\Auction_list whereTimestamp($value)
+ * @method static \Illuminate\Database\Query\Builder|\Auction_list whereBidPrice($value)
  */
 class Auction_list extends Eloquent implements UserInterface, RemindableInterface {
 

@@ -16,12 +16,12 @@ use Illuminate\Auth\Reminders\RemindableInterface;
  * @property float $current_price
  * @property-read \Product $product
  * @property-read \Illuminate\Database\Eloquent\Collection|\Auction_list[] $auction_list
- * @method static \Illuminate\Database\Query\Builder|\Product_auction whereIdproductAuction($value) 
- * @method static \Illuminate\Database\Query\Builder|\Product_auction whereStartTime($value) 
- * @method static \Illuminate\Database\Query\Builder|\Product_auction whereEndTime($value) 
- * @method static \Illuminate\Database\Query\Builder|\Product_auction whereMinimumBid($value) 
- * @method static \Illuminate\Database\Query\Builder|\Product_auction whereBiddingRange($value) 
- * @method static \Illuminate\Database\Query\Builder|\Product_auction whereCurrentPrice($value) 
+ * @method static \Illuminate\Database\Query\Builder|\Product_auction whereIdproductAuction($value)
+ * @method static \Illuminate\Database\Query\Builder|\Product_auction whereStartTime($value)
+ * @method static \Illuminate\Database\Query\Builder|\Product_auction whereEndTime($value)
+ * @method static \Illuminate\Database\Query\Builder|\Product_auction whereMinimumBid($value)
+ * @method static \Illuminate\Database\Query\Builder|\Product_auction whereBiddingRange($value)
+ * @method static \Illuminate\Database\Query\Builder|\Product_auction whereCurrentPrice($value)
  */
 class Product_auction extends Eloquent implements UserInterface, RemindableInterface {
 
