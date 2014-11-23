@@ -1,7 +1,5 @@
 @extends('layout')
-<html>
-<head/>
-<body>
+
 @section('content')
 	@if ($result->count() == 0)
 		<h1> No product found. </h1>
@@ -12,5 +10,3 @@
 		@endforeach
 	@endif
 @stop
-</body>
-</html>

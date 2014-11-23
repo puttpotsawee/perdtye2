@@ -8,7 +8,7 @@ class SearchController extends BaseController {
 		return View::make("search");
 	}
 
-	// search product
+	// search product_name
 	public function search()
 	{
 		$auction_category = 'auction';
