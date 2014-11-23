@@ -2,28 +2,43 @@
 
 @section('content')
    {{ Form::open(['route'=>'signup.store']) }}
+      <div>
+            {{ Form::label("username", "Username") }}
+            {{ Form::text("username") }}
+      </div>
 
-      {{ Form::label("username", "Username") }}
-      {{ Form::text("username") }}
+      <div>
+            {{ Form::label("password", "Password") }}
+            {{ Form::password("password") }}
+      </div>
 
-      {{ Form::label("password", "Password") }}
-      {{ Form::password("password") }}
+      <div>
+            {{ Form::label("email", "Email") }}
+            {{ Form::text("email") }}
+      </div>
 
-      {{ Form::label("email", "Email") }}
-      {{ Form::text("email") }}
+      <div>
+            {{ Form::label("status", "Status") }}
+            {{ Form::text("status") }}
+      </div>
 
-      {{ Form::label("status", "Status") }}
-      {{ Form::text("status") }}
+      <div>
+            {{ Form::label("name", "Name") }}
+            {{ Form::text("name") }}
+      </div>
 
-      {{ Form::label("name", "Name") }}
-      {{ Form::text("name") }}
+      <div>
+            {{ Form::label("surname", "Surname") }}
+            {{ Form::text("surname") }}
+      </div>
 
-      {{ Form::label("surname", "Surname") }}
-      {{ Form::text("surname") }}
+      <div>
+            {{ Form::label("phonenumber", "phonenumber") }}
+            {{ Form::text("phonenumber") }}
+      </div>
 
-      {{ Form::label("phonenumber", "phonenumber") }}
-      {{ Form::text("phonenumber") }}
-
-      {{ Form::submit("submit") }}
-      {{ Form::close() }}
+      <div>
+            {{ Form::submit("submit") }}
+            {{ Form::close() }}
+      </div>
 @stop
