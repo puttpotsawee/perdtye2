@@ -23,10 +23,7 @@ class MemberController extends BaseController {
 
 	public function showProfile()
 	{
-		// $email = new EmailController;
-		// $s = $email->test();
-		$s = 'hahahaha';
-		return $s;
+		return "profile Page";
 	}
 	public function editProfile()
 	{
@@ -41,4 +38,14 @@ class MemberController extends BaseController {
 		return "see feedback Page";
 	}
 	
+	public function activateMember($username,$token)
+	{
+		$thisUser = Member::where('username','=',$username);
+		if($thisUser->count(0)){
+			//user not found
+			return "Token is invalid";
+		} else {
+			
+		}
+	}
 }

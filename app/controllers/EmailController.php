@@ -20,9 +20,16 @@ class EmailController extends BaseController {
 		return View::make('hello');
 	}
 
-	public function test()
+	public function sendConfirmationEmail($user)
 	{
-		return 'hello';
+		
+		$name = $user->name;
+		$token = $user->confirm_token;
+		
+		Mail::send('emails.confirmation', array('name'=>'Pradinan P.'), function($message)
+		{
+			$message->to('pradinaan@gmail.com', 'Pradinan P.')->subject('Welcome!');
+		});
 	}
 	
 	

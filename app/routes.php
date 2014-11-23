@@ -51,16 +51,16 @@ Route::get('try',function()
     return DB::select('select * from testUser', array(1));
 });
 
-Route::get('testClasss','EmailController@showWelcome');
+// Route::get('testClass','MemberController@showProfile');
 
 Route::get('login','SessionController@create');
 Route::get('logout', 'SessionController@destroy');
 Route::resource('session','SessionController');
 
-Route::get('profile','MemberController@showProfile')->before('Auth');
-Route::get('profile/edit','MemberController@editProfile')->before('Auth');
-Route::get('report','MemberController@report')->before('Auth');
-Route::get('feedback','MemberController@seeFeedback')->before('Auth');
+Route::get('profile','MemberController@showProfile')->before('auth');
+Route::get('profile/edit','MemberController@editProfile')->before('auth');
+Route::get('report','MemberController@report')->before('auth');
+Route::get('feedback','MemberController@seeFeedback')->before('auth');
 
 
 
@@ -79,10 +79,9 @@ Route::get('createUser',function()
     
 });
 
+Route::get('profile/activate/{username}/{token}','MemberController@activateMember');
+
 Route::get('sendMail',function()
 {
-    Mail::send('emails.welcome', array('name'=>'Pradinan P.'), function($message)
-    {
-        $message->to('pradinaan@gmail.com', 'Pradinan P.')->subject('Welcome!');
-    });
+    
 });
