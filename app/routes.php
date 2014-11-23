@@ -67,3 +67,11 @@ Route::get('createUser',function()
     $member->save();
     
 });
+
+Route::get('sendMail',function()
+{
+    Mail::send('emails.welcome', array('body'=>'hello'), function($message)
+    {
+        $message->to('junrai82@gmail.com', 'John Smith')->subject('Welcome!');
+    });
+});
