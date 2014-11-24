@@ -78,22 +78,22 @@ class Product extends Eloquent implements UserInterface, RemindableInterface {
 	// }
 
 	public function product_auction(){
-		return $this->hasOne('Product_auction','idproduct_auction',$primaryKey);
+		return $this->hasOne('Product_auction','idproduct_auction','idProduct');
 	}
 	public function product_direct(){
-		return $this->hasOne('Product_direct','idproduct_direct',$primaryKey);
+		return $this->hasOne('Product_direct','idproduct_direct','idProduct');
 	}
 	public function seller(){
 		return $this->belongsTo('Seller','idSeller','idSeller');
 	}
 	public function transaction(){
-		return $this->hasMany('Transaction','idproduct',$primaryKey);
+		return $this->hasMany('Transaction','idproduct','idProduct');
 	}
 	public function question(){
-		return $this->hasMany('Question','idproduct',$primaryKey);
+		return $this->hasMany('Question','idproduct','idProduct');
 	}
 	public function feedback(){
-		return $this->hasMany('Feedback','idproduct',$primaryKey);
+		return $this->hasMany('Feedback','idproduct','idProduct');
 	}
 	public static function getProductInfo($keyword){
 		return Product::leftJoin('product_auction', 'product.idProduct', '=', 'product_auction.idproduct_auction')

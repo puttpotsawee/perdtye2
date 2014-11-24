@@ -47,6 +47,20 @@ Route::filter('auth', function()
 		}
 	}
 });
+Route::filter('seller', function()
+{
+	if (Auth::user()->status!='seller')
+	{
+		if (Request::ajax())
+		{
+			return Response::make('Unauthorized', 401);
+		}
+		else
+		{
+			return Redirect::to('account');
+		}
+	}
+});
 
 
 Route::filter('auth.basic', function()

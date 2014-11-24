@@ -26,10 +26,10 @@ Route::get('pae', function()
 {
     return 'pae!!';
     });
-// Route::get('home',function()
-// {
-//     return View::make('home')->with('name','Potsawee Vechpanich');
-// });
+Route::get('home',function()
+{
+    return Redirect::to('/');
+});
 
 Route::get('email',function()
 {
@@ -94,6 +94,7 @@ Route::get('sendMail',function()
     
 });
 
+
 Route::get('test', function()
 {
  	return Member::all();
@@ -104,28 +105,26 @@ Route::get('test', function()
 // {
 //     return View::make('/perdtye/index');
 // });
-Route::get('login',function()
-{
-    return View::make('/perdtye/login');
-});
+// Route::get('login',function()
+// {
+//     return View::make('/perdtye/login');
+// });
 
 
 Route::get('qa',function()
 {
     return View::make('/perdtye/qa');
 });
-Route::get('auctionsell',function()
-{
-    return View::make('/perdtye/auctionsell');
-});
+
 Route::get('auctiontype',function()
 {
     return View::make('/perdtye/auctiontype');
 });
-Route::get('directsell',function()
-{
-    return View::make('/perdtye/directsell');
-});
+Route::get('directsell','SellerController@directsell')->before('auth')->before("seller");
+Route::post('directsell','SellerController@submitDirectsell')->before('auth')->before("seller");
+Route::get('auctionsell','SellerController@auctionsell')->before('auth')->before("seller");
+Route::post('auctionsell','SellerController@submitAuctionsell')->before('auth')->before("seller");
+
 Route::get('directtype',function()
 {
     return View::make('/perdtye/directtype');
@@ -172,7 +171,7 @@ Route::get('statusforgot',function()
 });
 Route::get('sellconfirm',function()
 {
-    return View::make('/perdtye/sellconfirm');
+    return View::make('/perdtye/sellconfirm')->with(Seller::find(1));
 });
 // Routing Blade
 
