@@ -1,9 +1,10 @@
-@extends('perdtye/header')
+	@extends('perdtye/header')
 
 <!-- parameter received from BrowseController:
 		$product
 		$details
 		$seller
+		$quantity
 	-->
 
 	@section('content')
@@ -50,15 +51,7 @@
 												<h4>Item: </h4>
 											</div>
 											<div class="col-md-8" >
-												<h4>iPhone6 64 gb gold</h4>
-											</div>  
-										</div>
-										<div class="row" style="margin-top:20px;">
-											<div class="col-md-4">
-												<h4>Total Price: </h4>
-											</div>
-											<div class="col-md-8" >
-												<h4>$3000 </h4>
+												<h4>{{$product->product_name}}</h4>
 											</div>  
 										</div>
 										<div class="row" style="margin-top:20px;">
@@ -66,7 +59,15 @@
 												<h4>Quantity: </h4>
 											</div>
 											<div class="col-md-8" >
-												<h4>12 </h4>
+												<h4>{{$quantity}} </h4>
+											</div>  
+										</div>
+										<div class="row" style="margin-top:20px;">
+											<div class="col-md-4">
+												<h4>Total Price: </h4>
+											</div>
+											<div class="col-md-8" >
+												<h4> {{$quantity * $details->price}} Baht </h4>
 											</div>  
 										</div>
 										<div class="row" style="margin-top:20px;">
@@ -74,7 +75,7 @@
 												<h5>Seller: </h5>
 											</div>
 											<div class="col-md-8" >
-												<h5>Maew </h5>
+												<h5>{{$seller->name $seller->surname}} </h5>
 											</div>  
 										</div>
 										<div class="row" style="margin-top:40px;">

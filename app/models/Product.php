@@ -108,7 +108,7 @@ class Product extends Eloquent implements UserInterface, RemindableInterface {
             			->join('member', 'product.idseller', '=', 'member.idmember')
             			->where('product_name', 'LIKE', '%'.$keyword.'%')
 						->orWhere('brand', 'LIKE', '%'.$keyword.'%')
-						->where('type', '=', $category)
+						->where('type', '=', 'auction')
 						->get();
 	}
 	public static function getProductDirectInfo($keyword){
@@ -116,7 +116,7 @@ class Product extends Eloquent implements UserInterface, RemindableInterface {
             			->join('member', 'product.idseller', '=', 'member.idmember')
             			->where('product_name', 'LIKE', '%'.$keyword.'%')
 						->orWhere('brand', 'LIKE', '%'.$keyword.'%')
-						->where('type', '=', $category)
+						->where('type', '=', 'direct')
 						->get();
 	}
 }
