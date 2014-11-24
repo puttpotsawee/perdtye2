@@ -111,3 +111,6 @@ Route::get('search', 'SearchController@index');
 Route::post('search', 'SearchController@search');
 //Route to item details
 Route::get('item/{idProduct}', 'BrowseController@view');
+//Route to buy/bid request
+Route::post('item/{idProduct}', 'DirectBuyController@buy');
+Route::put('item/{idProduct}', 'AuctionController@bid');
