@@ -66,7 +66,7 @@
 				</div>
 				<div class="col-md-8 column">
 					<div class="caption" value={{$r->idProduct}}>
-						<a href = {{$r->type}}type><h3> {{$r->product_name}} </h3></a>
+						<a href = {{$r->type}}type/{{$r->idProduct}}><h3> {{$r->product_name}} </h3></a>
 						<p> {{$r->brand}} <br> {{$r->model}} </p>
 						<div class="row clearfix" style="margin-bottom:0px;">
 							<div class="col-md-6 column">
