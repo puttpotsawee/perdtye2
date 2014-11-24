@@ -94,15 +94,85 @@ Route::get('test', function()
  	return Member::all();
 });
 
+// Routing blade
+Route::get('home',function()
+{
+    return View::make('/perdtye/index');
+});
+Route::get('login',function()
+{
+    return View::make('/perdtye/login');
+});
 Route::get('signup',function()
 {
-    return View::make('signup');
+    return View::make('/perdtye/signup');
 });
-Route::post('signup', 'SignupController@signup');
-
-
-Route::get('kuy',function()
+Route::get('search',function()
 {
-    return View::make('home');
+    return View::make('/perdtye/search');
 });
-
+Route::get('account',function()
+{
+    return View::make('/perdtye/account');
+});
+Route::get('qa',function()
+{
+    return View::make('/perdtye/qa');
+});
+Route::get('auctionsell',function()
+{
+    return View::make('/perdtye/auctionsell');
+});
+Route::get('auctiontype',function()
+{
+    return View::make('/perdtye/auctiontype');
+});
+Route::get('directsell',function()
+{
+    return View::make('/perdtye/directsell');
+});
+Route::get('directtype',function()
+{
+    return View::make('/perdtye/directtype');
+});
+Route::get('editauctionsell',function()
+{
+    return View::make('/perdtye/editauctionsell');
+});
+Route::get('editdirectsell',function()
+{
+    return View::make('/perdtye/editdirectsell');
+});
+Route::get('editprofile',function()
+{
+    return View::make('/perdtye/editprofile');
+});
+Route::get('feedback',function()
+{
+    return View::make('/perdtye/feedback');
+});
+Route::get('forgot',function()
+{
+    return View::make('/perdtye/forgot');
+});
+Route::get('report',function()
+{
+    return View::make('/perdtye/report');
+});
+Route::get('reportgood',function()
+{
+    return View::make('/perdtye/reportgood');
+});
+Route::get('reportsubmit',function()
+{
+    return View::make('/perdtye/reportsubmit');
+});
+Route::get('sellregister',function()
+{
+    return View::make('/perdtye/sellregister');
+});
+Route::get('statusforgot',function()
+{
+    return View::make('/perdtye/statusforgot');
+});
+// Routing Blade
