@@ -1,6 +1,11 @@
 <?php
 
 class SignupController extends BaseController {
+
+	public function index() {
+		return View::make('/perdtye/signup');
+	}
+
 	public function signup() {
 
 		$validator = Validator::Make(

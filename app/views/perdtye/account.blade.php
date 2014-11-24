@@ -15,7 +15,7 @@
 		
 		<div class="col-md-4 column">
 			<div class="well-shadow">
-				<h4 style="text-align:top"> Name : John Test </h4>
+				<h4 style="text-align:top"> Name : {{$name}} {{$surname}}</h4>
 				<p>&nbsp;</p>
 				<h5 style="text-align:center">
 					Feeding Ratings
@@ -23,15 +23,15 @@
 				<table class="table table-bordered" style="border-spacing: 2px">
 					<thread>
 						<th style="text-align:center">
-							<text style="font-size:110%">(+)5,555</text>
+							<text style="font-size:110%">(+){{$positive}}</text>
 							<text style="font-size:110%">Positive</text>
 						</th>
 						<th style="text-align:center">
-							<text style="font-size:110%">(o)35</text>
+							<text style="font-size:110%">(o){{$neutral}}</text>
 							<text style="font-size:110%">Neutral</text>
 						</th>
 						<th style="text-align:center">
-							<text style="font-size:110%">(-)345</text>
+							<text style="font-size:110%">(-){{$negative}}</text>
 							<text style="font-size:110%">Negative</text>
 						</th>
 					</thread>

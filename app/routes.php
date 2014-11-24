@@ -24,7 +24,7 @@ Route::get('users', function()
 Route::get('pae', function()
 {
     return 'pae!!';
-    });
+});
 Route::get('home',function()
 {
     return View::make('home')->with('name','Potsawee Vechpanich');
@@ -78,10 +78,9 @@ Route::get('createUser',function()
     $member->save();
     
 });
-Route::get('signup',function()
-{
-    return View::make('/perdtye/signup');
-});
+
+// signup
+Route::get('signup','SignupController@index');
 Route::post('signup','SignupController@signup');
 
 
@@ -112,6 +111,10 @@ Route::get('account',function()
 {
     return View::make('/perdtye/account');
 });
+
+Route::get('account', array('before' => 'auth.basic', 'uses' => 'MemberController@showAccount'));
+
+
 Route::get('qa',function()
 {
     return View::make('/perdtye/qa');
