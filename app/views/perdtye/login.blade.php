@@ -25,7 +25,7 @@
 					<label for="Username" class="col-sm-3 control-label">User name</label>
 					<div class="col-sm-9">
 						<input type="text" data-validation="required" class="form-control" id="Username" 
-						placeholder="Enter User Name" name="email">
+						placeholder="Enter User Name" name="username">
 					</div>
 				</div>
 				<div class="form-group">

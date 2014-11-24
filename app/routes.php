@@ -13,7 +13,8 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	// return View::make('hello');
+    return View::make('/perdtye/index');
 });
 
 Route::get('users', function()
@@ -25,10 +26,10 @@ Route::get('pae', function()
 {
     return 'pae!!';
     });
-Route::get('home',function()
-{
-    return View::make('home')->with('name','Potsawee Vechpanich');
-});
+// Route::get('home',function()
+// {
+//     return View::make('home')->with('name','Potsawee Vechpanich');
+// });
 
 Route::get('email',function()
 {
@@ -122,10 +123,10 @@ Route::get('path', function()
 });
 
 // Routing blade
-Route::get('home',function()
-{
-    return View::make('/perdtye/index');
-});
+// Route::get('home',function()
+// {
+//     return View::make('/perdtye/index');
+// });
 // Route::get('login',function()
 // {
 //     return View::make('/perdtye/login');

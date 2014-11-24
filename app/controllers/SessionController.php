@@ -25,7 +25,7 @@ class SessionController extends BaseController {
 		//this responsible for showing the login form
 		if(Auth::check()){
 			//this is when user have already logged in
-			return Redirect::to('/home');
+			return Redirect::to('/');
 		}
     	return View::make("perdtye/login");
 	}
@@ -40,7 +40,7 @@ class SessionController extends BaseController {
 				return Redirect::back()->withInput()->with('flash_error','Please confirm your email to login to the system');
 
 			}
-			return "Welcome ".Auth::user()->name;
+			return Redirect::to('/');
 			
 		}
 		return Redirect::back()->withInput()->with('flash_error','the username and password is incorrect');
