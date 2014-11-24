@@ -264,7 +264,6 @@
     todayHighlight: true
   });
   </script>
-  s
   <!-- SCRIPT -->
 </body>
 </html>

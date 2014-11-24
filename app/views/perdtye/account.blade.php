@@ -257,33 +257,30 @@
 					</thead>
 
 					<tbody>
-						<?php for($x=1;$x<=10;$x++){?>
+						@foreach($history as $h)
 						<tr class="active">
 							<td>
 								<?php echo $x ?>
 							</td>
 							<td>
 								<img src="img/iphone6 icon.jpg" width="100%"/>
-								<p style="margin-top:15px;"><center>Iphone6</center></p>
+								<p style="margin-top:15px;"><center>{{$h->product_name}}</center></p>
 							</td>
 							<td>
-								<text>Shop1</text>
-								<text>(feedback)</text>
+								<text>{{$h->username}}</text>
 							</td>
 							<td>
-								<text>4h 42m left</text>
+								<text>{{$h->timestamp}}</text>
 							</td>
 							<td>
-								<p style="color:black">THB 14,532</p>
+								<p style="color:black">{{$h->price}}</p>
 							</td>
 							<td>
 								<a href="#" class="btn btn-success" style="width:100%;">Give Feedback</a>
 								<p><a href="#" class="btn btn-info" style="width:100%; margin-top:10px;">Report</a></p>
 							</td>
 						</tr>
-						<?php
-					}
-					?>
+						@endforeach
 					
 					
 				</tbody>
@@ -382,30 +379,26 @@
 			</thead>
 
 			<tbody>
-				<?php for($x=1;$x<=10;$x++){?>
+				@foreach($question as $q)
 				<tr class="active">
 					<td>
 						<?php echo $x ?>
 					</td>
 					<td>
 						<img src="img/iphone6 icon.jpg" width="100%"/>
-						<p style="margin-top:15px;"><center>Iphone6</center></p>
+						<p style="margin-top:15px;"><center>{{$q->product_name}}</center></p>
 					</td>
 					<td style="word-wrap: break-word;">
-						<text>Shop1</text>
-						<text>(feedback)</text>
+						<text>{{$q->username}}</text>
 					</td>
 					<td style="word-wrap: break-word;">
-						ฟหกฟกกาหกาก่รหกรหกห่กหกสหกวสหวกสหกๆไกืๆไำิๆืไอกเหกฟีห้กฟหทสทำส
-						
+						{{$q->question}}						
 					</td>
 					<td style="word-wrap: break-word;">
-						Waiting for answer from seller
+						{{$q->answer}}						
 					</td>
 				</tr>
-				<?php
-			}
-			?>
+				@endforeach
 			
 			
 		</tbody>

@@ -14,13 +14,6 @@ class MemberController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
-
-	public function showWelcome()
-	{
-		return View::make('hello');
-	}
-
-
 	public function showAccount()
 	{
 		$name = Auth::user()->name;
@@ -28,43 +21,60 @@ class MemberController extends BaseController {
 		$receiver = Auth::user()->idmember;
 		$idmember = Auth::user()->idmember;
 
-		$question = Auth::user()->question->first();
-		return $question->product;
+		$negative = DB::table('feedback')
+			->where('idreceiver', '=', $receiver)
+            ->whereIn('score', array(0, 1))
+			->count();
 
-		// $negative = DB::table('feedback')
-		// 	->where('idreceiver', '=', $receiver)
-  //           ->whereIn('score', array(0, 1))
-		// 	->count();
+		$neutral = DB::table('feedback')
+			->where('idreceiver', '=', $receiver)
+            ->whereIn('score', array(2, 3))
+			->count();
 
-		// $neutral = DB::table('feedback')
-		// 	->where('idreceiver', '=', $receiver)
-  //           ->whereIn('score', array(2, 3))
-		// 	->count();
+		$positive = DB::table('feedback')
+			->where('idreceiver', '=', $receiver)
+            ->whereIn('score', array(4, 5))
+			->count();
 
-		// $positive = DB::table('feedback')
-		// 	->where('idreceiver', '=', $receiver)
-  //           ->whereIn('score', array(4, 5))
-		// 	->count();
+		$question = DB::table('question')
+			->where('question.idmember', '=', $idmember)
+        	->join('product', 'question.idproduct', '=', 'product.idProduct')
+        	->join('seller', 'product.idseller', '=', 'seller.idseller')
+        	->join('member', 'member.idmember', '=', 'seller.idseller')
+        	->join('answer', 'question.idQuestion', '=', 'answer.idquestion')
+        	->select('product.product_name', 'member.username', 'answer.content as answer', 'question.content as question')
+        	->get();
 
-		// $question = DB::table('question')
-		//     ->join('seller', 'question.idmember', '=', 'seller.idseller')
-  //           ->join('product', 'question.idproduct', '=', 'product.idProduct')
-  //           ->join('answer', 'question.idQuestion', '=', 'answer.idquestion')
-  //           ->select('seller.name')
-  //           ->get();
+        $history = DB::table('transaction')
+			->where('transaction.idmember', '=', $idmember)
+        	->join('product', 'transaction.idproduct', '=', 'product.idProduct')
+        	->join('seller', 'product.idseller', '=', 'seller.idseller')
+        	->join('member', 'member.idmember', '=', 'seller.idseller')
+        	->select('product.product_name', 'member.username', 'transaction.timestamp', 'transaction.price')
+        	->get();
 
-		// return View::Make('perdtye/account')->with(
-		// 	array(
-		// 		'name'=> $name, 
-		// 		'surname' => $surname,
-		// 		'negative' => $negative,
-		// 		'neutral' => $neutral,
-		// 		'positive' => $positive,
-		// 		'question' => $question
-		// 	));
+/*       	$history = DB::table('product')
+			->where('product.idseller', '=', $idmember)
+        	->select('product.product_name', 'member.username', 'transaction.timestamp', 'transaction.price')
+        	->get();*/
+
+         //return $question;
+
+		return View::Make('perdtye/account')->with(
+			array(
+				'name'=> $name, 
+				'surname' => $surname,
+				'negative' => $negative,
+				'neutral' => $neutral,
+				'positive' => $positive,
+				'question' => $question,
+				'history' => $history
+
+			));
+			
 	}
 
-	public function editAccount()
+	public function editProfile()
 	{
 		return 'editprofile';
 	}
