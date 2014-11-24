@@ -95,4 +95,28 @@ class Product extends Eloquent implements UserInterface, RemindableInterface {
 	public function feedback(){
 		return $this->hasMany('Feedback','idproduct',$primaryKey);
 	}
+	public static function getProductInfo($keyword){
+		return Product::leftJoin('product_auction', 'product.idProduct', '=', 'product_auction.idproduct_auction')
+            			->leftJoin('product_direct', 'product.idProduct', '=', 'product_direct.idproduct_direct')
+            			->join('member', 'product.idseller', '=', 'member.idmember')
+            			->where('product_name', 'LIKE', '%'.$keyword.'%')
+						->orWhere('brand', 'LIKE', '%'.$keyword.'%')
+						->get();
+	}
+	public static function getProductAuctionInfo($keyword){
+		return Product::join('product_auction', 'product.idProduct', '=', 'product_auction.idproduct_auction')
+            			->join('member', 'product.idseller', '=', 'member.idmember')
+            			->where('product_name', 'LIKE', '%'.$keyword.'%')
+						->orWhere('brand', 'LIKE', '%'.$keyword.'%')
+						->where('type', '=', $category)
+						->get();
+	}
+	public static function getProductDirectInfo($keyword){
+		return Product::join('product_direct', 'product.idProduct', '=', 'product_direct.idproduct_direct')
+            			->join('member', 'product.idseller', '=', 'member.idmember')
+            			->where('product_name', 'LIKE', '%'.$keyword.'%')
+						->orWhere('brand', 'LIKE', '%'.$keyword.'%')
+						->where('type', '=', $category)
+						->get();
+	}
 }

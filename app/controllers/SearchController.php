@@ -21,25 +21,15 @@ class SearchController extends BaseController {
 		$result;
 		if($category == $all_category)
 		{
-			$result = Product::where('product_name', 'LIKE', '%'.$keyword.'%')
-						->orWhere('brand', 'LIKE', '%'.$keyword.'%')
-						->get();
+			$result = Product::getProductInfo($keyword);
 		}
 		else if($category == $auction_category)
 		{
-			$result = Product::join('product_auction', 'product.idProduct', '=', 'product_auction.idproduct_auction')
-            			->where('product_name', 'LIKE', '%'.$keyword.'%')
-						->orWhere('brand', 'LIKE', '%'.$keyword.'%')
-						->where('type', '=', $category)
-						->get();
+			$result = Product::getProductAuctionInfo($keyword);
 		}
 		else if($category == $direct_category)
 		{
-			$result = Product::join('product_direct', 'product.idProduct', '=', 'product_direct.idproduct_direct')
-            			->where('product_name', 'LIKE', '%'.$keyword.'%')
-						->orWhere('brand', 'LIKE', '%'.$keyword.'%')
-						->where('type', '=', $category)
-						->get();
+			$result = Product::getProductDirectInfo($keyword);
 		}
 		
 		return View::make('perdtye/search')->with('result',$result);

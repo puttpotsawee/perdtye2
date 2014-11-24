@@ -1,5 +1,9 @@
 @extends('perdtye/header')
 
+<!-- parameter received from SearchController:
+		$result as list of Product [leftJoin Product_auction] [leftJoin Product_direct] join Member
+-->
+
 @section('content')
 <!-- Search -->
 <div class="container">  
@@ -61,16 +65,30 @@
 					<img width="100%" src="img/i6.png" >
 				</div>
 				<div class="col-md-8 column">
-					<div class="caption">
-						<a><h3>{{$r->product_name}}</h3></a>
-						<p>{{$r->brand}}<br>{{$r->model}}</p>
+					<div class="caption" value={{$r->idProduct}}>
+						<a href = {{$r->type}}type><h3> {{$r->product_name}} </h3></a>
+						<p> {{$r->brand}} <br> {{$r->model}} </p>
 						<div class="row clearfix" style="margin-bottom:0px;">
 							<div class="col-md-6 column">
-								<h4 style="color:red;">Price :</h4>
-								<h5 style="color:black; margin-top:20px;">Buy it now or Bid...</h5>
+								<h4 style="color:red;">
+									@if($r->type == 'auction')
+									Starting bid : {{$r->current_price}} Baht
+									@else
+									Price : {{$r->price}} Baht
+									@endif
+								</h4>
+								<h5 style="color:black; margin-top:20px;">
+									@if($r->type == 'auction')
+									Bid
+									@else
+									Buy it now
+									@endif
+								</h5>
 							</div>
 							<div class="col-md-6 column">
-								<h5 style="color:grey;">From : Pae</h5>
+								<h5 style="color:grey;">From : 
+									{{($r->username)}}
+								</h5>
 							</div>
 						</div>
 					</div>

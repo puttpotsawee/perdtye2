@@ -1,5 +1,11 @@
 @extends('perdtye/header')
 
+<!-- parameter received from BrowseController:
+		$product
+		$details
+		$seller
+-->
+
 @section('content')
 <!-- direct -->
 <div class="container" style="margin-top:30px;">
@@ -9,7 +15,7 @@
 				<div class="col-md-2 column">
 				</div>
 				<div class="col-md-8 column">
-					<legend>iPhone6 64gb Gold</legend>
+					<legend> {{$product->product_name}} </legend>
 					<div class="row clearfix" style="margin-top:30px;">
 						<div class="col-md-6 column">
 							<div class="thumbnail">
@@ -23,16 +29,16 @@
 										<h3>Price :</h3>
 									</div>
 									<div class="col-md-7" >
-										<h3>$300.21</h3>
+										<h3> {{$details->price}} Baht</h3>
 									</div>
 								</div>
 								<div class="row" style="margin-top:20px;">
 									<div class="col-md-5">
 										<h4>Quantity: </h4>
-										<label>(85 in stock)</label>
+										<label>({{$details->remaining}} in stock)</label>
 									</div>
 									<div class="col-md-7" >
-										<input name="quanity" type="text" data-validation="number" class="form-control" style="width:100%; float:right;"></input>
+										<input name="quanity_input" type="text" data-validation="number" class="form-control" style="width:100%; float:right;"></input>
 									</div>  
 								</div>
 								<div class="row" style="margin-top:20px;">
@@ -43,7 +49,7 @@
 							</form>
 							<div class="row" style="margin-top:80px;">
 								<div class="col-md-6" >
-									<p>Sell information : XXXXXXXXXX</p>
+									<p>Sell information : {{$seller->name}} {{$seller->surname}}</p>
 									<p>100% positive feedback</p>
 								</div>
 								<div class="col-md-6" >
@@ -65,7 +71,7 @@
 									<p>Name :</p>
 								</div>
 								<div class="col-md-9 column">
-									<p>iPhone 6 64gb gold</p>
+									<p>{{$product->product_name}}</p>
 								</div>
 							</div>
 

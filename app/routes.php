@@ -178,7 +178,8 @@ Route::get('statusforgot',function()
 Route::get('search', 'SearchController@failed');
 Route::post('search', 'SearchController@search');
 //Route to item details
-Route::get('item/{idProduct}', 'BrowseController@view');
+Route::get('auctiontype/{idProduct}', 'BrowseController@viewAuction');
+Route::get('directtype/{idProduct}', 'BrowseController@viewDirect');
 //Route to buy/bid request
 Route::post('item/{idProduct}', 'DirectBuyController@buy');
 Route::put('item/{idProduct}', 'AuctionController@bid');
