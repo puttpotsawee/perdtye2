@@ -3,16 +3,28 @@
 @section('content')
 <!-- LOGIN DIV -->  
 <div class="container" style="margin-top:30px">
-	<form class="form-horizontal" role="form" action="index.php" method="get">
+
+	<!-- <form class="form-horizontal" role="form" action="index.php" method="get"> -->
+	{{ Form::open(array('route'=>'session.store','class'=>'form-horizontal', 'role'=>'form')) }}
 		<div class="col-sm-3">
 		</div>
 		<div class="col-sm-6">
+
 			<div class="well-shadow">
 				<legend>Login</legend>
+				@if(Session::has('flash_error'))
+				<div class="alert alert-dismissable alert-warning" id ="flash_error" >
+				
+					<button type="button" class="close" data-dismiss="alert">×</button>
+					<h4>Warning!</h4>
+					<p>{{ Session::get('flash_error') }}</p>
+				</div>
+				@endif
+				
 				<div class="form-group" style="margin-top:30px;">
 					<label for="Username" class="col-sm-3 control-label">User name</label>
 					<div class="col-sm-9">
-						<input type="text" data-validation="email" class="form-control" id="Username" 
+						<input type="text" data-validation="required" class="form-control" id="Username" 
 						placeholder="Enter User Name" name="email">
 					</div>
 				</div>
@@ -54,7 +66,8 @@
 		</div>
 		<div class="col-sm-3">
 		</div>
-	</form>
+	<!-- </form> -->
+	{{ Form::close() }}
 	<div class="row clearfix" >
 		<div class="col-md-12 column">
 			<p>&nbsp;</p>
