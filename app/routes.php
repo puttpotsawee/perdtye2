@@ -192,4 +192,4 @@ Route::get('transaction',function()
     return Transaction::all();
 });
 
-
+//Route::get('confirm', 'PaymentController@confirmBuy');
