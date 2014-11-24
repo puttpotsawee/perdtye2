@@ -23,7 +23,7 @@
                                 <td class="padded" style="padding: 0;vertical-align: top;padding-left: 50px;padding-right: 50px">
                                   
                 <div class="btn" style="Margin-bottom: 27px">
-                  <![if !mso]><a style="mso-hide: all;border: 0;border-radius: 4px;display: inline-block;font-size: 14px;font-weight: 700;line-height: 21px;padding: 9px 22px 8px 22px;text-align: center;text-decoration: none;color: #fff;background-color: #444;box-shadow: 0 3px 0 #363636;font-family: sans-serif" href={{$link}}>Verify Your Email</a><![endif]>
+                  <a style="mso-hide: all;border: 0;border-radius: 4px;display: inline-block;font-size: 14px;font-weight: 700;line-height: 21px;padding: 9px 22px 8px 22px;text-align: center;text-decoration: none;color: #fff;background-color: #444;box-shadow: 0 3px 0 #363636;font-family: sans-serif" href={{$link}}>Verify Your Email</a>
                   </div>
                   </td>
                   </tr>
