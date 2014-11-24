@@ -109,7 +109,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<?php for($x=1;$x<=10;$x++){?>
+								<?php for($x=1;$x<=2;$x++){?>
 								<tr class="active">
 									<td>
 										<?php echo $x ?>
@@ -194,7 +194,7 @@
 						</thead>
 
 						<tbody>
-							<?php for($x=1;$x<=10;$x++){?>
+							<?php for($x=1;$x<=2;$x++){?>
 							<tr class="active">
 								<td>
 									<?php echo $x ?>
@@ -310,7 +310,7 @@
 							Available
 						</th>
 						<th width="20%">
-							Price
+							Price(Bath)
 						</th>
 						<th width="20%">
 							
@@ -319,31 +319,29 @@
 				</thead>
 
 				<tbody>
-					<?php for($x=1;$x<=10;$x++){?>
+					@foreach($sell as $s)
 					<tr class="active">
 						<td>
 							<?php echo $x ?>
 						</td>
 						<td>
 							<img src="img/iphone6 icon.jpg" width="100%"/>
-							<p style="margin-top:15px;"><center>Iphone6</center></p>
+							<p style="margin-top:15px;"><center>{{$s->product_name}}</center></p>
 						</td>
 						<td>
-							<text>360 orders</text>
+							<text>{{$s->quantity - $s->remaining}}</text>
 						</td>
 						<td>
-							<text>2032 items</text>
+							<text>{{$s->remaining}}</text>
 						</td>
 						<td>
-							<p style="color:black">THB 14,532</p>
+							<p style="color:black">{{$s->price}}</p>
 						</td>
 						<td>
 							<a href="editdirectsell.html" class="btn btn-success" style="width:100%;">edit sell</a>
 						</td>
 					</tr>
-					<?php
-				}
-				?>
+					@endforeach
 				
 				
 			</tbody>

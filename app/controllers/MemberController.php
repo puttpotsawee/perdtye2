@@ -53,9 +53,16 @@ class MemberController extends BaseController {
         	->select('product.product_name', 'member.username', 'transaction.timestamp', 'transaction.price')
         	->get();
 
-/*       	$history = DB::table('product')
+       	$sell = DB::table('product')
 			->where('product.idseller', '=', $idmember)
-        	->select('product.product_name', 'member.username', 'transaction.timestamp', 'transaction.price')
+        	->join('product_direct', 'product_direct.idproduct_direct', '=', 'product.idProduct')
+        	->select('product.product_name', 'product_direct.quantity', 'product_direct.remaining', 'product_direct.price')
+        	->get();
+
+/*       	$bidding = DB::table('auction_list')
+			->where('auction_list.idmember', '=', $idmember)
+        	->join('product', 'product.idProduct', '=', 'auction_list.idproduct_auction')
+        	->select('product.product_name', 'product_direct.quantity', 'product_direct.remaining', 'product_direct.price')
         	->get();*/
 
          //return $question;
@@ -68,7 +75,8 @@ class MemberController extends BaseController {
 				'neutral' => $neutral,
 				'positive' => $positive,
 				'question' => $question,
-				'history' => $history
+				'history' => $history,
+				'sell' => $sell
 
 			));
 			
