@@ -382,30 +382,26 @@
 			</thead>
 
 			<tbody>
-				<?php for($x=1;$x<=10;$x++){?>
+				@foreach($question as $q)
 				<tr class="active">
 					<td>
 						<?php echo $x ?>
 					</td>
 					<td>
 						<img src="img/iphone6 icon.jpg" width="100%"/>
-						<p style="margin-top:15px;"><center>Iphone6</center></p>
+						<p style="margin-top:15px;"><center>{{$q->product_name}}</center></p>
 					</td>
 					<td style="word-wrap: break-word;">
-						<text>Shop1</text>
-						<text>(feedback)</text>
+						<text>{{$q->username}}</text>
 					</td>
 					<td style="word-wrap: break-word;">
-						ฟหกฟกกาหกาก่รหกรหกห่กหกสหกวสหวกสหกๆไกืๆไำิๆืไอกเหกฟีห้กฟหทสทำส
-						
+						{{$q->question}}						
 					</td>
 					<td style="word-wrap: break-word;">
-						Waiting for answer from seller
+						{{$q->answer}}						
 					</td>
 				</tr>
-				<?php
-			}
-			?>
+				@endforeach
 			
 			
 		</tbody>
