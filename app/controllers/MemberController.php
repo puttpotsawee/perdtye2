@@ -40,16 +40,19 @@ class MemberController extends BaseController {
 	
 	public function activateMember($username,$token)
 	{
-		$thisUser = Member::where('username','=',$username);
-		if($thisUser->count(0)){
+		$thisUser = Member::where('username','=',$username)->get()->first();
+		if($thisUser->count()==0){
 			//user not found
 			return "Token is invalid";
 		} else {
-			$thisToken = $thisUser->comfirm_token
+			$thisToken = $thisUser->confirm_token;
 			if($token==$thisToken){
 				// this mean the token is correct
 				$thisUser->status = 'buyer';
 				$thisUser->save();
+				
+				Auth::login($thisUser);
+				return Redirect::to('/home');
 			} else {
 				return "Token is invalid";
 			}

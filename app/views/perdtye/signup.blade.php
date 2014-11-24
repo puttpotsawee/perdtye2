@@ -24,7 +24,6 @@
 						<legend>Tell about yourself</legend>
 						<span class="label label-info">* indicates required field</span>
 						<br></br>
-
 						<div class="form-group">
 							<label for="inputFirstname" class="col-lg-2 control-label">First name*</label>
 							<div class="col-lg-4">

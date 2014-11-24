@@ -28,7 +28,8 @@ return array(
 	|
 	*/
 
-	'host' => 'mail.puttpotsawee.lnw.mn',
+	// 'host' => 'mail.puttpotsawee.lnw.mn',
+	'host' => 'smtp.gmail.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -80,7 +81,8 @@ return array(
 	|
 	*/
 
-	'username' => "perdtye@puttpotsawee.lnw.mn",
+	// 'username' => "perdtye@puttpotsawee.lnw.mn",
+	'username' => "junrai82@gmail.com",
 
 	/*
 	|--------------------------------------------------------------------------
@@ -93,7 +95,8 @@ return array(
 	|
 	*/
 
-	'password' => "Se2014",
+	// 'password' => "Se2014",
+	'password' => "Barrycomp09",
 
 	/*
 	|--------------------------------------------------------------------------

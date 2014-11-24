@@ -20,18 +20,23 @@ class EmailController extends BaseController {
 		return View::make('hello');
 	}
 
-	public function sendConfirmationEmail($user)
+	public static function sendConfirmationEmail($user)
 	{
-		
+		$username = $user->username;
 		$name = $user->name;
 		$token = $user->confirm_token;
 		$email = $user->email;
 
-		$data = array('name'=>$name,'link'=>$link);
 
-		Mail::send('emails.confirmation', $data, function($message)
+		$link = App::make('url')->to('/')."/profile/activate/".$username."/".$token;
+		$data = array('name'=>$name,'link'=>$link);
+		
+
+
+
+		Mail::send('emails.confirmation', $data, function($message)	use ($email,$name)
 		{
-			$message->to($email, 'Pradinan P.')->subject('Welcome!');
+			$message->to($email, $name)->subject('Email Confirmation from PerdTye.com');
 		});
 	}
 	
