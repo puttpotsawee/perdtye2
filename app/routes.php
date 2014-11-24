@@ -181,5 +181,6 @@ Route::post('search', 'SearchController@search');
 Route::get('auction', 'BrowseController@viewAuction');
 Route::get('direct', 'BrowseController@viewDirect');
 //Route to buy/bid request
-Route::post('auction', 'AuctionController@bid');
+Route::post('placebid', 'AuctionController@placeBid');
+Route::post('maxbid', 'AuctionController@maxBid');
 Route::post('direct', 'DirectBuyController@buy');
