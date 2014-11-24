@@ -3,11 +3,12 @@
 class BrowseController extends BaseController {
 
 	
-	public function viewAuction($idProduct)
+	public function viewAuction()
 	{
 		//return purchase/bidding result
 		echo Session::get('message');
 		
+		$idProduct = Input::get('id');
 		$product = Product::find($idProduct);
 		$moreDetails = Product_auction::find($idProduct);
 		$seller = Member::find($product->idseller);
@@ -17,11 +18,12 @@ class BrowseController extends BaseController {
 			
 	}
 
-	public function viewDirect($idProduct)
+	public function viewDirect()
 	{
 		//return purchase/bidding result
 		echo Session::get('message');
 		
+		$idProduct = Input::get('id');
 		$product = Product::find($idProduct);
 		$moreDetails = Product_direct::find($idProduct);
 		$seller = Member::find($product->idseller);

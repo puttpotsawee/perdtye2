@@ -178,10 +178,8 @@ Route::get('statusforgot',function()
 Route::get('search', 'SearchController@failed');
 Route::post('search', 'SearchController@search');
 //Route to item details
-Route::get('auctiontype/{idProduct}', 'BrowseController@viewAuction');
-Route::get('directtype/{idProduct}', 'BrowseController@viewDirect');
+Route::get('auction', 'BrowseController@viewAuction');
+Route::get('direct', 'BrowseController@viewDirect');
 //Route to buy/bid request
-Route::post('item/{idProduct}', 'DirectBuyController@buy');
-Route::put('item/{idProduct}', 'AuctionController@bid');
-
-//search
+Route::post('auction', 'AuctionController@bid');
+Route::post('direct', 'DirectBuyController@buy');

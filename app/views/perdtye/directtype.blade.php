@@ -23,7 +23,7 @@
 							</div>
 						</div>
 						<div class="col-md-6 column">
-							<form action="index.php" method="get">
+							<form action="direct" method="post">
 								<div class="row">
 									<div class="col-md-5" >
 										<h3>Price :</h3>
@@ -81,10 +81,10 @@
 								</div>
 								<div class="col-md-9 column">
 									<p style="word-wrap: break-word;">{{$product->brand}}</p>
-									{{$product->model}}</p>
-									{{$product->property}}</p>
-									{{$product->condition}}</p>
-									{{$product->defect}}</p>
+									<p style="word-wrap: break-word;">{{$product->model}}</p>
+									<p style="word-wrap: break-word;">{{$product->property}}</p>
+									<p style="word-wrap: break-word;">{{$product->condition}}</p>
+									<p style="word-wrap: break-word;">{{$product->defect}}</p>
 								</div>
 							</div>
 
