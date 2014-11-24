@@ -25,10 +25,10 @@
 										<img src="img/i6.png" width="100%"/>
 										
 									</div>
-									<center><label>(123123 in stock)</label></center>
+									<center><label>({{$details->remaining}} in stock)</label></center>
 								</div>
 								<div class="col-md-9 column">
-									<form action=direct method="post">
+									<form action="paynow" method="post">
 										<div class="row">
 											<div class="col-md-4" >
 												<h4>Name :</h4>
@@ -75,22 +75,27 @@
 												<h5>Seller: </h5>
 											</div>
 											<div class="col-md-8" >
-												<h5>{{$seller->name $seller->surname}} </h5>
+												<h5>{{$seller->name}} {{$seller->surname}} </h5>
 											</div>  
 										</div>
 										<div class="row" style="margin-top:40px;">
 											<div class="col-md-12">
+												<input name="idProduct" type="hidden" value={{$product->idProduct}}>
+												<input name="quantity" type="hidden" value={{$quantity}}>
+
 												<button type="submit" class="btn btn-info"style="width:100%">Pay Now </button>
 											</div>
 										</div>
 									</form>
 									<div class="row" style="margin-top:20px;">
 										<div class="col-md-6" >
-											<a href="" class="btn btn-default"style="width:100%">Cancel </a>
+											<a href={{$product->type}}?id={{$product->idProduct}} class="btn btn-default"style="width:100%">Cancel </a>
 										</div>
-										<div class="col-md-6" >
-											<button type="submit" class="btn btn-default"style="width:100%">Confirm</button>
-										</div>
+										<form action="confirm" method="post">
+											<div class="col-md-6" >
+												<button type="submit" class="btn btn-default"style="width:100%">Confirm</button>
+											</div>
+										</form>
 									</div>
 								</div>
 							</div>
