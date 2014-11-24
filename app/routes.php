@@ -193,3 +193,4 @@ Route::get('transaction',function()
 });
 
 //Route::post('paynow', 'PaymentController@paynow');
+//Route::post('confirm', 'PaymentController@confirm');

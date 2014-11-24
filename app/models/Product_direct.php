@@ -45,4 +45,10 @@ class Product_direct extends Eloquent implements UserInterface, RemindableInterf
 	public function product(){
 		return $this->hasOne('Product','idProduct',$primaryKey);
 	}
+
+	public function decrease($num){
+		if($num > 0 && $num <= $this->remaining) {
+			$this->remaining = $this->remaining - $num;
+		}
+	}
 }
