@@ -191,6 +191,11 @@ Route::get('transaction',function()
 
     return Transaction::all();
 });
-
-//Route::post('paynow', 'PaymentController@paynow');
-//Route::post('confirm', 'PaymentController@confirm');
+/*
+Route::post('paynow', 'PaymentController@paynow');
+Route::post('confirm', 'PaymentController@confirm');
+Route::get('date',function()
+{
+    date_default_timezone_set('Asia/Singapore');
+    return $date = date('Y-m-d H:i:s', time());
+});*/

@@ -26,15 +26,15 @@
 							<form action="placebid" method="post">
 								<div class="row">
 									<div class="col-md-4" >
-										<h4>Time left :</h4>
+										<h4>End time :</h4>
 									</div>
 									<div class="col-md-8" >
-										<h4> {{$details->end_time - $_SERVER['REQUEST_TIME']}} </h4>
+										<h4> {{$details->end_time}} </h4>
 									</div>
 								</div>
 								<div class="row" style="margin-top:0px;">
 									<div class="col-md-5">
-										<h3>Current bid :</h3>
+										<h3>Current bid</h3>
 									</div>
 									<div class="col-md-7" >
 										<h3>{{$details->current_price}} Baht</h3>
