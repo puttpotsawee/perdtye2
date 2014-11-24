@@ -25,10 +25,13 @@ class EmailController extends BaseController {
 		
 		$name = $user->name;
 		$token = $user->confirm_token;
-		
-		Mail::send('emails.confirmation', array('name'=>'Pradinan P.'), function($message)
+		$email = $user->email;
+
+		$data = array('name'=>$name,'link'=>$link);
+
+		Mail::send('emails.confirmation', $data, function($message)
 		{
-			$message->to('pradinaan@gmail.com', 'Pradinan P.')->subject('Welcome!');
+			$message->to($email, 'Pradinan P.')->subject('Welcome!');
 		});
 	}
 	
