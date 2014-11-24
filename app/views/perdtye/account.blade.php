@@ -369,16 +369,13 @@
 					<th width="25%">
 						Product
 					</th>
-					<th width="15%">
+					<th width="20%">
 						Shop
 					</th>
-					<th width="15%">
-						Time
-					</th>
-					<th width="20%">
+					<th width="25%">
 						Question
 					</th>
-					<th width="20%">
+					<th width="25%">
 						Answer
 					</th>
 				</tr>
@@ -397,9 +394,6 @@
 					<td style="word-wrap: break-word;">
 						<text>Shop1</text>
 						<text>(feedback)</text>
-					</td>
-					<td>
-						<text>4h 42m left</text>
 					</td>
 					<td style="word-wrap: break-word;">
 						ฟหกฟกกาหกาก่รหกรหกห่กหกสหกวสหวกสหกๆไกืๆไำิๆืไอกเหกฟีห้กฟหทสทำส

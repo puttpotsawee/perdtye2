@@ -26,32 +26,41 @@ class MemberController extends BaseController {
 		$name = Auth::user()->name;
 		$surname = Auth::user()->surname;
 		$receiver = Auth::user()->idmember;
+		$idmember = Auth::user()->idmember;
 
-		$negative = DB::table('feedback')
-			->where('idreceiver', '=', $receiver)
-            ->whereIn('score', array(0, 1))
-			->count();
+		return Auth::user()->question;
 
-		$neutral = DB::table('feedback')
-			->where('idreceiver', '=', $receiver)
-            ->whereIn('score', array(2, 3))
-			->count();
+		// $negative = DB::table('feedback')
+		// 	->where('idreceiver', '=', $receiver)
+  //           ->whereIn('score', array(0, 1))
+		// 	->count();
 
-		$positive = DB::table('feedback')
-			->where('idreceiver', '=', $receiver)
-            ->whereIn('score', array(4, 5))
-			->count();
+		// $neutral = DB::table('feedback')
+		// 	->where('idreceiver', '=', $receiver)
+  //           ->whereIn('score', array(2, 3))
+		// 	->count();
 
+		// $positive = DB::table('feedback')
+		// 	->where('idreceiver', '=', $receiver)
+  //           ->whereIn('score', array(4, 5))
+		// 	->count();
 
+		// $question = DB::table('question')
+		//     ->join('seller', 'question.idmember', '=', 'seller.idseller')
+  //           ->join('product', 'question.idproduct', '=', 'product.idProduct')
+  //           ->join('answer', 'question.idQuestion', '=', 'answer.idquestion')
+  //           ->select('seller.name')
+  //           ->get();
 
-		return View::Make('perdtye/account')->with(
-			array(
-				'name'=> $name, 
-				'surname' => $surname,
-				'negative' => $negative,
-				'neutral' => $neutral,
-				'positive' => $positive
-			));
+		// return View::Make('perdtye/account')->with(
+		// 	array(
+		// 		'name'=> $name, 
+		// 		'surname' => $surname,
+		// 		'negative' => $negative,
+		// 		'neutral' => $neutral,
+		// 		'positive' => $positive,
+		// 		'question' => $question
+		// 	));
 	}
 
 	public function editProfile()
