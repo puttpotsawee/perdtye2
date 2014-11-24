@@ -22,6 +22,7 @@ class SearchController extends BaseController {
 		if($category == $all_category)
 		{
 			$result = Product::getProductInfo($keyword);
+			// echo $result;
 		}
 		else if($category == $auction_category)
 		{
