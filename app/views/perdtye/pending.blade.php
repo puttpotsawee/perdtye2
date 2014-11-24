@@ -12,7 +12,7 @@
 				<legend>
 					Please confirm your email
 				</legend>
-				<h4 style="margin-top:30px; color:green;">We sent an email to se2014@pae.in.th</h4>
+				<h4 style="margin-top:30px; color:green;">We sent an email to {{$user->email}} </h4>
 				<p>Follow the instructions in the email to confirm your email</p>
 
 				<p style="margin-top:20px;">Your email may take up to 5 minutes to arrive (depending on your email service provider).</p>

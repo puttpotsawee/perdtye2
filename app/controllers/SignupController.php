@@ -41,11 +41,10 @@ class SignupController extends BaseController {
  			$address->house_number = Input::get('house_number');
  			$address->save();
 
-			return Redirect::to('home');
+			return View::Make('perdtye/pending')->with('user', $user);
 		}
 		else
 		{
-			//$messages = $validator->messages();
 			return Redirect::to('signup')->withErrors($validator);
 		}
  
