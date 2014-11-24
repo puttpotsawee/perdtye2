@@ -1,9 +1,20 @@
 @extends('newLayout')
 
 @section('content')  <!-- FORM -->
-   <div class="col-sm-2">
-                </div>
-                <div class="col-sm-8" style="margin-top:30px">
+  <div class="col-sm-2">
+  </div>
+  <div class="col-sm-8" style="margin-top:30px">
+    <?php 
+      foreach ($errors->all() as $message)
+      { 
+        ?>
+        <p style="color:red">
+          <?php
+          echo $message;
+        ?></p><?php
+      }
+    ?>
+
    <div class="well bs-component">
               <form class="form-horizontal" action="signup" method="post"> 
                
@@ -87,8 +98,8 @@
                       <input type="text" data-validation="confirmation" class="form-control" name="email" id="inputEmail2" placeholder="Email Address">
                     </div>
                   </div>
-                    <h4>Choose your Password</h4>
-                    
+                    <h4>Create your account</h4>
+
                    <div class="form-group">
                     <label for="inputPassword" class="col-lg-3 control-label">Create your password*</label>
                     <div class="col-lg-4">
