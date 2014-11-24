@@ -27,7 +27,7 @@ class SessionController extends BaseController {
 			//this is when user have already logged in
 			return Redirect::to('/');
 		}
-    	return View::make("login");
+    	return View::make("perdtye/login");
 	}
 
 	public function store()
@@ -35,7 +35,13 @@ class SessionController extends BaseController {
 		//this resposible for loggin the user in
 		if(Auth::attempt(Input::only('username','password')))
 		{
-			return "Welcome ".Auth::user()->name;
+			if (Auth::user()->status == 'pending'){
+				Auth::logout();
+				return Redirect::back()->withInput()->with('flash_error','Please confirm your email to login to the system');
+
+			}
+			return Redirect::to('/');
+			
 		}
 		return Redirect::back()->withInput()->with('flash_error','the username and password is incorrect');
 

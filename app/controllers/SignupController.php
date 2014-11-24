@@ -1,6 +1,11 @@
 <?php
 
 class SignupController extends BaseController {
+
+	public function index() {
+		return View::make('/perdtye/signup');
+	}
+
 	public function signup() {
 
 		$validator = Validator::Make(
@@ -20,12 +25,15 @@ class SignupController extends BaseController {
 			$user = new Member;
 			$address = new Address;
 
+			$confirm_code = str_random(45);
+
  			$user->username = Input::get('username');
  			$user->email = Input::get('email');
 			$user->password = Hash::make(Input::get('password'));
  			$user->name = Input::get('name');
  			$user->surname = Input::get('surname');
  			$user->phonenumber = Input::get('phonenumber');
+ 			$user->confirm_token = $confirm_code;
  			$user->save();
 
  			// get inserted key from Member Table
@@ -41,11 +49,12 @@ class SignupController extends BaseController {
  			$address->house_number = Input::get('house_number');
  			$address->save();
 
-			return Redirect::to('home');
+ 			EmailController::sendConfirmationEmail($user);
+
+			return View::Make('perdtye/pending')->with('user', $user);
 		}
 		else
 		{
-			//$messages = $validator->messages();
 			return Redirect::to('signup')->withErrors($validator);
 		}
  

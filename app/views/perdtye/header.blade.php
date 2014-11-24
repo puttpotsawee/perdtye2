@@ -42,6 +42,8 @@
 
 <body>
   <!-- Header -->
+  @if(Auth::check())
+  <!-- this is the header when uer had logged in -->
   <div class="row clearfix">
     <div class="col-md-12 column">
      <nav class="navbar navbar-default navbar-default-top navbar-fixed-top" role="navigation">
@@ -53,18 +55,13 @@
         <ul class="nav navbar-nav">
 
           <li>
-            <a><b><Sukhumvit>"ประดินันทน์ เพชรเรืองรอง"</Sukhumvit></b></a>
+            <a><b>Hello, {{Auth::user()->name}}</b></a>
           </li>
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
 
-          <li>
-           <a href="login">Login</a>
-         </li>
-         <li>
-           <a href="signup">Signup</a>
-         </li>
+         
          <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sell <b class="caret"></b></a>
           <ul class="dropdown-menu">
@@ -76,7 +73,7 @@
          <a href="account">Account</a>
        </li>
        <li>
-         <a href="#">Logout</a>
+         <a href="logout">Logout</a>
        </li>
        <li>
         <a></a>
@@ -131,6 +128,86 @@
    <p>&nbsp;</p>
  </div>
 </div>
+  @else
+  <!-- this is the header when user is not logg in -->
+  <div class="row clearfix">
+    <div class="col-md-12 column">
+     <nav class="navbar navbar-default navbar-default-top navbar-fixed-top" role="navigation">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="home">Perdtye</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+
+          <li>
+            <a><b>Hello, Guest</b></a>
+          </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right">
+
+          <li>
+           <a href="login">Login</a>
+         </li>
+         <li>
+           <a href="signup">Signup</a>
+         </li>
+       
+       <li>
+        <a></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+</div>
+</div>
+<!-- Header -->
+<!-- Search -->
+<div class="row clearfix bgsearchtop">
+  <div class="col-md-1 column">
+  </div>
+  <div class="col-md-10 column bgsearch">
+   <div class="row clearfix">
+    <div class="col-md-3 column">
+      <div class="row clearfix">
+        <a href="home"><img src="img/logo.png" width="100%"/></a>
+      </div></div>
+
+      <div class="col-md-9 column search" >
+       <form method="get" action="search.php">
+        <div class="row clearfix" style="vertical-align:middle">
+          <div class="col-md-2 column">
+
+           <select class="form-control" id="select" name="category">
+            <option value="all">All Listing</option>
+            <option value="auc">Auction</option>
+            <option value="buy">Buy it now</option>
+          </select>
+        </div>
+        <div class="col-md-9 column">
+          <div class="form-group">
+            <input type="text" data-validation="required" class="form-control" id="inputDefault" placeholder="Search" name="search">
+          </div>
+        </div>
+        <div class="col-md-1 column">
+          <button type="submit" class="btn btn-info">Search</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+</div>
+<div class="col-md-1 column">
+</div>
+</div>
+<!-- Search -->
+<div class="row clearfix">
+  <div class="col-md-12 column">
+   <p>&nbsp;</p>
+ </div>
+</div>
+  @endif
 
 <!-- DATA -->
 @yield('content')

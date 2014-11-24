@@ -13,7 +13,8 @@
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	// return View::make('hello');
+    return View::make('/perdtye/index');
 });
 
 Route::get('users', function()
@@ -25,20 +26,24 @@ Route::get('pae', function()
 {
     return 'pae!!';
     });
-Route::get('home',function()
-{
-    return View::make('home')->with('name','Potsawee Vechpanich');
-});
+// Route::get('home',function()
+// {
+//     return View::make('home')->with('name','Potsawee Vechpanich');
+// });
 
 Route::get('email',function()
 {
-    return View::make('emails.welcome')->with('name','Potsawee Vechpanich');
+    return View::make('emails.confirmation')->with(array('name'=>'Potsawee Vechpanich','link'=>'http://www.google.co.th'));
 });
-
+Route::get('emails',function()
+{
+    return View::make('emails/mailLayout');
+});
 Route::get('member',function()
 {
 
-	return Member::all();
+	$thisUser = Member::whereUsername('driley25')->get()->first();
+    return $thisUser->phonenumber;
 });
 
 Route::get('test',function()
@@ -85,12 +90,26 @@ Route::get('signup',function()
 Route::post('signup','SignupController@signup');
 
 
-Route::get('profile/activate/{username}/{token}','MemberController@activateMember');
+
+Route::get('account/activate/{username}/{token}','MemberController@activateMember');
 
 
 Route::get('sendMail',function()
 {
-    
+    $member = new Member;
+    $member->username='paekuy2';
+    $member->password=Hash::make('1234');
+    $member->email='junrai82@gmail.com';
+    $member->name='Pradinaan';
+    $member->surname='P.';
+    $member->phonenumber='0811111111';
+    $member->status='super';
+    $member->confirm_token = 'hogwiheoighweoighweio';
+
+    EmailController::sendConfirmationEmail($member);
+    return 'done';
+
+
 });
 
 Route::get('test', function()
@@ -98,16 +117,24 @@ Route::get('test', function()
  	return Member::all();
 });
 
-// Routing blade
-Route::get('home',function()
+Route::get('path', function()
 {
-    return View::make('/perdtye/index');
-});
-Route::get('login',function()
-{
-    return View::make('/perdtye/login');
+    return App::make('url')->to('/');
 });
 
+// Routing blade
+// Route::get('home',function()
+// {
+//     return View::make('/perdtye/index');
+// });
+// Route::get('login',function()
+// {
+//     return View::make('/perdtye/login');
+// });
+Route::get('search',function()
+{
+    return View::make('/perdtye/search');
+});
 Route::get('account',function()
 {
     return View::make('/perdtye/account');
@@ -172,15 +199,25 @@ Route::get('statusforgot',function()
 {
     return View::make('/perdtye/statusforgot');
 });
+
+Route::get('pending',function()
+{
+    return View::make('/perdtye/pending');
+
+Route::get('sellconfirm',function()
+{
+    return View::make('/perdtye/sellconfirm');
+
+});
 // Routing Blade
 
 //Route to search
-Route::get('search', 'SearchController@failed');
+Route::get('search', 'SearchController@index');
 Route::post('search', 'SearchController@search');
 //Route to item details
-Route::get('auction', 'BrowseController@viewAuction');
-Route::get('direct', 'BrowseController@viewDirect');
+Route::get('item/{idProduct}', 'BrowseController@view');
 //Route to buy/bid request
+<<<<<<< HEAD
 Route::post('placebid', 'AuctionController@placeBid');
 Route::post('maxbid', 'AuctionController@maxBid');
 Route::post('direct', 'DirectBuyController@buy');
@@ -189,3 +226,9 @@ Route::get('transaction',function()
 
     return Transaction::all();
 });
+=======
+Route::post('item/{idProduct}', 'DirectBuyController@buy');
+Route::put('item/{idProduct}', 'AuctionController@bid');
+
+//search
+>>>>>>> origin/master

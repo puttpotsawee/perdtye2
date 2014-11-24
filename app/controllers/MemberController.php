@@ -21,13 +21,42 @@ class MemberController extends BaseController {
 	}
 
 
-	public function showProfile()
+	public function showAccount()
 	{
-		return "profile Page";
+		$name = Auth::user()->name;
+		$surname = Auth::user()->surname;
+		$receiver = Auth::user()->idmember;
+
+		$negative = DB::table('feedback')
+			->where('idreceiver', '=', $receiver)
+            ->whereIn('score', array(0, 1))
+			->count();
+
+		$neutral = DB::table('feedback')
+			->where('idreceiver', '=', $receiver)
+            ->whereIn('score', array(2, 3))
+			->count();
+
+		$positive = DB::table('feedback')
+			->where('idreceiver', '=', $receiver)
+            ->whereIn('score', array(4, 5))
+			->count();
+
+
+
+		return View::Make('perdtye/account')->with(
+			array(
+				'name'=> $name, 
+				'surname' => $surname,
+				'negative' => $negative,
+				'neutral' => $neutral,
+				'positive' => $positive
+			));
 	}
+
 	public function editProfile()
 	{
-		return "edit Profile Page";
+		return 'editprofile';
 	}
 	public function report()
 	{
@@ -40,16 +69,19 @@ class MemberController extends BaseController {
 	
 	public function activateMember($username,$token)
 	{
-		$thisUser = Member::where('username','=',$username);
-		if($thisUser->count(0)){
+		$thisUser = Member::where('username','=',$username)->get()->first();
+		if($thisUser->count()==0){
 			//user not found
 			return "Token is invalid";
 		} else {
-			$thisToken = $thisUser->comfirm_token
+			$thisToken = $thisUser->confirm_token;
 			if($token==$thisToken){
 				// this mean the token is correct
 				$thisUser->status = 'buyer';
 				$thisUser->save();
+				
+				Auth::login($thisUser);
+				return Redirect::to('/home');
 			} else {
 				return "Token is invalid";
 			}
