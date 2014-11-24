@@ -52,6 +52,14 @@ class MemberController extends BaseController {
         	->select('product.product_name', 'member.username', 'answer.content as answer', 'question.content as question')
         	->get();
 
+        $history = DB::table('transaction')
+			->where('transaction.idmember', '=', $idmember)
+        	->join('product', 'transaction.idproduct', '=', 'product.idProduct')
+        	->join('seller', 'product.idseller', '=', 'seller.idseller')
+        	->join('member', 'member.idmember', '=', 'seller.idseller')
+        	->select('product.product_name', 'member.username', 'transaction.timestamp', 'transaction.price')
+        	->get();
+
          //return $question;
 
 		return View::Make('perdtye/account')->with(
@@ -61,7 +69,9 @@ class MemberController extends BaseController {
 				'negative' => $negative,
 				'neutral' => $neutral,
 				'positive' => $positive,
-				'question' => $question
+				'question' => $question,
+				'history' => $history
+
 			));
 			
 	}
