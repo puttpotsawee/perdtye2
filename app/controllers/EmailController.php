@@ -22,13 +22,13 @@ class EmailController extends BaseController {
 
 	public static function sendConfirmationEmail($user)
 	{
-		
+		$username = $user->username;
 		$name = $user->name;
 		$token = $user->confirm_token;
 		$email = $user->email;
 
 
-		$link = 'click this link man';
+		$link = App::make('url')->to('/')."/".$username."/".$token;
 		$data = array('name'=>$name,'link'=>$link);
 		
 

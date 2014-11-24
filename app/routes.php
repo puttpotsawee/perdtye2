@@ -32,7 +32,7 @@ Route::get('home',function()
 
 Route::get('email',function()
 {
-    return View::make('emails.welcome')->with('name','Potsawee Vechpanich');
+    return View::make('emails.confirmation')->with(array('name'=>'Potsawee Vechpanich','link'=>'http://www.google.co.th'));
 });
 Route::get('emails',function()
 {
@@ -96,11 +96,12 @@ Route::get('sendMail',function()
     $member = new Member;
     $member->username='paekuy2';
     $member->password=Hash::make('1234');
-    $member->email='pradinaan@gmail.com';
+    $member->email='junrai82@gmail.com';
     $member->name='Pradinaan';
     $member->surname='P.';
     $member->phonenumber='0811111111';
     $member->status='super';
+    $member->confirm_token = 'hogwiheoighweoighweio';
 
     EmailController::sendConfirmationEmail($member);
     return 'done';
@@ -111,6 +112,11 @@ Route::get('sendMail',function()
 Route::get('test', function()
 {
  	return Member::all();
+});
+
+Route::get('path', function()
+{
+    return App::make('url')->to('/');
 });
 
 // Routing blade
