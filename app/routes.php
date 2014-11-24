@@ -90,7 +90,19 @@ Route::get('profile/activate/{username}/{token}','MemberController@activateMembe
 
 Route::get('sendMail',function()
 {
-    
+    $member = new Member;
+    $member->username='paekuy2';
+    $member->password=Hash::make('1234');
+    $member->email='pradinaan@gmail.com';
+    $member->name='Pradinaan';
+    $member->surname='P.';
+    $member->phonenumber='0811111111';
+    $member->status='super';
+
+    EmailController::sendConfirmationEmail($member);
+    return 'done';
+
+
 });
 
 Route::get('test', function()
@@ -103,10 +115,10 @@ Route::get('home',function()
 {
     return View::make('/perdtye/index');
 });
-Route::get('login',function()
-{
-    return View::make('/perdtye/login');
-});
+// Route::get('login',function()
+// {
+//     return View::make('/perdtye/login');
+// });
 Route::get('search',function()
 {
     return View::make('/perdtye/search');
