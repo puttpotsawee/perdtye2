@@ -23,7 +23,7 @@
 							</div>
 						</div>
 						<div class="col-md-6 column">
-							<form action="direct" method="post">
+							<form action=direct method="post">
 								<div class="row">
 									<div class="col-md-5" >
 										<h3>Price :</h3>
@@ -38,7 +38,8 @@
 										<label>({{$details->remaining}} in stock)</label>
 									</div>
 									<div class="col-md-7" >
-										<input name="quanity_input" type="text" data-validation="number" class="form-control" style="width:100%; float:right;"></input>
+										<input name="quantity_input" type="text" data-validation="number" class="form-control" style="width:100%; float:right;"></input>
+										<input name="idProduct" type="hidden" value={{$product->idProduct}}/>
 									</div>  
 								</div>
 								<div class="row" style="margin-top:20px;">
@@ -102,7 +103,11 @@
 									<p>Shipping and payments :</p>
 								</div>
 								<div class="col-md-9 column">
-									<p style="word-wrap: break-word;">{{}}</p>
+									<p style="word-wrap: break-word;">{{$product->payment_method}}</p>
+									<p style="word-wrap: break-word;">{{$product->packaging_method}}</p>
+									<p style="word-wrap: break-word;">{{$product->packaging_charge}}</p>
+									<p style="word-wrap: break-word;">{{$product->shipping_method}}</p>
+									<p style="word-wrap: break-word;">{{$product->shipping_fee}}</p>
 								</div>
 							</div>
 
@@ -111,7 +116,8 @@
 									<p>Return policy :</p>
 								</div>
 								<div class="col-md-9 column">
-									<p style="word-wrap: break-word;">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+									<p style="word-wrap: break-word;">{{$product->refund_policy}}</p>
+									<p style="word-wrap: break-word;">{{$product->refund_charge}}</p>
 								</div>
 							</div>
 
