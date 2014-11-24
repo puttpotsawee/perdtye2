@@ -53,7 +53,7 @@ class Question extends Eloquent implements UserInterface, RemindableInterface {
 	public function member(){
 		return $this->belongsTo('Member','idmember','idmember');
 	}
-	public function transaction(){
+	public function product(){
 		return $this->belongsTo('Product','idProduct','idproduct');
 	}
 

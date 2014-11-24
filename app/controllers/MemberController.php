@@ -28,7 +28,8 @@ class MemberController extends BaseController {
 		$receiver = Auth::user()->idmember;
 		$idmember = Auth::user()->idmember;
 
-		return Auth::user()->question;
+		$question = Auth::user()->question->first();
+		return $question->product;
 
 		// $negative = DB::table('feedback')
 		// 	->where('idreceiver', '=', $receiver)
@@ -63,7 +64,7 @@ class MemberController extends BaseController {
 		// 	));
 	}
 
-	public function editProfile()
+	public function editAccount()
 	{
 		return 'editprofile';
 	}
