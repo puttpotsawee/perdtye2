@@ -52,15 +52,26 @@ return array(
 			'prefix'   => '',
 		),
 
+		// 'mysql' => array(
+		// 	'driver'    => 'mysql',
+		// 	'host'      => 'db4free.net',
+		// 	'database'  => 'perdtye',
+		// 	'username'  => 'perdtye',
+		// 	'password'  => 'se2014',
+		// 	'charset'   => 'utf8',
+		// 	'collation' => 'utf8_unicode_ci',
+		// 	'prefix'    => '',
+
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'db4free.net',
+			'host'      => 'localhost',
 			'database'  => 'perdtye',
-			'username'  => 'perdtye',
-			'password'  => 'se2014',
+			'username'  => 'root',
+			'password'  => '',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
+
 		),
 
 		'pgsql' => array(
