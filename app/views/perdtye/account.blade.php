@@ -43,13 +43,13 @@
 		<div class="col-md-1 column">
 			
 			<p>&nbsp;</p>
-			<a href="editprofile.html" class="btn btn-default" style="width:300%">Edit Profile</a> 
+			<a href="editprofile" class="btn btn-default" style="width:300%">Edit Profile</a> 
 			<p>&nbsp;</p>
 
 
-			<a href="report.html" class="btn btn-default"  style="width:300%">Report</a> 
+			<a href="report" class="btn btn-default"  style="width:300%">Report</a> 
 			<p>&nbsp;</p>
-			<a href="sellregis.html" type="button" class="btn btn-default"  style="width:300%">Sell Register</a>
+			<a href="sellregister" type="button" class="btn btn-default"  style="width:300%">Sell Register</a>
 		</div>
 		<div class="col-md-3 column">
 		</div>
