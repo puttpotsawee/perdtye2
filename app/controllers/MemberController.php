@@ -14,13 +14,6 @@ class MemberController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
-
-	public function showWelcome()
-	{
-		return View::make('hello');
-	}
-
-
 	public function showAccount()
 	{
 		$name = Auth::user()->name;
@@ -59,6 +52,11 @@ class MemberController extends BaseController {
         	->join('member', 'member.idmember', '=', 'seller.idseller')
         	->select('product.product_name', 'member.username', 'transaction.timestamp', 'transaction.price')
         	->get();
+
+/*       	$history = DB::table('product')
+			->where('product.idseller', '=', $idmember)
+        	->select('product.product_name', 'member.username', 'transaction.timestamp', 'transaction.price')
+        	->get();*/
 
          //return $question;
 
