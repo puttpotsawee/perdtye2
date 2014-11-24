@@ -4,6 +4,8 @@ class DirectBuyController extends BaseController {
 
 	public function buy()
 	{
+		$user = Auth::user();
+		
 		$quantity = Input::get('quantity_input');
 		$idProduct = Input::get('idProduct');
 		$product = Product::find($idProduct);
@@ -15,7 +17,7 @@ class DirectBuyController extends BaseController {
 			//$product->save();
 
 			return View::make('perdtye/sellconfirm')
-			->with(array('product' => $product, 'details' => $details, 'seller' => $seller, 'quantity' => $quantity));
+			->with(array('user' => $user, 'product' => $product, 'details' => $details, 'seller' => $seller, 'quantity' => $quantity));
 			//return Redirect::back()->with('message','Purchase successful');
 		}
 		else {

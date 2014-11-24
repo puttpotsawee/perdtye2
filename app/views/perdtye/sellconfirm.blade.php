@@ -5,6 +5,7 @@
 		$details
 		$seller
 		$quantity
+		$user
 	-->
 
 	@section('content')
@@ -34,7 +35,7 @@
 												<h4>Name :</h4>
 											</div>
 											<div class="col-md-8" >
-												<h4> Pradinan Petchruangrong</h4>
+												<h4> {{$user->name}} {{$user->surname}} </h4>
 											</div>
 										</div>
 										<div class="row" style="margin-top:20px;">
@@ -93,6 +94,9 @@
 										</div>
 										<form action="confirm" method="post">
 											<div class="col-md-6" >
+												<input name="idProduct" type="hidden" value={{$product->idProduct}}>
+												<input name="quantity" type="hidden" value={{$quantity}}>
+												
 												<button type="submit" class="btn btn-default"style="width:100%">Confirm</button>
 											</div>
 										</form>
