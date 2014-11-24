@@ -107,10 +107,7 @@ Route::get('login',function()
 {
     return View::make('/perdtye/login');
 });
-Route::get('search',function()
-{
-    return View::make('/perdtye/search');
-});
+
 Route::get('account',function()
 {
     return View::make('/perdtye/account');
@@ -178,7 +175,7 @@ Route::get('statusforgot',function()
 // Routing Blade
 
 //Route to search
-Route::get('search', 'SearchController@index');
+Route::get('search', 'SearchController@failed');
 Route::post('search', 'SearchController@search');
 //Route to item details
 Route::get('item/{idProduct}', 'BrowseController@view');

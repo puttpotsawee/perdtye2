@@ -6,7 +6,13 @@
 	<div class="col-md-2"> 
 	</div> 
 	<div class="col-md-8"> 
-
+	
+		@if ($result->count() == 0)
+		<h1> No product found. </h1>
+		@else
+		<h1> Search Result </h1>
+		@endif
+	
 		<div class="well-shadow">
 
 			<div class="row clearfix">
@@ -48,19 +54,19 @@
 				<div class="col-md-12 column">
 				</div>
 			</div>
-			<?php
-			for($x=0;$x<10;$x++){?>
+			@foreach($result as $r)
+			
 			<div class="row" style="margin-top:20px">
 				<div class="col-md-4 column">
 					<img width="100%" src="img/i6.png" >
 				</div>
 				<div class="col-md-8 column">
 					<div class="caption">
-						<a><h3>iPhone6 64gb Gold</h3></a>
-						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. ...</p>
+						<a><h3>{{$r->product_name}}</h3></a>
+						<p>{{$r->brand}}<br>{{$r->model}}</p>
 						<div class="row clearfix" style="margin-bottom:0px;">
 							<div class="col-md-6 column">
-								<h4 style="color:red;">Price : $300.21</h4>
+								<h4 style="color:red;">Price :</h4>
 								<h5 style="color:black; margin-top:20px;">Buy it now or Bid...</h5>
 							</div>
 							<div class="col-md-6 column">
@@ -70,9 +76,8 @@
 					</div>
 				</div>
 			</div>
-			<?php
-		}
-		?>
+			@endforeach
+			
 	</div> 
 	<div class="col-md-2"> 
 	</div> 	
