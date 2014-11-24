@@ -90,7 +90,7 @@ Route::post('signup','SignupController@signup');
 
 
 
-Route::get('profile/activate/{username}/{token}','MemberController@activateMember');
+Route::get('account/activate/{username}/{token}','MemberController@activateMember');
 
 
 Route::get('sendMail',function()
