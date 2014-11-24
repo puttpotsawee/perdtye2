@@ -52,7 +52,7 @@ class MemberController extends BaseController {
 				$thisUser->save();
 				
 				Auth::login($thisUser);
-				return Redirect::to('/');
+				return Redirect::to('/home');
 			} else {
 				return "Token is invalid";
 			}
