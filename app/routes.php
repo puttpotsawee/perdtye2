@@ -34,7 +34,10 @@ Route::get('email',function()
 {
     return View::make('emails.welcome')->with('name','Potsawee Vechpanich');
 });
-
+Route::get('emails',function()
+{
+    return View::make('emails/mailLayout');
+});
 Route::get('member',function()
 {
 
@@ -186,6 +189,10 @@ Route::get('sellregister',function()
 Route::get('statusforgot',function()
 {
     return View::make('/perdtye/statusforgot');
+});
+Route::get('pending',function()
+{
+    return View::make('/perdtye/pending');
 });
 // Routing Blade
 
