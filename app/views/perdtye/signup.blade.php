@@ -17,7 +17,7 @@
 			}
 			?>
 			<div class="well bs-component">
-				<form class="form-horizontal" action="signupcheck.html" method="get"> 
+				<form class="form-horizontal" action="signup" method="post"> 
 
 
 					<fieldset>

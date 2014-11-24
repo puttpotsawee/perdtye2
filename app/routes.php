@@ -78,7 +78,11 @@ Route::get('createUser',function()
     $member->save();
     
 });
-
+Route::get('signup',function()
+{
+    return View::make('/perdtye/signup');
+});
+Route::post('signup','SignupController@signup');
 
 
 Route::get('profile/activate/{username}/{token}','MemberController@activateMember');
@@ -103,10 +107,7 @@ Route::get('login',function()
 {
     return View::make('/perdtye/login');
 });
-Route::get('signup',function()
-{
-    return View::make('/perdtye/signup');
-});
+
 Route::get('search',function()
 {
     return View::make('/perdtye/search');

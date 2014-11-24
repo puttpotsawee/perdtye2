@@ -6,11 +6,11 @@ class SignupController extends BaseController {
 		$validator = Validator::Make(
 			array(
 				// Member table
-				'username' => Input::get('name'),
+				'username' => Input::get('username'),
 				'email' => Input::get('email')
 			),
 			array(
-				'username' => 'required|unique:member,name',
+				'username' => 'required|unique:member,username',
 				'email' => 'required|unique:member,email',
 			)
 		);
@@ -20,7 +20,7 @@ class SignupController extends BaseController {
 			$user = new Member;
 			$address = new Address;
 
- 			$user->username = Input::get('name');
+ 			$user->username = Input::get('username');
  			$user->email = Input::get('email');
 			$user->password = Hash::make(Input::get('password'));
  			$user->name = Input::get('name');
