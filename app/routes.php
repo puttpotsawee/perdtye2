@@ -199,15 +199,15 @@ Route::get('statusforgot',function()
 {
     return View::make('/perdtye/statusforgot');
 });
-<<<<<<< HEAD
+
 Route::get('pending',function()
 {
     return View::make('/perdtye/pending');
-=======
+
 Route::get('sellconfirm',function()
 {
     return View::make('/perdtye/sellconfirm');
->>>>>>> c9eb3e07d343867f5e208bd17eaa3779b3e2c9d4
+
 });
 // Routing Blade
 
