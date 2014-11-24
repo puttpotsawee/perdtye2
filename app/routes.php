@@ -80,6 +80,7 @@ Route::get('createUser',function()
 });
 
 
+
 Route::get('profile/activate/{username}/{token}','MemberController@activateMember');
 
 
@@ -88,15 +89,20 @@ Route::get('sendMail',function()
     
 });
 
-
 Route::get('test', function()
 {
  	return Member::all();
 });
-Route::resource('signup','SignupController');
+
+Route::get('signup',function()
+{
+    return View::make('signup');
+});
+Route::post('signup', 'SignupController@signup');
 
 
 Route::get('kuy',function()
 {
     return View::make('home');
 });
+

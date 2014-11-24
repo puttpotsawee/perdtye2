@@ -1,40 +1,39 @@
-<?php
+ <?php
 
 class SearchController extends BaseController {
 
-	
-	public static $auction_category = 'Auction';
-	public static $direct_category = 'Direct';
-	public static $all_category = 'All';
 	
 	public function index()
 	{
 		return View::make("search");
 	}
 
-	public function store()
+	// search product_name
+	public function search()
 	{
-		$keyword = Input::get('keyword_input');
+		$auction_category = 'auction';
+		$direct_category = 'direct';
+		$all_category = 'all';
+	
 		$category = Input::get('category_input');
-		//$products = Product::where('product_name', 'LIKE', '%'.$keyword.'%')->get();
-		//foreach($products as $product) {
-		//	var_dump($product->toJson());
-			/*if ($category == $auction_category) {
-				var_dump($product->product_auction()->toJson());
-			}
-			else if ($category == $direct_category) {
-				var_dump($product->product_direct()->toJson());
-			}*/
-		//}
-		var_dump("search result");
-		var_dump($keyword . $category);
-		//return View::make("search");
+		$keyword = Input::get('keyword_input');
+		
+		//Search product by name or brand
+		$result = Product::where('product_name', 'LIKE', '%'.$keyword.'%')
+						->orWhere('brand', 'LIKE', '%'.$keyword.'%');
+		
+		//Filter by catogory (auction or direct)
+		if($category == $auction_category || $category == $direct_category)
+		{
+			$result = $result->where('type', '=', $category);
+		}
+
+		$result = $result->get();
+		
+		return View::make('searchresult')->with('result',$result);
+
 	}
 
-	protected function isPostRequest()
-  	{
-    return Input::server("REQUEST_METHOD") == "POST";
-  	}
 
   	
 }

@@ -2,8 +2,7 @@
 
 @section('content')
 	{{ Form::open() }}
-		{{ Form::label("category", "Category") }}
-		{{ Form::text("category_input") }}
+		{{ Form::select("category_input", array('all' => 'Category', 'auction' => 'Auction', 'direct' => 'Direct'))}}
 		{{ Form::label("keyword", "Keyword") }}
 		{{ Form::text("keyword_input") }}
 		{{ Form::submit("search") }}
