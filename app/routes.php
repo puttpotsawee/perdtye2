@@ -107,8 +107,6 @@ Route::get('login',function()
 {
     return View::make('/perdtye/login');
 });
-
-<<<<<<< HEAD
 Route::get('search',function()
 {
     return View::make('/perdtye/search');
@@ -178,7 +176,7 @@ Route::get('statusforgot',function()
     return View::make('/perdtye/statusforgot');
 });
 // Routing Blade
-=======
+
 //Route to search
 Route::get('search', 'SearchController@index');
 Route::post('search', 'SearchController@search');
@@ -187,4 +185,5 @@ Route::get('item/{idProduct}', 'BrowseController@view');
 //Route to buy/bid request
 Route::post('item/{idProduct}', 'DirectBuyController@buy');
 Route::put('item/{idProduct}', 'AuctionController@bid');
->>>>>>> origin/viewItem
+
+//search
