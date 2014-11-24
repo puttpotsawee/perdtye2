@@ -184,3 +184,8 @@ Route::get('direct', 'BrowseController@viewDirect');
 Route::post('placebid', 'AuctionController@placeBid');
 Route::post('maxbid', 'AuctionController@maxBid');
 Route::post('direct', 'DirectBuyController@buy');
+Route::get('transaction',function()
+{
+
+    return Transaction::all();
+});

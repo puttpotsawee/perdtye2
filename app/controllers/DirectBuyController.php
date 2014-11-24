@@ -11,7 +11,9 @@ class DirectBuyController extends BaseController {
 		if($product->remaining >= $quantity) {
 			$product->remaining = $product->remaining - $quantity;
 			$product->save();
-			return Redirect::back()->with('message','Purchase Successful !');
+
+			DB::table('Transaction')->insert(array('idseller' => $product->product()->idseller, 'idproduct' => $idProduct, 'price' => $product->price, '')
+);
 		}
 		else {
 			return Redirect::back()->with('message','Error not enough remaining products in stock');
