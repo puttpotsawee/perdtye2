@@ -1,12 +1,11 @@
 @extends('newLayout')
 
-@section('content')
-<!-- FORM -->
+@section('content')  <!-- FORM -->
    <div class="col-sm-2">
                 </div>
                 <div class="col-sm-8" style="margin-top:30px">
    <div class="well bs-component">
-              <form class="form-horizontal" action="signupcheck.html" method="get"> 
+              <form class="form-horizontal" action="signup" method="post"> 
                
       
                 <fieldset>
@@ -26,37 +25,38 @@
                   </div> 
 
                   <div class="form-group">
-                    <label for="inputStreet" class="col-lg-2 control-label">Street Address*</label>
-                    <div class="col-lg-10">
-                      <input type="text" data-validation="required" class="form-control" name="house_number" id="inputStreet" placeholder="Street Address1">
-                    </div>
-                    <div class="col-lg-offset-2 col-lg-10">
-                      <input type="text" class="form-control" name="road" id="inputStreet2" placeholder="Street Address2">
+                    <label for="inputStreet" class="col-lg-2 control-label">House No.*</label>
+                    <div class="col-lg-4">
+                      <input type="text" data-validation="required" class="form-control" name="house_number" id="inputStreet" placeholder="House number">
                     </div>
                   </div>
 
+                   <div class="form-group">
+                    <label for="inputStreet" class="col-lg-2 control-label">Road*</label>
+                    <div class="col-lg-4">
+                      <input type="text" data-validation="required" class="form-control" name="road" id="inputStreet" placeholder="Road">
+                    </div>
+                    <label for="inputPostCode" class="col-lg-2 control-label">District*</label>
+                    <div class="col-lg-4">
+                      <input type="text" data-validation="required" class="form-control" name="district" id="inputPostCode" placeholder="District">
+                    </div>
+                  </div>
 
                   <div class="form-group">
                     <label for="inputCity" class="col-lg-2 control-label">City*</label>
                     <div class="col-lg-4">
                       <input type="text" data-validation="required" class="form-control" name="city" id="inputCity" placeholder="City">
                     </div>
-                   <!--  <label for="inputLastname" class="col-lg-2 control-label">Region*</label>
+                    <label for="inputPostCode" class="col-lg-2 control-label">Province*</label>
                     <div class="col-lg-4">
-                      <select class="form-control" id="inputCountry">
-                            <option>1</option>
-                            <option>2</option>
-                            <option>3</option>
-                            <option>4</option>
-                            <option>5</option>
-                          </select>
-                    </div> -->
+                      <input type="text" data-validation="required" class="form-control" name="province" id="inputPostCode" placeholder="Province">
+                    </div>
                   </div>
 
                   <div class="form-group">
-                    <label for="inputRegion" class="col-lg-2 control-label">Region*</label>
+                    <label for="inputRegion" class="col-lg-2 control-label">Country*</label>
                     <div class="col-lg-4">
-                      <input type="text" data-validation="required" class="form-control" name="country" id="inputRegion" placeholder="Region">
+                      <input type="text" data-validation="required" class="form-control" name="country" id="inputRegion" placeholder="Country">
                     </div>
                     <label for="inputPostCode" class="col-lg-2 control-label">Post Code*</label>
                     <div class="col-lg-4">
@@ -145,5 +145,6 @@
                 </div>
 
   <!--FORM-->
+
 @stop
 
