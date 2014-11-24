@@ -9,14 +9,15 @@
 				<div class="col-md-2 column">
 				</div>
 				<div class="col-md-8 column">
-					<form action="directtype.html" method="get">
+					<!-- <form action="directtype.html" method="get"> -->
+					{{ Form::open() }}
 						<legend>Sell Registration form</legend>
 						<div class="row clearfix">
 							<div class="col-md-4 column">
 								<h5>Headline :</h5>
 							</div>
 							<div class="col-md-8 column">
-								<input type="text" name="subject" data-validation="required" id="inputEmail" class="form-control" placeholder="Item Subject">
+								<input type="text" name="product_name" data-validation="required" id="inputEmail" class="form-control" placeholder="Item Subject">
 							</div>
 						</div>
 
@@ -25,19 +26,121 @@
 								<h5>Upload image :</h5>
 							</div>
 							<div class="col-md-8 column">
-								<input type="file" data-validation="required mime size" data-validation-allowing="jpg, png, gif" 
+								<input type="file" data-validation="mime size" data-validation-allowing="jpg, png, gif" 
 								data-validation-max-size="2M" id="exampleInputFile" name="pic[]" multiple=""/>
 							</div>
 						</div>
 
-						<div class="row clearfix" style="margin-top:10px">
+						<!-- <div class="row clearfix" style="margin-top:10px">
 							<div class="col-md-4 column">
 								<h5>Description :</h5>
 							</div>
 							<div class="col-md-8 column">
 								<textarea name="description" data-validation="required" class="form-control" rows="7"  placeholder="Descriptions eg. color, size, expired date, first hand or second hand."></textarea>
 							</div>
+						</div> -->
+						<div class="row clearfix" style="margin-top:10px">
+							<div class="col-md-4 column">
+								<h5>Brand :</h5>
+							</div>
+							<div class="col-md-8 column">
+								<input type="text" name="brand" data-validation="required" class="form-control" rows="7"  placeholder="Describe the Brand">
+							</div>
 						</div>
+						<div class="row clearfix" style="margin-top:10px">
+							<div class="col-md-4 column">
+								<h5>Model :</h5>
+							</div>
+							<div class="col-md-8 column">
+								<input type="text" name="model" class="form-control" rows="7"  placeholder="Describe the model">
+							</div>
+						</div>
+						<div class="row clearfix" style="margin-top:10px">
+							<div class="col-md-4 column">
+								<h5>Property :</h5>
+							</div>
+							<div class="col-md-8 column">
+								<input type="text" name="property" class="form-control" rows="7"  placeholder="Describe the Property">
+							</div>
+						</div>
+						<div class="row clearfix" style="margin-top:10px">
+							<div class="col-md-4 column">
+								<h5>Dimension :</h5>
+							</div>
+							<div class="col-md-8 column">
+								<input type="text" name="dimension" class="form-control" rows="7"  placeholder="Describe the Dimension">
+							</div>
+						</div>
+						<div class="row clearfix" style="margin-top:10px">
+							<div class="col-md-4 column">
+								<h5>Defect :</h5>
+							</div>
+							<div class="col-md-8 column">
+								<input type="text" name="defect" class="form-control" rows="7"  placeholder="Describe the Defect">
+							</div>
+						</div>
+						<div class="row clearfix" style="margin-top:10px">
+							<div class="col-md-4 column">
+								<h5>Missing Part :</h5>
+							</div>
+							<div class="col-md-8 column">
+								<input type="text" name="missing_part" class="form-control" rows="7"  placeholder="Describe the Missing Part">
+							</div>
+						</div>
+						<div class="row clearfix" style="margin-top:10px">
+							<div class="col-md-4 column">
+								<h5>Payment Method :</h5>
+							</div>
+							<div class="col-md-8 column">
+								<select class="form-control" name="payment_method">
+									<option>Credit Card</option>
+									<option>Account</option>
+								</select>
+							</div>
+
+						</div>
+						<div class="row clearfix" style="margin-top:10px">
+							<div class="col-md-4 column">
+								<h5>Return Policy :</h5>
+							</div>
+							<div class="col-md-8 column">
+								<input type="text" name="return_policy" class="form-control" rows="7"  placeholder="Specify your return policy">
+							</div>
+						</div>
+						<div class="row clearfix" style="margin-top:10px">
+							<div class="col-md-4 column">
+								<h5>Packaging Method :</h5>
+							</div>
+							<div class="col-md-8 column">
+								<input type="text" name="packaging_method" class="form-control" rows="7"  placeholder="Specify your packaging method">
+							</div>
+						</div>
+						<div class="row clearfix" style="margin-top:10px">
+							<div class="col-md-4 column">
+								<h5>Packaging Charge :</h5>
+							</div>
+							<div class="col-md-8 column">
+								<input type="text" name="packaging_charge" class="form-control" rows="7"  placeholder="Specify your packaging method">
+							</div>
+						</div>
+						<div class="row clearfix" style="margin-top:10px">
+							<div class="col-md-4 column">
+								<h5>Shipping Method :</h5>
+							</div>
+							<div class="col-md-8 column">
+								<input type="text" name="shipping_method" class="form-control" rows="7"  placeholder="Specify your shipping method">
+							</div>
+						</div>
+						<div class="row clearfix" style="margin-top:10px">
+							<div class="col-md-4 column">
+								<h5>Shipping Fee :</h5>
+							</div>
+							<div class="col-md-8 column">
+								<input type="text" name="shipping_fee" class="form-control" rows="7"  placeholder="Specify your shipping fee">
+							</div>
+						</div>
+
+
 
 						<div class="row clearfix"  style="margin-top:10px">
 							<div class="col-md-4 column">
@@ -57,14 +160,7 @@
 							</div>
 						</div>
 
-						<div class="row clearfix" style="margin-top:10px">
-							<div class="col-md-4 column">
-								<h5>Condition :</h5>
-							</div>
-							<div class="col-md-8 column">
-								<textarea name="condition" class="form-control" rows="7" data-validation="required" placeholder="Descriptions"></textarea>
-							</div>
-						</div>
+						
 
 						<div class="row clearfix" style="margin-top:10px">
 							<div class="col-md-4 column">
@@ -81,7 +177,9 @@
 								</div>
 							</div>
 						</div>
-					</form>
+					<!-- </form> -->
+					{{ Form::close() }}
+
 				</div>
 				<div class="col-md-2 column">
 				</div>
