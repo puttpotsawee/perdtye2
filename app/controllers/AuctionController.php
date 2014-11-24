@@ -3,9 +3,10 @@
 class AuctionController extends BaseController {
 
 	
-	public function bid($idProduct)
+	public function maxBid()
 	{
 		$bid = Input::get('maxbid_input');
+		$idProduct = Input::get('idProduct');
 		$product = Product_auction::find($idProduct);
 		
 		if($product->current_price < $bid) {
@@ -19,5 +20,16 @@ class AuctionController extends BaseController {
 
 	}
 
-  	
+	public function placeBid()
+	{
+		$idProduct = Input::get('idProduct');
+		$product = Product_auction::find($idProduct);
+
+		$product->current_price = $product->current_price + $product->bidding_range;
+		$product->save();
+		
+		return Redirect::back()->with('message','Bid Successful !');
+		
+	}
+
 }

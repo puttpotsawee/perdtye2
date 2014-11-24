@@ -13,7 +13,7 @@
     {{ Form::label("currentBid", "Current bid") }}
     {{$details->current_price}}
     <br>
-    {{ Form::submit("Place bid ".$details->bidding_range."more"}}
+    {{ Form::submit("Place more bid")}}
     <br>
     {{ Form::text("maxbid_input") }}
     specify your maximum bid

@@ -96,19 +96,19 @@
       </div></div>
 
       <div class="col-md-9 column search" >
-       <form method="get" action="search.php">
+       <form method="post" action="search">
         <div class="row clearfix" style="vertical-align:middle">
           <div class="col-md-2 column">
 
-           <select class="form-control" id="select" name="category">
+           <select class="form-control" id="select" name="category_input">
             <option value="all">All Listing</option>
-            <option value="auc">Auction</option>
-            <option value="buy">Buy it now</option>
+            <option value="auction">Auction</option>
+            <option value="direct">Buy it now</option>
           </select>
         </div>
         <div class="col-md-9 column">
           <div class="form-group">
-            <input type="text" data-validation="required" class="form-control" id="inputDefault" placeholder="Search" name="search">
+            <input type="text" data-validation="required" class="form-control" id="inputDefault" placeholder="Search" name="keyword_input">
           </div>
         </div>
         <div class="col-md-1 column">
@@ -264,6 +264,7 @@
     todayHighlight: true
   });
   </script>
+  s
   <!-- SCRIPT -->
 </body>
 </html>

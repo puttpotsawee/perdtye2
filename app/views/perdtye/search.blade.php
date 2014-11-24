@@ -1,12 +1,22 @@
 @extends('perdtye/header')
 
+<!-- parameter received from SearchController:
+		$result as list of Product [leftJoin Product_auction] [leftJoin Product_direct] join Member
+-->
+
 @section('content')
 <!-- Search -->
 <div class="container">  
 	<div class="col-md-2"> 
 	</div> 
 	<div class="col-md-8"> 
-
+	
+		@if ($result->count() == 0)
+		<h1> No product found. </h1>
+		@else
+		<h1> Search Result </h1>
+		@endif
+	
 		<div class="well-shadow">
 
 			<div class="row clearfix">
@@ -48,31 +58,44 @@
 				<div class="col-md-12 column">
 				</div>
 			</div>
-			<?php
-			for($x=0;$x<10;$x++){?>
+			@foreach($result as $r)
+			
 			<div class="row" style="margin-top:20px">
 				<div class="col-md-4 column">
 					<img width="100%" src="img/i6.png" >
 				</div>
 				<div class="col-md-8 column">
-					<div class="caption">
-						<a><h3>iPhone6 64gb Gold</h3></a>
-						<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. ...</p>
+					<div class="caption" value={{$r->idProduct}}>
+						<a href = {{$r->type}}?id={{$r->idProduct}}><h3> {{$r->product_name}} </h3></a>
+						<p> {{$r->brand}} <br> {{$r->model}} </p>
 						<div class="row clearfix" style="margin-bottom:0px;">
 							<div class="col-md-6 column">
-								<h4 style="color:red;">Price : $300.21</h4>
-								<h5 style="color:black; margin-top:20px;">Buy it now or Bid...</h5>
+								<h4 style="color:red;">
+									@if($r->type == 'auction')
+									Starting bid : {{$r->current_price}} Baht
+									@else
+									Price : {{$r->price}} Baht
+									@endif
+								</h4>
+								<h5 style="color:black; margin-top:20px;">
+									@if($r->type == 'auction')
+									Bid
+									@else
+									Buy it now
+									@endif
+								</h5>
 							</div>
 							<div class="col-md-6 column">
-								<h5 style="color:grey;">From : Pae</h5>
+								<h5 style="color:grey;">From : 
+									{{($r->username)}}
+								</h5>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<?php
-		}
-		?>
+			@endforeach
+			
 	</div> 
 	<div class="col-md-2"> 
 	</div> 	

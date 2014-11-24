@@ -2,9 +2,10 @@
 
 class DirectBuyController extends BaseController {
 
-	public function buy($idProduct)
+	public function buy()
 	{
 		$quantity = Input::get('quantity_input');
+		$idProduct = Input::get('idProduct');
 		$product = Product_direct::find($idProduct);
 		
 		if($product->remaining >= $quantity) {

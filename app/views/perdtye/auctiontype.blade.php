@@ -1,5 +1,11 @@
 @extends('perdtye/header')
 
+<!-- parameter received from BrowseController:
+		$product
+		$details
+		$seller
+-->
+
 @section('content')
 <!-- auction -->
 <div class="container">
@@ -9,7 +15,7 @@
 				<div class="col-md-2 column">
 				</div>
 				<div class="col-md-8 column">
-					<legend>iPhone6 64gb Gold</legend>
+					<legend> {{$product->product_name}} </legend>
 					<div class="row clearfix" style="margin-top:30px;">
 						<div class="col-md-6 column">
 							<div class="thumbnail">
@@ -17,13 +23,13 @@
 							</div>
 						</div>
 						<div class="col-md-6 column">
-							<form action="index.php" method="get">
+							<form action="placebid" method="post">
 								<div class="row">
 									<div class="col-md-4" >
 										<h4>Time left :</h4>
 									</div>
 									<div class="col-md-8" >
-										<h4>20 hr 01 min 59 sec</h4>
+										<h4> {{$details->end_time - $_SERVER['REQUEST_TIME']}} </h4>
 									</div>
 								</div>
 								<div class="row" style="margin-top:0px;">
@@ -31,17 +37,24 @@
 										<h3>Current bid :</h3>
 									</div>
 									<div class="col-md-7" >
-										<h3>$0.01</h3>
+										<h3>{{$details->current_price}} Baht</h3>
 									</div>  
 								</div>
 								<div class="row" style="margin-top:20px;">
 									<div class="col-md-12">
-										<button type="submit" class="btn btn-info"style="width:100%">Place bid at $1.00 </button>
+										<button type="submit" class="btn btn-info"style="width:100%">Place bid at {{$details->bidding_range+$details->current_price}} Baht </button>
+										<input name="idProduct" type="hidden" value={{$product->idProduct}}/>
 									</div>
 								</div>
+								
+
+							</form>
+
+							<form action="maxbid" method="post">
 								<div class="row" style="margin-top:20px;">
 									<div class="col-md-6">
-										<input name="price" type="text" data-validation="number" class="form-control" style="width:100%;"></input>
+										<input name="maxbid_input" type="text" data-validation="number" class="form-control" style="width:100%;"></input>
+										<input name="idProduct" type="hidden" value={{$product->idProduct}}/>
 										<p><center>specify your maximum bid</center></p>
 									</div>
 									<div class="col-md-6" >
@@ -50,9 +63,10 @@
 								</div>
 
 							</form>
+
 							<div class="row" style="margin-top:40px;">
 								<div class="col-md-6" >
-									<p>Sell information : XXXXXXXXXX</p>
+									<p>Sell information : {{$seller->name}} {{$seller->surname}}</p>
 									<p>100% positive feedback</p>
 								</div>
 								<div class="col-md-6" >
@@ -74,7 +88,7 @@
 									<p>Name :</p>
 								</div>
 								<div class="col-md-9 column">
-									<p>iPhone 6 64gb gold</p>
+									<p> {{$product->product_name}} </p>
 								</div>
 							</div>
 
@@ -83,7 +97,11 @@
 									<p>Product Information :</p>
 								</div>
 								<div class="col-md-9 column">
-									<p style="word-wrap: break-word;">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+									<p style="word-wrap: break-word;">{{$product->brand}}</p>
+									<p style="word-wrap: break-word;">{{$product->model}}</p>
+									<p style="word-wrap: break-word;">{{$product->property}}</p>
+									<p style="word-wrap: break-word;">{{$product->condition}}</p>
+									<p style="word-wrap: break-word;">{{$product->defect}}</p>
 								</div>
 							</div>
 
@@ -92,7 +110,7 @@
 									<p>Technical specification :</p>
 								</div>
 								<div class="col-md-9 column">
-									<p style="word-wrap: break-word;">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+									<p style="word-wrap: break-word;">{{$product->dimension}}</p>
 								</div>
 							</div>
 
@@ -101,7 +119,11 @@
 									<p>Shipping and payments :</p>
 								</div>
 								<div class="col-md-9 column">
-									<p style="word-wrap: break-word;">xxxxxxxxxxxxxxxxxxxxx<br>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+									<p style="word-wrap: break-word;">{{$product->payment_method}}</p>
+									<p style="word-wrap: break-word;">{{$product->packaging_method}}</p>
+									<p style="word-wrap: break-word;">{{$product->packaging_charge}}</p>
+									<p style="word-wrap: break-word;">{{$product->shipping_method}}</p>
+									<p style="word-wrap: break-word;">{{$product->shipping_fee}}</p>
 								</div>
 							</div>
 
@@ -110,7 +132,8 @@
 									<p>Return policy :</p>
 								</div>
 								<div class="col-md-9 column">
-									<p style="word-wrap: break-word;">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+									<p style="word-wrap: break-word;">{{$product->refund_policy}}</p>
+									<p style="word-wrap: break-word;">{{$product->refund_charge}}</p>
 								</div>
 							</div>
 

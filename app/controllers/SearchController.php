@@ -3,9 +3,10 @@
 class SearchController extends BaseController {
 
 	
-	public function index()
+	public function failed()
 	{
-		return View::make("search");
+    //
+		return Redirect::to('home');
 	}
 
 	// search product_name
@@ -17,20 +18,21 @@ class SearchController extends BaseController {
 	
 		$category = Input::get('category_input');
 		$keyword = Input::get('keyword_input');
-		
-		//Search product by name or brand
-		$result = Product::where('product_name', 'LIKE', '%'.$keyword.'%')
-						->orWhere('brand', 'LIKE', '%'.$keyword.'%');
-		
-		//Filter by catogory (auction or direct)
-		if($category == $auction_category || $category == $direct_category)
+		$result;
+		if($category == $all_category)
 		{
-			$result = $result->where('type', '=', $category);
+			$result = Product::getProductInfo($keyword);
 		}
-
-		$result = $result->get();
+		else if($category == $auction_category)
+		{
+			$result = Product::getProductAuctionInfo($keyword);
+		}
+		else if($category == $direct_category)
+		{
+			$result = Product::getProductDirectInfo($keyword);
+		}
 		
-		return View::make('searchresult')->with('result',$result);
+		return View::make('perdtye/search')->with('result',$result);
 
 	}
 

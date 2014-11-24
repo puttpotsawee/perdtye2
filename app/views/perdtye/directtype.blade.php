@@ -1,5 +1,11 @@
 @extends('perdtye/header')
 
+<!-- parameter received from BrowseController:
+		$product
+		$details
+		$seller
+-->
+
 @section('content')
 <!-- direct -->
 <div class="container" style="margin-top:30px;">
@@ -9,7 +15,7 @@
 				<div class="col-md-2 column">
 				</div>
 				<div class="col-md-8 column">
-					<legend>iPhone6 64gb Gold</legend>
+					<legend> {{$product->product_name}} </legend>
 					<div class="row clearfix" style="margin-top:30px;">
 						<div class="col-md-6 column">
 							<div class="thumbnail">
@@ -17,22 +23,23 @@
 							</div>
 						</div>
 						<div class="col-md-6 column">
-							<form action="index.php" method="get">
+							<form action=direct method="post">
 								<div class="row">
 									<div class="col-md-5" >
 										<h3>Price :</h3>
 									</div>
 									<div class="col-md-7" >
-										<h3>$300.21</h3>
+										<h3> {{$details->price}} Baht</h3>
 									</div>
 								</div>
 								<div class="row" style="margin-top:20px;">
 									<div class="col-md-5">
 										<h4>Quantity: </h4>
-										<label>(85 in stock)</label>
+										<label>({{$details->remaining}} in stock)</label>
 									</div>
 									<div class="col-md-7" >
-										<input name="quanity" type="text" data-validation="number" class="form-control" style="width:100%; float:right;"></input>
+										<input name="quantity_input" type="text" data-validation="number" class="form-control" style="width:100%; float:right;"></input>
+										<input name="idProduct" type="hidden" value={{$product->idProduct}}/>
 									</div>  
 								</div>
 								<div class="row" style="margin-top:20px;">
@@ -43,7 +50,7 @@
 							</form>
 							<div class="row" style="margin-top:80px;">
 								<div class="col-md-6" >
-									<p>Sell information : XXXXXXXXXX</p>
+									<p>Sell information : {{$seller->name}} {{$seller->surname}}</p>
 									<p>100% positive feedback</p>
 								</div>
 								<div class="col-md-6" >
@@ -65,7 +72,7 @@
 									<p>Name :</p>
 								</div>
 								<div class="col-md-9 column">
-									<p>iPhone 6 64gb gold</p>
+									<p>{{$product->product_name}}</p>
 								</div>
 							</div>
 
@@ -74,7 +81,11 @@
 									<p>Product Information :</p>
 								</div>
 								<div class="col-md-9 column">
-									<p style="word-wrap: break-word;">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+									<p style="word-wrap: break-word;">{{$product->brand}}</p>
+									<p style="word-wrap: break-word;">{{$product->model}}</p>
+									<p style="word-wrap: break-word;">{{$product->property}}</p>
+									<p style="word-wrap: break-word;">{{$product->condition}}</p>
+									<p style="word-wrap: break-word;">{{$product->defect}}</p>
 								</div>
 							</div>
 
@@ -83,7 +94,7 @@
 									<p>Technical specification :</p>
 								</div>
 								<div class="col-md-9 column">
-									<p style="word-wrap: break-word;">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+									<p style="word-wrap: break-word;">{{$product->dimension}}</p>
 								</div>
 							</div>
 
@@ -92,7 +103,11 @@
 									<p>Shipping and payments :</p>
 								</div>
 								<div class="col-md-9 column">
-									<p style="word-wrap: break-word;">xxxxxxxxxxxxxxxxxxxxx<br>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+									<p style="word-wrap: break-word;">{{$product->payment_method}}</p>
+									<p style="word-wrap: break-word;">{{$product->packaging_method}}</p>
+									<p style="word-wrap: break-word;">{{$product->packaging_charge}}</p>
+									<p style="word-wrap: break-word;">{{$product->shipping_method}}</p>
+									<p style="word-wrap: break-word;">{{$product->shipping_fee}}</p>
 								</div>
 							</div>
 
@@ -101,7 +116,8 @@
 									<p>Return policy :</p>
 								</div>
 								<div class="col-md-9 column">
-									<p style="word-wrap: break-word;">xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</p>
+									<p style="word-wrap: break-word;">{{$product->refund_policy}}</p>
+									<p style="word-wrap: break-word;">{{$product->refund_charge}}</p>
 								</div>
 							</div>
 

@@ -21,13 +21,42 @@ class MemberController extends BaseController {
 	}
 
 
-	public function showProfile()
+	public function showAccount()
 	{
-		return "profile Page";
+		$name = Auth::user()->name;
+		$surname = Auth::user()->surname;
+		$receiver = Auth::user()->idmember;
+
+		$negative = DB::table('feedback')
+			->where('idreceiver', '=', $receiver)
+            ->whereIn('score', array(0, 1))
+			->count();
+
+		$neutral = DB::table('feedback')
+			->where('idreceiver', '=', $receiver)
+            ->whereIn('score', array(2, 3))
+			->count();
+
+		$positive = DB::table('feedback')
+			->where('idreceiver', '=', $receiver)
+            ->whereIn('score', array(4, 5))
+			->count();
+
+
+
+		return View::Make('perdtye/account')->with(
+			array(
+				'name'=> $name, 
+				'surname' => $surname,
+				'negative' => $negative,
+				'neutral' => $neutral,
+				'positive' => $positive
+			));
 	}
+
 	public function editProfile()
 	{
-		return "edit Profile Page";
+		return 'editprofile';
 	}
 	public function report()
 	{
