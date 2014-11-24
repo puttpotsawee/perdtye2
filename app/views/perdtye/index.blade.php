@@ -25,7 +25,7 @@
 											<div class="row">
 
 												<div class="thumbnail">
-													<a href="auctiontype.html"><img src="img/i6.png" ></a>
+													<a href="auctiontype"><img src="img/i6.png" ></a>
 													<div class="caption">
 														<h3>iPhone6 64gb Gold</h3>
 														<p>Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit. ...</p>
