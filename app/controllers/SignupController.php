@@ -20,12 +20,15 @@ class SignupController extends BaseController {
 			$user = new Member;
 			$address = new Address;
 
+			$confirm_code = str_random(45);
+
  			$user->username = Input::get('username');
  			$user->email = Input::get('email');
 			$user->password = Hash::make(Input::get('password'));
  			$user->name = Input::get('name');
  			$user->surname = Input::get('surname');
  			$user->phonenumber = Input::get('phonenumber');
+ 			$user->confirm_token = $confirm_code;
  			$user->save();
 
  			// get inserted key from Member Table
@@ -40,6 +43,8 @@ class SignupController extends BaseController {
  			$address->road = Input::get('road');
  			$address->house_number = Input::get('house_number');
  			$address->save();
+
+ 			EmailController::sendConfirmationEmail($user);
 
 			return View::Make('perdtye/pending')->with('user', $user);
 		}

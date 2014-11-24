@@ -28,7 +28,7 @@ class EmailController extends BaseController {
 		$email = $user->email;
 
 
-		$link = App::make('url')->to('/')."/".$username."/".$token;
+		$link = App::make('url')->to('/')."/profile/activate/".$username."/".$token;
 		$data = array('name'=>$name,'link'=>$link);
 		
 

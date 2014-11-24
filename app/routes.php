@@ -41,7 +41,8 @@ Route::get('emails',function()
 Route::get('member',function()
 {
 
-	return Member::all();
+	$thisUser = Member::whereUsername('driley25')->get()->first();
+    return $thisUser->phonenumber;
 });
 
 Route::get('test',function()
@@ -86,6 +87,7 @@ Route::get('signup',function()
     return View::make('/perdtye/signup');
 });
 Route::post('signup','SignupController@signup');
+
 
 
 Route::get('profile/activate/{username}/{token}','MemberController@activateMember');
