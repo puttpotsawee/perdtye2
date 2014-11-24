@@ -172,6 +172,10 @@ Route::get('statusforgot',function()
 {
     return View::make('/perdtye/statusforgot');
 });
+Route::get('sellconfirm',function()
+{
+    return View::make('/perdtye/sellconfirm');
+});
 // Routing Blade
 
 //Route to search
