@@ -55,7 +55,7 @@ class SignupController extends BaseController {
 		}
 		else
 		{
-			return Redirect::to('signup')->withErrors($validator);
+			return Redirect::back()->withInput()->withErrors($validator);
 		}
  
 	} // Ends Signup Function
