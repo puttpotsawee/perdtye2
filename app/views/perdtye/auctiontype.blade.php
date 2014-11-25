@@ -25,10 +25,10 @@
 						<div class="col-md-6 column">
 							<form action="placebid" method="post">
 								<div class="row">
-									<div class="col-md-4" >
+									<div class="col-md-5" >
 										<h4>End time :</h4>
 									</div>
-									<div class="col-md-8" >
+									<div class="col-md-7" >
 										<h4> {{$details->end_time}} </h4>
 									</div>
 								</div>
