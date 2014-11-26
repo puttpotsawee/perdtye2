@@ -80,10 +80,7 @@ Route::get('createUser',function()
     $member->save();
     
 });
-Route::get('signup',function()
-{
-    return View::make('/perdtye/signup');
-});
+Route::get('signup', 'SignupController@index');
 Route::post('signup','SignupController@signup');
 
 

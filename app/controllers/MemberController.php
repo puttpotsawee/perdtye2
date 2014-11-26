@@ -59,14 +59,6 @@ class MemberController extends BaseController {
         	->select('product.product_name', 'product_direct.quantity', 'product_direct.remaining', 'product_direct.price')
         	->get();
 
-/*       	$bidding = DB::table('auction_list')
-			->where('auction_list.idmember', '=', $idmember)
-        	->join('product', 'product.idProduct', '=', 'auction_list.idproduct_auction')
-        	->select('product.product_name', 'product_direct.quantity', 'product_direct.remaining', 'product_direct.price')
-        	->get();*/
-
-         //return $question;
-
 		return View::Make('perdtye/account')->with(
 			array(
 				'name'=> $name, 
@@ -92,9 +84,7 @@ class MemberController extends BaseController {
 		$email = $member->email;
 		$phonenumber = $member->phonenumber;
 		$address = $member->address->first();
-
-		//$house_number = $address->house_number;
-		//return $address;
+		
 		return View::Make('perdtye/editaccount')->with(
 			array(
 				'name' => $name,
@@ -129,6 +119,7 @@ class MemberController extends BaseController {
 
 		return Redirect::back()->with('flash_error','Your account has been saved.');
 	}
+	
 	public function report()
 	{
 		return "report Page";
