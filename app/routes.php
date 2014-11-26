@@ -59,17 +59,15 @@ Route::get('logout', 'SessionController@destroy');
 Route::resource('session','SessionController');
 
 Route::get('account','MemberController@showAccount')->before('auth');
-<<<<<<< HEAD
-// commit:
+
 Route::get('editprofile', 'EditProfileController@editAccount')->before('auth');
 Route::post('editprofile', 'EditProfileController@saveEditedAccount')->before('auth');
-//
-=======
+
 Route::get('editaccount', 'MemberController@editAccount')->before('auth');
 Route::post('editaccount', 'MemberController@saveEditedAccount')->before('auth');
 Route::get('report','MemberController@report')->before('auth');
 Route::get('feedback','MemberController@seeFeedback')->before('auth');
->>>>>>> origin/master
+
 
 
 
