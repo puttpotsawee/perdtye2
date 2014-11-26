@@ -11,7 +11,6 @@
 |
 */
 
-<<<<<<< HEAD
 // Route to Home Page --------------------------------------------------------
 Route::get('/', function()
 {
@@ -69,9 +68,6 @@ Route::post('placebid', 'AuctionController@placeBid');
 Route::post('maxbid', 'AuctionController@maxBid');
 // Buy Item
 Route::post('direct', 'DirectBuyController@buy');
-=======
-Route::get('/', 'BrowseController@viewTopItem');
->>>>>>> origin/master
 
 
 // Route associated with Transaction Package ---------------------------------
@@ -139,37 +135,6 @@ Route::get('sendMail',function()
     
 });
 
-<<<<<<< HEAD
-=======
-
-Route::get('test', function()
-{
- 	return Member::all();
-});
-
-// Routing blade
-// Route::get('home',function()
-// {
-//     return View::make('/perdtye/index');
-// });
-// Route::get('login',function()
-// {
-//     return View::make('/perdtye/login');
-// });
-
-
-Route::get('qa', 'AskAQuestionController@qa')->before("auth");
-
-Route::get('auctiontype',function()
-{
-    return View::make('/perdtye/auctiontype');
-});
-Route::get('directsell','SellerController@directsell')->before('auth')->before("seller");
-Route::post('directsell','SellerController@submitDirectsell')->before('auth')->before("seller");
-Route::get('auctionsell','SellerController@auctionsell')->before('auth')->before("seller");
-Route::post('auctionsell','SellerController@submitAuctionsell')->before('auth')->before("seller");
-
->>>>>>> origin/master
 Route::get('directtype',function()
 {
     return View::make('/perdtye/directtype');
