@@ -102,7 +102,7 @@
 							<form action="maxbid" method="post">
 								<div class="row" style="margin-top:20px;">
 									<div class="col-md-6">
-										<input name="maxbid_input" type="text" data-validation="number" class="form-control" style="width:100%;"></input>
+										<input name="maxbid_input" type="text" data-validation="number" data-validation-allowing=range[{{$details->bidding_range}};999999999999] class="form-control" style="width:100%;"></input>
 										<input name="idProduct" type="hidden" value={{$product->idProduct}}/>
 										<p><center>specify your maximum bid</center></p>
 									</div>

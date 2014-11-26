@@ -83,7 +83,7 @@
 										<label>({{$details->remaining}} in stock)</label>
 									</div>
 									<div class="col-md-7" >
-										<input name="quantity_input" type="text" data-validation="number" class="form-control" style="width:100%; float:right;"></input>
+										<input name="quantity_input" type="text" data-validation="number" data-validation-allowing=range[1;{{$details->remaining}}] class="form-control" style="width:100%; float:right;"></input>
 										<input name="idProduct" type="hidden" value={{$product->idProduct}}/>
 									</div>  
 								</div>
