@@ -11,11 +11,7 @@
 |
 */
 
-Route::get('/', function()
-{
-	// return View::make('hello');
-    return View::make('/perdtye/index');
-});
+Route::get('/', 'BrowseController@viewTopItem');
 
 Route::get('users', function()
 {
@@ -106,7 +102,7 @@ Route::get('test', function()
 // });
 
 
-Route::get('qa', 'AskAQuestionController@qa');
+Route::get('qa', 'AskAQuestionController@qa')->before("auth");
 
 Route::get('auctiontype',function()
 {
