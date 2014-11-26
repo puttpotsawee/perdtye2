@@ -8,8 +8,15 @@
 	</div>
 	<div class="col-md-10 column">
 		<!--Profile edit-->
+				@if(Session::has('flash_error'))
+				<div class="alert alert-dismissable alert-success" id ="flash_error" >
+					<button type="button" class="close" data-dismiss="alert">×</button>
+					<h4>Successful</h4>
+					<p>{{ Session::get('flash_error') }}</p>
+				</div>
+				@endif
 		<div class="col-lg-offset-2 col-lg-8 well-shadow">
-			<form class="form-horizontal">
+			<form class="form-horizontal" action="editprofile" method="post">
 				<fieldset>
 					<legend>Edit Profile</legend>
 					<div class="input-group">
@@ -22,14 +29,14 @@
 						<div class="col-lg-5 form-group">
 							<label for="inputFirstname" class="control-label">First name</label>
 							<div >
-								<input type="text" class="form-control" id="inputFirstname" value={{$name}}>
+								<input type="text" class="form-control" id="inputFirstname" name="name" value={{$name}} >
 							</div>
 						</div>
 
 						<div class="col-lg-offset-1 col-lg-5">
 							<label for="inputLastname" class="control-label">Last name</label>
 							<div >
-								<input type="text" class="form-control" id="inputLastname" value={{surname}}>
+								<input type="text" class="form-control" id="inputLastname" name="surname" value={{$surname}}>
 							</div>
 						</div>
 					</div>
@@ -40,30 +47,63 @@
 							<label for="inpuDate" class="control-label" >Birth Date</label>
 
 							<div style="width:220px">
-								<input type="text" class ="form-control datepicker" id="inputDate" name="inputDate" 
-								placeholder="dd/mm/yyyy"
+								<input type="text" class ="form-control datepicker" id="inputDate" name="birthdate" 
+								value={{$birthdate}}
 								>
 							</div>
 							<label for="inputEmail" class="control-label">Email</label>
 							<div >
-								<input type="email" class="form-control" id="inputEmail" placeholder="Kuyแก้ด้วย">
+								<input type="email" class="form-control" id="inputEmail" name="email" value={{$email}}>
 							</div> 
 						</div>    
 					</div>
 
 					<div class="form-group">
-						<div class="col-lg-1"></div>
-						<div class="col-lg-10 panel panel-default">
-							<div class="panel-heading">Address</div>
-							<div class="panel-body">
-								<div class="col-lg-10">
-									ช่วยแก้หน่อย ใส่ข้อมูลเก่าไม่เป็น
-								</div>
-								<a href="#" class="col-lg-2 btn btn-default">Edit</a>
+							<label for="inputStreet" class="col-lg-2 control-label">House No.*</label>
+							<div class="col-lg-4">
+								<input type="text" data-validation="required" class="form-control" name="house_number" id="inputStreet" value={{$address->house_number}}>
 							</div>
 						</div>
-						<a href="#" class="col-lg-offset-1 btn btn-primary">Add New</a>
-					</div>
+
+						<div class="form-group">
+							<label for="inputStreet" class="col-lg-2 control-label">Road*</label>
+							<div class="col-lg-4">
+								<input type="text" data-validation="required" class="form-control" name="road" id="inputStreet" value={{$address->road}}>
+							</div>
+							<label for="inputPostCode" class="col-lg-2 control-label">District*</label>
+							<div class="col-lg-4">
+								<input type="text" data-validation="required" class="form-control" name="district" id="inputPostCode" value={{$address->district}}>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="inputCity" class="col-lg-2 control-label">City*</label>
+							<div class="col-lg-4">
+								<input type="text" data-validation="required" class="form-control" name="city" id="inputCity" value={{$address->city}}>
+							</div>
+							<label for="inputPostCode" class="col-lg-2 control-label">Province*</label>
+							<div class="col-lg-4">
+								<input type="text" data-validation="required" class="form-control" name="province" id="inputPostCode" value={{$address->province}}>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="inputRegion" class="col-lg-2 control-label">Country*</label>
+							<div class="col-lg-4">
+								<input type="text" data-validation="required" class="form-control" name="country" id="inputRegion" value={{$address->country}}>
+							</div>
+							<label for="inputPostCode" class="col-lg-2 control-label">Post Code*</label>
+							<div class="col-lg-4">
+								<input type="text" data-validation="number required" class="form-control" name="zipcode" id="inputPostCode" value={{$address->zipcode}}>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<label for="inputTel" class="col-lg-2 control-label">Primary Telephone number*</label>
+							<div class="col-lg-4">
+								<input type="text" class="form-control" data-validation="swephone" name="phonenumber"id="inputEmail" value={{$phonenumber}}>
+							</div>
+						</div>
 
 					<div class="form-group">
 						<div class="col-lg-1"></div>
@@ -94,7 +134,7 @@
 							<div class="form-group">
 								<label for="inputOldpass" class="control-label">Old password</label>
 								<div >
-									<input type="password" class="form-control" id="inputOldpass" style="width:300px" placeholder="Kuyแก้ด้วย">
+									<input type="password" class="form-control" id="inputOldpass" style="width:300px" >
 								</div>
 							</div>
 							
@@ -103,12 +143,12 @@
 								<p>
 									<label for="inputNewpass" class="control-label">New password</label>
 									
-									<input type="password" class="form-control" id="inputNewpass" style="width:300px" placeholder="Kuyแก้ด้วย">
+									<input type="password" class="form-control" id="inputNewpass" style="width:300px" >
 									
 									<label for="inputNewpass" class="control-label">Please confirm new password</label>
 								</p>
 								<p>
-									<input type="password" class="col-lg-6 form-control" id="inputRenew" style="width:300px" placeholder="Kuyแก้ด้วย">
+									<input type="password" class="col-lg-6 form-control" id="inputRenew" style="width:300px" >
 								</p>
 
 							</div>
