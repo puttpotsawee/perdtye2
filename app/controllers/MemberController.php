@@ -14,7 +14,7 @@ class MemberController extends BaseController {
 	|	Route::get('/', 'HomeController@showWelcome');
 	|
 	*/
-	public function showAccount()
+	public static function showAccount()
 	{
 		$name = Auth::user()->name;
 		$surname = Auth::user()->surname;

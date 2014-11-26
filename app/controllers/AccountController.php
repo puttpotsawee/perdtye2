@@ -6,7 +6,10 @@ class AccountController extends BaseController {
 	{
 		return View::make('/perdtye/answer');
 	}
-	
+	public function showAccount()
+	{
+		return MemberController::showAccount();
+	}
 
 
   	
