@@ -182,8 +182,7 @@ Route::get('answer',function()
 Route::get('search', 'SearchController@failed');
 Route::post('search', 'SearchController@search');
 //Route to item details
-Route::get('auction', 'BrowseController@viewAuction');
-Route::get('direct', 'BrowseController@viewDirect');
+Route::get('view', 'BrowseController@view');
 //Route to buy/bid request
 Route::post('placebid', 'AuctionController@placeBid');
 Route::post('maxbid', 'AuctionController@maxBid');
