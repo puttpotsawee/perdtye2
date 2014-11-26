@@ -59,10 +59,10 @@ Route::get('logout', 'SessionController@destroy');
 Route::resource('session','SessionController');
 
 Route::get('account','MemberController@showAccount')->before('auth');
-Route::get('editprofile', 'MemberController@editAccount')->before('auth');
-Route::post('editprofile', 'MemberController@saveEditedAccount')->before('auth');
-Route::get('report','MemberController@report')->before('auth');
-Route::get('feedback','MemberController@seeFeedback')->before('auth');
+// commit:
+Route::get('editprofile', 'EditProfileController@editAccount')->before('auth');
+Route::post('editprofile', 'EditProfileController@saveEditedAccount')->before('auth');
+//
 
 
 
@@ -109,10 +109,7 @@ Route::get('test', function()
 // });
 
 
-Route::get('qa',function()
-{
-    return View::make('/perdtye/qa');
-});
+Route::get('qa', 'AskAQuestionController@qa');
 
 Route::get('auctiontype',function()
 {
@@ -127,43 +124,23 @@ Route::get('directtype',function()
 {
     return View::make('/perdtye/directtype');
 });
-Route::get('editauctionsell',function()
-{
-    return View::make('/perdtye/editauctionsell');
-});
-Route::get('editdirectsell',function()
-{
-    return View::make('/perdtye/editdirectsell');
-});
+Route::get('editauctionsell', 'EditSellController@editauctionsell');
+Route::get('editdirectsell', 'EditSellController@editdirectsell');
 
-Route::get('feedback',function()
-{
-    return View::make('/perdtye/feedback');
-});
-Route::get('forgot',function()
-{
-    return View::make('/perdtye/forgot');
-});
-Route::get('report',function()
-{
-    return View::make('/perdtye/report');
-});
-Route::get('reportgood',function()
-{
-    return View::make('/perdtye/reportgood');
-});
-Route::get('reportsubmit',function()
-{
-    return View::make('/perdtye/reportsubmit');
-});
+Route::get('feedback','GiveFeedbackController@seeFeedback')->before('auth');
+
+Route::get('forgot', 'ForgotPassController@forgot');
+Route::get('statusforgot', 'ForgotPassController@statusforgot');
+
+Route::get('report', 'ReportController@report')->before('auth');
+Route::get('reportgood', 'ReportController@reportgood');
+Route::get('reportsubmit', 'ReportController@reportsubmit');
+
 Route::get('sellregister',function()
 {
     return View::make('/perdtye/sellregister');
 });
-Route::get('statusforgot',function()
-{
-    return View::make('/perdtye/statusforgot');
-});
+
 Route::get('sellconfirm',function()
 {
     return View::make('/perdtye/sellconfirm')->with(Seller::find(1));
@@ -172,10 +149,7 @@ Route::get('confirmsuccess',function()
 {
     return View::make('/perdtye/confirmsuccess');
 });
-Route::get('answer',function()
-{
-    return View::make('/perdtye/answer');
-});
+Route::get('answer', 'AccountController@answer');
 // Routing Blade
 
 //Route to search

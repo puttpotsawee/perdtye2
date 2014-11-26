@@ -24,7 +24,7 @@
 							<button type="submit" class="btn btn-primary">Continue</button>
 						</div>
 						<div class="col-sm-3" style="float:right;">
-							<a href="login1.html" class="btn btn-default" style="float:right;">Login</a>
+							<a href="login" class="btn btn-default" style="float:right;">Login</a>
 						</div>
 					</div>
 				</form>

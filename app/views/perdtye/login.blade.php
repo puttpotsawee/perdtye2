@@ -38,7 +38,7 @@
 				<div class="form-group">
 					<div class="col-sm-offset-3 col-sm-9">
 
-						<a href="forgot.html">Forget Your Password?</a>
+						<a href="forgot">Forget Your Password?</a>
 					</div>
 				</div>
 				<div class="form-group">

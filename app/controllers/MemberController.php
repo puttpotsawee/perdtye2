@@ -74,7 +74,7 @@ class MemberController extends BaseController {
 			
 	}
 
-	public function editAccount()
+	public static function editAccount()
 	{
 		$member = Auth::user();
 		$idmember = $member->idmember;
@@ -96,7 +96,7 @@ class MemberController extends BaseController {
 			));
 	}
 
-	public function saveEditedAccount()
+	public static function saveEditedAccount()
 	{
 			$member = Auth::user();
 
@@ -118,15 +118,6 @@ class MemberController extends BaseController {
  			$address->save();
 
 		return Redirect::back()->with('flash_error','Your account has been saved.');
-	}
-	
-	public function report()
-	{
-		return "report Page";
-	}
-	public function seeFeedback()
-	{
-		return "see feedback Page";
 	}
 	
 	public function activateMember($username,$token)
