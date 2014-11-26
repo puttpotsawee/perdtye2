@@ -3,7 +3,14 @@
 class SignupController extends BaseController {
 
 	public function index() {
-		return View::make('/perdtye/signup');
+		if (Auth::check())
+		{	
+			return Redirect::to('/');
+		}		
+		else 
+		{	
+			return View::make('/perdtye/signup');
+		}
 	}
 
 	public function signup() {
@@ -12,7 +19,7 @@ class SignupController extends BaseController {
 			array(
 				// Member table
 				'username' => Input::get('username'),
-				'email' => Input::get('email')
+				'email' => Input::get('email'),
 			),
 			array(
 				'username' => 'required|unique:member,username',
@@ -33,6 +40,7 @@ class SignupController extends BaseController {
  			$user->name = Input::get('name');
  			$user->surname = Input::get('surname');
  			$user->phonenumber = Input::get('phonenumber');
+ 			$user->birthdate = Input::get('birthdate');
  			$user->confirm_token = $confirm_code;
  			$user->save();
 
@@ -55,39 +63,8 @@ class SignupController extends BaseController {
 		}
 		else
 		{
-			return Redirect::to('signup')->withErrors($validator);
+			return Redirect::back()->withInput()->withErrors($validator);
 		}
  
-	} // Ends Signup Function
-	/*
-	public function test()
-	{
-		return 'ok';
-	}
-	public function index()
-	{
-		return View::make('signup2');
-
-		//return Redirect::to('signup/create');
-	}
-
-	public function create()
-	{
-		return View::make('signup2');
-	}
-	public function store()
-	{
-		$user = new Member;
-		$user->username = Input::get('username');
-		$user->password = Hash::make(Input::get('password'));
- 		$user->email = Input::get('email');
- 		$user->status = Input::get('status');
- 		$user->name = Input::get('name');
- 		$user->surname = Input::get('surname');
- 		$user->phonenumber = Input::get('phonenumber');
-		$user->save();
-
-		return 'saved!';
-	}
-	*/
+	} 
 }

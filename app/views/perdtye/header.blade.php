@@ -48,7 +48,7 @@
     <div class="col-md-12 column">
      <nav class="navbar navbar-default navbar-default-top navbar-fixed-top" role="navigation">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="home">Perdtye</a>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="index.php">Perdtye</a>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -92,7 +92,7 @@
    <div class="row clearfix">
     <div class="col-md-3 column">
       <div class="row clearfix">
-        <a href="home"><img src="img/logo.png" width="100%"/></a>
+        <a href="index.php"><img src="img/logo.png" width="100%"/></a>
       </div></div>
 
       <div class="col-md-9 column search" >
@@ -134,7 +134,7 @@
     <div class="col-md-12 column">
      <nav class="navbar navbar-default navbar-default-top navbar-fixed-top" role="navigation">
       <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="home">Perdtye</a>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"> <span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button> <a class="navbar-brand" href="index.php">Perdtye</a>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -171,7 +171,7 @@
    <div class="row clearfix">
     <div class="col-md-3 column">
       <div class="row clearfix">
-        <a href="home"><img src="img/logo.png" width="100%"/></a>
+        <a href="index.php"><img src="img/logo.png" width="100%"/></a>
       </div></div>
 
       <div class="col-md-9 column search" >
@@ -259,7 +259,7 @@
   </script>
   <script>
   $('.datepicker').datepicker({
-    format: "dd/mm/yyyy",
+    format: "yyyy-mm-dd",
     autoclose: true,
     todayHighlight: true
   });

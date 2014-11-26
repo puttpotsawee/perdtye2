@@ -54,7 +54,7 @@
 									<p>100% positive feedback</p>
 								</div>
 								<div class="col-md-6" >
-									<h3>&#9733; &#9733; &#9733; &#9733; &#9734;</h3>
+									<h3 style="color:#3399FF;">&#9733; &#9733; &#9733; &#9733; &#9734;</h3>
 								</div>
 							</div>
 							<div class="row" style="margin-top:20px;">

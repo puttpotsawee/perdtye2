@@ -59,14 +59,6 @@ class MemberController extends BaseController {
         	->select('product.product_name', 'product_direct.quantity', 'product_direct.remaining', 'product_direct.price')
         	->get();
 
-/*       	$bidding = DB::table('auction_list')
-			->where('auction_list.idmember', '=', $idmember)
-        	->join('product', 'product.idProduct', '=', 'auction_list.idproduct_auction')
-        	->select('product.product_name', 'product_direct.quantity', 'product_direct.remaining', 'product_direct.price')
-        	->get();*/
-
-         //return $question;
-
 		return View::Make('perdtye/account')->with(
 			array(
 				'name'=> $name, 
@@ -82,10 +74,52 @@ class MemberController extends BaseController {
 			
 	}
 
-	public function editProfile()
+	public function editAccount()
 	{
-		return 'editprofile';
+		$member = Auth::user();
+		$idmember = $member->idmember;
+		$name = $member->name;
+		$surname = $member->surname;
+		$birthdate = $member->birthdate;
+		$email = $member->email;
+		$phonenumber = $member->phonenumber;
+		$address = $member->address->first();
+		
+		return View::Make('perdtye/editaccount')->with(
+			array(
+				'name' => $name,
+				'surname' => $surname,
+				'birthdate' => $birthdate,
+				'email' => $email,
+				'phonenumber' => $phonenumber,
+				'address' => $address
+			));
 	}
+
+	public function saveEditedAccount()
+	{
+			$member = Auth::user();
+
+			$member->phonenumber = Input::get('phonenumber');
+			$member->email = Input::get('email');
+ 			$member->name = Input::get('name');
+ 			$member->surname = Input::get('surname');
+ 			$member->birthdate = Input::get('birthdate');
+ 			$member->save();
+
+			$address = $member->address->first();
+ 			$address->country = Input::get('country');
+ 			$address->zipcode = Input::get('zipcode');
+ 			$address->province = Input::get('province');
+ 			$address->city = Input::get('city');
+ 			$address->district = Input::get('district');
+ 			$address->road = Input::get('road');
+ 			$address->house_number = Input::get('house_number');
+ 			$address->save();
+
+		return Redirect::back()->with('flash_error','Your account has been saved.');
+	}
+	
 	public function report()
 	{
 		return "report Page";
