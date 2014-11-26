@@ -43,7 +43,7 @@
 		<div class="col-md-1 column">
 			
 			<p>&nbsp;</p>
-			<a href="editprofile" class="btn btn-default" style="width:300%">Edit Profile</a> 
+			<a href="editaccount" class="btn btn-default" style="width:300%">Edit Profile</a> 
 			<p>&nbsp;</p>
 
 

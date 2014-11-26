@@ -23,7 +23,7 @@
 				</div>
 				@endif
 		<div class="col-lg-offset-2 col-lg-8 well-shadow">
-			<form class="form-horizontal" action="editprofile" method="post">
+			<form class="form-horizontal" action="editaccount" method="post">
 				<fieldset>
 					<legend>Edit Profile</legend>
 					<div class="input-group">
