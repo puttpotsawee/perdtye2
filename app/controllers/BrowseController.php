@@ -7,6 +7,9 @@ class BrowseController extends BaseController {
 	{
 		//return purchase/bidding result
 		echo Session::get('message');
+		if(!Input::has('id')){
+			return Redirect::to('/');
+		}
 		
 		$idProduct = Input::get('id');
 		$product = Product::find($idProduct);
