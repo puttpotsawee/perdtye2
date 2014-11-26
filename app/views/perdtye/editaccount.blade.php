@@ -22,14 +22,14 @@
 						<div class="col-lg-5 form-group">
 							<label for="inputFirstname" class="control-label">First name</label>
 							<div >
-								<input type="text" class="form-control" id="inputFirstname" placeholder="Kuyแก้ด้วย">
+								<input type="text" class="form-control" id="inputFirstname" value={{$name}}>
 							</div>
 						</div>
 
 						<div class="col-lg-offset-1 col-lg-5">
 							<label for="inputLastname" class="control-label">Last name</label>
 							<div >
-								<input type="text" class="form-control" id="inputLastname" placeholder="Kuyแก้ด้วย">
+								<input type="text" class="form-control" id="inputLastname" value={{surname}}>
 							</div>
 						</div>
 					</div>

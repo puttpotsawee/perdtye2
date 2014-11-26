@@ -59,7 +59,7 @@ Route::get('logout', 'SessionController@destroy');
 Route::resource('session','SessionController');
 
 Route::get('account','MemberController@showAccount')->before('auth');
-Route::get('account/edit','MemberController@editAccount')->before('auth');
+Route::get('editprofile', 'MemberController@editAccount')->before('auth');
 Route::get('report','MemberController@report')->before('auth');
 Route::get('feedback','MemberController@seeFeedback')->before('auth');
 
@@ -137,10 +137,7 @@ Route::get('editdirectsell',function()
 {
     return View::make('/perdtye/editdirectsell');
 });
-Route::get('editprofile',function()
-{
-    return View::make('/perdtye/editprofile');
-});
+
 Route::get('feedback',function()
 {
     return View::make('/perdtye/feedback');

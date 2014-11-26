@@ -82,9 +82,18 @@ class MemberController extends BaseController {
 			
 	}
 
-	public function editProfile()
+	public function editAccount()
 	{
-		return 'editprofile';
+		$member = Auth::user();
+		$name = $member->name;
+		$surname = $member->surname;
+		
+
+		return View::Make('perdtye/editaccount')->with(
+			array(
+				'name' => $name,
+				'surname' => $surname
+			));
 	}
 	public function report()
 	{
