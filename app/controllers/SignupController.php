@@ -13,12 +13,10 @@ class SignupController extends BaseController {
 				// Member table
 				'username' => Input::get('username'),
 				'email' => Input::get('email'),
-				'birthdate' => Input::get('birthdate')
 			),
 			array(
 				'username' => 'required|unique:member,username',
 				'email' => 'required|unique:member,email',
-				'birthdate' => 'required'|'date_format:"mm/dd/yyyy"')
 			)
 		);
 
