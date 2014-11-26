@@ -139,8 +139,8 @@
 						<div class="form-group">
 							<label for="inpuDate" class="col-lg-2 control-label" >Birth Date</label>
 							<div class="col-lg-10" style="width:220px">
-								<input type="text" class ="form-control datepicker" data-validation="birthdate" data-validation-format="dd/mm/yyyy" id="inputDate" name="birthdate" 
-								placeholder="dd/mm/yyyy">
+								<input type="text" class ="form-control datepicker" data-validation="birthdate" data-validation-format="yyyy/mm/dd" id="inputDate" name="birthdate" 
+								placeholder="yyyy/mm/dd">
 							</div>
 						</div>
 
