@@ -173,6 +173,14 @@ Route::get('sellconfirm',function()
 {
     return View::make('/perdtye/sellconfirm')->with(Seller::find(1));
 });
+Route::get('confirmsuccess',function()
+{
+    return View::make('/perdtye/confirmsuccess');
+});
+Route::get('answer',function()
+{
+    return View::make('/perdtye/answer');
+});
 // Routing Blade
 
 //Route to search
