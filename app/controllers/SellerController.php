@@ -8,6 +8,12 @@ class SellerController extends BaseController {
     //
 		return Redirect::to('home');
 	}
+	public function saveFile($file,$insertedId){
+		$filename = 'img_'.$insertedId."_".uniqid().".".$file->getClientOriginalExtension();
+
+        $file->move(public_path('pic'), $filename);
+        return '/pic/'.$filename;
+	}
 
 	// search product_name
 	public function directsell(){
@@ -44,9 +50,38 @@ class SellerController extends BaseController {
 		$product_direct->quantity = Input::get('quantity');
 		$product_direct->remaining = Input::get('quantity');
 		$product_direct->save();
+		$files = Input::file('pic');
+		// echo var_dump($files);
+		foreach($files as $file){
+			// $rules = array(
+   //              'file' => 'required|mimes:png,gif,jpeg|max:20000'
+   //          );
+   //          $validator = Validator::make(array('file'=> $file), $rules);
+   //          if($validator->passes()){
+   //              $ext = $file->guessClientExtension(); // (Based on mime type)
+   //              //$ext = $file->getClientOriginalExtension(); // (Based on filename)
+   //              $filename = $file->getClientOriginalName();
+
+   //              $file->move(public_path('pic'), $filename);
+			$newPath = $this->saveFile($file,$insertedId);
+			$newProduct = new Productpicture;
+			$newProduct->idProduct = $insertedId;
+			$newProduct->picture_url = App::make('url')->to('/').$newPath;
+			$newProduct->save();
+   //          }else{
+   //              //Does not pass validation
+   //              $errors = $validator->errors();
+   //              return Redirect::back()->withInput()->withErrors($validator);
+   //          }
+			
+			
+
+			
+
+		}
 
 		
-		return "done";
+		return ;
 
 	}
 	public function auctionsell(){

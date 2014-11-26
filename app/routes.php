@@ -51,6 +51,10 @@ Route::get('try',function()
 {
     return DB::select('select * from testUser', array(1));
 });
+Route::get('pic',function(){
+    return '';
+});
+
 
 // Route::get('testClass','MemberController@showProfile');
 
@@ -179,8 +183,7 @@ Route::get('sellconfirm',function()
 Route::get('search', 'SearchController@failed');
 Route::post('search', 'SearchController@search');
 //Route to item details
-Route::get('auction', 'BrowseController@viewAuction');
-Route::get('direct', 'BrowseController@viewDirect');
+Route::get('view', 'BrowseController@view');
 //Route to buy/bid request
 Route::post('placebid', 'AuctionController@placeBid');
 Route::post('maxbid', 'AuctionController@maxBid');
@@ -190,11 +193,11 @@ Route::get('transaction',function()
 
     return Transaction::all();
 });
-/*
+
 Route::post('paynow', 'PaymentController@paynow');
 Route::post('confirm', 'PaymentController@confirm');
 Route::get('date',function()
 {
     date_default_timezone_set('Asia/Singapore');
     return $date = date('Y-m-d H:i:s', time());
-});*/
+});

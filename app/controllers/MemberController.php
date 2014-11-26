@@ -105,9 +105,12 @@ class MemberController extends BaseController {
 			$thisToken = $thisUser->confirm_token;
 			if($token==$thisToken){
 				// this mean the token is correct
-				$thisUser->status = 'buyer';
-				$thisUser->save();
-				
+                if ($thisUser->status != "pending"){
+                    return Redirect::to('home');
+                } else {
+                    $thisUser->status = 'buyer';
+                    $thisUser->save();
+                }			
 				Auth::login($thisUser);
 				return Redirect::to('/home');
 			} else {

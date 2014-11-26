@@ -25,6 +25,7 @@ use Illuminate\Auth\Reminders\RemindableInterface;
  * @method static \Illuminate\Database\Query\Builder|\Question whereTopic($value)
  * @method static \Illuminate\Database\Query\Builder|\Question whereContent($value)
  * @method static \Illuminate\Database\Query\Builder|\Question whereType($value)
+ * @property-read \Product $product
  */
 class Question extends Eloquent implements UserInterface, RemindableInterface {
 

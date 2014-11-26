@@ -10,7 +10,7 @@
 				</div>
 				<div class="col-md-8 column">
 					<!-- <form action="directtype.html" method="get"> -->
-					{{ Form::open() }}
+					{{ Form::open(array('files'=>true)) }}
 						<legend>Sell Registration form</legend>
 						<div class="row clearfix">
 							<div class="col-md-4 column">
@@ -27,7 +27,8 @@
 							</div>
 							<div class="col-md-8 column">
 								<input type="file" data-validation="mime size" data-validation-allowing="jpg, png, gif" 
-								data-validation-max-size="2M" id="exampleInputFile" name="pic[]" multiple=""/>
+								data-validation-max-size="2M" id="exampleInputFile" name="pic[]" multiple="true"/>
+								<!-- {{Form::file('pic[]', array('multiple'=>true));}} -->
 							</div>
 						</div>
 

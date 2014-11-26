@@ -22,15 +22,42 @@ class SearchController extends BaseController {
 		if($category == $all_category)
 		{
 			$result = Product::getProductInfo($keyword);
-			// echo $result;
-		}
+			foreach ($result as $r){
+				$idProduct = $r['idProduct'];
+				$picture = Productpicture::where('idProduct','=',$idProduct);
+				if($picture->count()>0){
+					$r['picURL'] = $picture->first()->picture_url;
+				} else {
+					$r['picURL'] = '';
+				}
+				
+			}
+		}	
 		else if($category == $auction_category)
 		{
 			$result = Product::getProductAuctionInfo($keyword);
+			foreach ($result as $r){
+				$idProduct = $r['idProduct'];
+				$picture = Productpicture::where('idProduct','=',$idProduct);
+				if($picture->count()>0){
+					$r['picURL'] = $picture->first()->picture_url;
+				} else {
+					$r['picURL'] = '';
+				}
+			}
 		}
 		else if($category == $direct_category)
 		{
 			$result = Product::getProductDirectInfo($keyword);
+			foreach ($result as $r){
+				$idProduct = $r['idProduct'];
+				$picture = Productpicture::where('idProduct','=',$idProduct);
+				if($picture->count()>0){
+					$r['picURL'] = $picture->first()->picture_url;
+				} else {
+					$r['picURL'] = '';
+				}
+			}
 		}
 		
 		return View::make('perdtye/search')->with('result',$result);

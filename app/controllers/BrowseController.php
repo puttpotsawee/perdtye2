@@ -3,34 +3,37 @@
 class BrowseController extends BaseController {
 
 	
-	public function viewAuction()
+	public function view()	
 	{
 		//return purchase/bidding result
 		echo Session::get('message');
 		
 		$idProduct = Input::get('id');
 		$product = Product::find($idProduct);
-		$moreDetails = Product_auction::find($idProduct);
-		$seller = Member::find($product->idseller);
-		
-		return View::make('perdtye/auctiontype')
-			->with(array('product' => $product, 'details' => $moreDetails, 'seller' => $seller));
+		$pictures = Productpicture::where('idProduct','=',$idProduct);
+		if($product->type == 'auction'){
+			$moreDetails = Product_auction::find($idProduct);
+			$seller = Member::find($product->idseller);
 			
-	}
 
-	public function viewDirect()
-	{
-		//return purchase/bidding result
-		echo Session::get('message');
+
+			return View::make('perdtye/auctiontype')
+			->with(array('product' => $product, 'details' => $moreDetails, 'seller' => $seller,'pictures'=>$pictures));
+			// return var_dump($product.$moreDetails);
+
+		} elseif($product->type == 'direct') {
+			$moreDetails = Product_direct::find($idProduct);
+			$seller = Member::find($product->idseller);
+
+			return View::make('perdtye/directtype')
+			->with(array('product' => $product, 'details' => $moreDetails, 'seller' => $seller,'pictures'=>$pictures));
 		
-		$idProduct = Input::get('id');
-		$product = Product::find($idProduct);
-		$moreDetails = Product_direct::find($idProduct);
-		$seller = Member::find($product->idseller);
+
+		} else {
+			return View::make('/');
+		}
 		
-		return View::make('perdtye/directtype')
-			->with(array('product' => $product, 'details' => $moreDetails, 'seller' => $seller));
-		
+
 	}
 
   	

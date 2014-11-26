@@ -22,6 +22,8 @@ use Illuminate\Auth\Reminders\RemindableInterface;
  * @method static \Illuminate\Database\Query\Builder|\Product_auction whereMinimumBid($value)
  * @method static \Illuminate\Database\Query\Builder|\Product_auction whereBiddingRange($value)
  * @method static \Illuminate\Database\Query\Builder|\Product_auction whereCurrentPrice($value)
+ * @property boolean $isend
+ * @method static \Illuminate\Database\Query\Builder|\Product_auction whereIsend($value) 
  */
 class Product_auction extends Eloquent implements UserInterface, RemindableInterface {
 
