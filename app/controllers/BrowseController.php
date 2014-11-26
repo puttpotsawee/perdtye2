@@ -7,10 +7,14 @@ class BrowseController extends BaseController {
 	{
 		//return purchase/bidding result
 		echo Session::get('message');
+		if(!Input::has('id')){
+			return Redirect::to('/');
+		}
 		
 		$idProduct = Input::get('id');
 		$product = Product::find($idProduct);
-		$pictures = Productpicture::where('idProduct','=',$idProduct);
+		$pictures = Productpicture::where('idProduct','=',$idProduct)->get();
+
 		if($product->type == 'auction'){
 			$moreDetails = Product_auction::find($idProduct);
 			$seller = Member::find($product->idseller);

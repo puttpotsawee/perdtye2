@@ -8,15 +8,22 @@
 	</div>
 	<div class="col-md-10 column">
 		<!--Profile edit-->
-				@if(Session::has('flash_error'))
+				@if(Session::has('flash_message'))
 				<div class="alert alert-dismissable alert-success" id ="flash_error" >
 					<button type="button" class="close" data-dismiss="alert">×</button>
 					<h4>Successful</h4>
+					<p>{{ Session::get('flash_message') }}</p>
+				</div>
+				@endif
+				@if(Session::has('flash_error'))
+				<div class="alert alert-dismissable alert-danger" id ="flash_error" >
+					<button type="button" class="close" data-dismiss="alert">×</button>
+					<h4>Unuccessful</h4>
 					<p>{{ Session::get('flash_error') }}</p>
 				</div>
 				@endif
 		<div class="col-lg-offset-2 col-lg-8 well-shadow">
-			<form class="form-horizontal" action="editprofile" method="post">
+			<form class="form-horizontal" action="editaccount" method="post">
 				<fieldset>
 					<legend>Edit Profile</legend>
 					<div class="input-group">
@@ -134,7 +141,7 @@
 							<div class="form-group">
 								<label for="inputOldpass" class="control-label">Old password</label>
 								<div >
-									<input type="password" class="form-control" id="inputOldpass" style="width:300px" >
+									<input type="password" name="oldpassword" class="form-control" id="inputOldpass" style="width:300px" >
 								</div>
 							</div>
 							
@@ -143,12 +150,12 @@
 								<p>
 									<label for="inputNewpass" class="control-label">New password</label>
 									
-									<input type="password" class="form-control" id="inputNewpass" style="width:300px" >
+									<input type="password" name="password_confirmation" class="form-control" id="inputNewpass" style="width:300px" >
 									
 									<label for="inputNewpass" class="control-label">Please confirm new password</label>
 								</p>
 								<p>
-									<input type="password" class="col-lg-6 form-control" id="inputRenew" style="width:300px" >
+									<input type="password" name="password" data-validation="confirmation" class="col-lg-6 form-control" id="inputRenew" style="width:300px" >
 								</p>
 
 							</div>

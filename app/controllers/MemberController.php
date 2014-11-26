@@ -84,7 +84,7 @@ class MemberController extends BaseController {
 		$email = $member->email;
 		$phonenumber = $member->phonenumber;
 		$address = $member->address->first();
-		
+
 		return View::Make('perdtye/editaccount')->with(
 			array(
 				'name' => $name,
@@ -98,6 +98,16 @@ class MemberController extends BaseController {
 
 	public static function saveEditedAccount()
 	{
+		$validator = Validator::Make(
+			array(
+				// Member table
+				'password' => Input::get('password')
+			),
+			array(
+				'password' => 'required|min:8'
+			)
+		);
+
 			$member = Auth::user();
 
 			$member->phonenumber = Input::get('phonenumber');
@@ -105,7 +115,6 @@ class MemberController extends BaseController {
  			$member->name = Input::get('name');
  			$member->surname = Input::get('surname');
  			$member->birthdate = Input::get('birthdate');
- 			$member->save();
 
 			$address = $member->address->first();
  			$address->country = Input::get('country');
@@ -115,9 +124,39 @@ class MemberController extends BaseController {
  			$address->district = Input::get('district');
  			$address->road = Input::get('road');
  			$address->house_number = Input::get('house_number');
- 			$address->save();
 
-		return Redirect::back()->with('flash_error','Your account has been saved.');
+ 			if(Input::get('oldpassword') == '')
+ 			{
+ 				$member->save();
+ 				$address->save();
+				return Redirect::back()->with('flash_message','Your account has been saved.');
+ 			}
+ 			else
+ 			{
+ 				if ($validator->fails())
+				{
+ 					return Redirect::back()->with('flash_error','New password should be at least 8 characters.');
+				}
+				else
+				{
+  					$temp = Input::get('oldpassword');
+ 					$hashinDB = $member->password;
+
+					if (Hash::check($temp, $hashinDB))
+ 					{
+ 						$member->password = Hash::make(Input::get('password'));
+ 						$member->save();
+ 						$address->save();
+						return Redirect::back()->with('flash_message','Your account has been saved.');
+ 					}
+ 					else
+ 					{
+ 						return Redirect::back()->with('flash_error','Your old password was wrong.');
+ 					}
+				}
+ 			}
+
+
 	}
 	
 	public function activateMember($username,$token)
