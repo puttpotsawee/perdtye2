@@ -37,5 +37,34 @@ class BrowseController extends BaseController {
 
 	}
 
+	public function viewTopItem(){
+		$sendProduct = new SplFixedArray(9);
+		$i=0;
+		$productList = Product::orderBy('idProduct', 'desc')->get()->take(9);
+		foreach($productList as $product){
+			$idProduct = $product->idProduct;
+				$picture = Productpicture::where('idProduct','=',$idProduct);
+				if($picture->count()>0){
+					$pictureURL = $picture->first()->picture_url;
+				} else {
+					$pictureURL = '';
+				}
+			if($product->type=='direct'){
+				$price = Product_direct::find($product->idProduct)->price;
+				
+			} elseif ($product->type=='auction'){
+				$price = Product_auction::find($product->idProduct)->current_price;
+			}
+			$send = array('product'=>$product,'price'=>$price,'picture'=>$pictureURL);
+			// $product['price'] = $price;
+			// $product['picture'] = $pictureURL;
+			$sendProduct[$i]=$send;
+			$i++;
+		}
+		// return $productList;
+		return View::make('perdtye/viewItemList')->with('sendProduct',$sendProduct);
+
+	}
+
   	
 }

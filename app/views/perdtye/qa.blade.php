@@ -9,18 +9,18 @@
 		<!-- picture -->
 		<div class="row clearfix ">	
 			<div class="col-md-3"> 
-				<img alt="140x140" width="150px" src="img/i6.png"></img>
+				<img alt="140x140" width="150px" src={{$picture}}></img>
 			</div>
 			<div class="col-md-7"> 
 				<p>&nbsp;</p>
 				<p>&nbsp;</p>
 
 				<h4>
-					IPhone 6 Plus  - Gold (AIS) - 16 GB
+					{{$product->product_name}}
 				</h4>
 				<p>&nbsp;</p>
 				<p>
-					Seller : John
+					Seller : {{$seller->name}}
 				</p>
 
 			</div>

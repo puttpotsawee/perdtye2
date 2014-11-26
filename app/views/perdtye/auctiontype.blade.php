@@ -124,7 +124,7 @@
 							</div>
 							<div class="row" style="margin-top:20px;">
 								<div class="col-md-12">
-									<a href="qa" class="btn btn-default"style="width:100%">Ask a question </a>
+									<a href=qa?id={{$product->idProduct}} class="btn btn-default"style="width:100%">Ask a question </a>
 								</div>
 							</div>
 						</div>
