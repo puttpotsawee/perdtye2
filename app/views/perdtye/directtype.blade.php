@@ -6,49 +6,7 @@
 		$seller
 -->
 
-<<<<<<< HEAD
-	@section('content')
-	<!-- direct -->
-	<div class="container" style="margin-top:30px;">
-		<div class="row clearfix">
-			<div class="col-md-12 column">
-				<div class="row clearfix">
-					<div class="col-md-2 column">
-					</div>
-					<div class="col-md-8 column">
-						<legend> {{$product->product_name}} </legend>
-						<div class="row clearfix" style="margin-top:30px;">
-							<div class="col-md-6 column">
-								<div class="thumbnail">
-									<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
 
-										<!-- Wrapper for slides -->
-										<div class="carousel-inner" role="listbox">
-
-											
-											<div class="item active">
-												<img src="img/i6.png" width="100%"/>
-											</div>
-
-											<div class="item">
-												<img src="img/i6.png" width="100%"/>
-											</div>
-
-										</div>
-
-										<!-- Controls --><!-- 
-										<a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
-											<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-											<span class="sr-only">Previous</span>
-										</a> -->
-										<a class="carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
-											<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-											<span class="sr-only">Next</span>
-										</a>
-
-									</div>
-								</div>
-=======
 @section('content')
 <!-- direct -->
 <div class="container" style="margin-top:30px;">
@@ -63,7 +21,7 @@
 						<div class="col-md-6 column">
 							<div class="thumbnail">
 								<img src="img/i6.png" width="100%"/>
->>>>>>> parent of b002fb2... pic
+
 							</div>
 						</div>
 						<div class="col-md-6 column">
