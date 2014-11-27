@@ -8,7 +8,7 @@ class AskAQuestionController extends BaseController {
 	//     return View::make('/perdtye/qa');
 	// });
 
-	public function qa()
+	public function createQAForm()
 	{
 		if(!Input::has('id')){
             return Redirect::to('/');

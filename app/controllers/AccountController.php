@@ -11,6 +11,4 @@ class AccountController extends BaseController {
 		return MemberController::showAccount();
 	}
 
-
-  	
 }

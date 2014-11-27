@@ -65,6 +65,16 @@ class SignupController extends BaseController {
 		{
 			return Redirect::back()->withInput()->withErrors($validator);
 		}
- 
-	} 
+	}
+ 		
+	public function sellregister()
+	{
+		$user = Auth::user();
+	if($user->status == 'buyer') {
+		return View::make('/perdtye/sellregister')->with('user', $user);
+	}
+	else
+		 	return Redirect::back()->with('message','Cannot proceed.');
+	}
+	
 }

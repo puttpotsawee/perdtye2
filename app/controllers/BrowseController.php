@@ -19,12 +19,9 @@ class BrowseController extends BaseController {
 			$moreDetails = Product_auction::find($idProduct);
 			$seller = Member::find($product->idseller);
 			
-
-
 			return View::make('perdtye/auctiontype')
 			->with(array('product' => $product, 'details' => $moreDetails, 'seller' => $seller,'pictures'=>$pictures));
-			// return var_dump($product.$moreDetails);
-
+			
 		} elseif($product->type == 'direct') {
 			$moreDetails = Product_direct::find($idProduct);
 			$seller = Member::find($product->idseller);

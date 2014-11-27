@@ -20,14 +20,14 @@
 						<div class="col-lg-5 form-group">
 							<label for="inputFirstname" class="control-label">First name</label>
 							<div >
-								<input type="text" class="form-control" id="inputFirstname" value="xxxxx" disabled>
+								<input type="text" class="form-control" id="inputFirstname" value={{$user->name}} disabled>
 							</div>
 						</div>
 
 						<div class="col-lg-offset-1 col-lg-5">
 							<label for="inputLastname" class="control-label">Last name</label>
 							<div >
-								<input type="text" class="form-control" id="inputLastname" value="xxxxx" disabled>
+								<input type="text" class="form-control" id="inputLastname" value={{$user->surname}} disabled>
 							</div>
 						</div>
 					</div>
@@ -38,13 +38,11 @@
 							<label for="inpuDate" class="control-label" >Birth Date</label>
 
 							<div style="width:220px">
-								<input type="text" class ="form-control datepicker" id="inputDate" name="inputDate" 
-								value="xxxxx" disabled
-								>
+								<input type="text" class ="form-control datepicker" id="inputDate" name="inputDate" value=" xxxx-xx-xx" disabled>
 							</div>
 							<label for="inputEmail" class="control-label">Email</label>
 							<div >
-								<input type="email" class="form-control" id="inputEmail" placeholder="Kuyแก้ด้วย" value="xxxxx" disabled>
+								<input type="email" class="form-control" id="inputEmail" value={{$user->email}} disabled>
 							</div> 
 						</div>    
 					</div>
@@ -55,7 +53,7 @@
 						<div class="col-lg-5 form-group">
 							<label for="inputFirstname" class="control-label">ID card Number</label>
 							<div >
-								<input type="text" data-validation="number length" data-validation-length="min13" class="form-control" id="inputFirstname" placeholder="123231231231">
+								<input type="text" data-validation="number length" data-validation-length="min13" class="form-control" id="inputFirstname" placeholder="0000000000000">
 							</div>
 						</div>
 
