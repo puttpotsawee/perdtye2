@@ -21,7 +21,7 @@
 								$price = $item['price'];
 								$picture = $item['picture'];
 								?>
-								<div class="col-md-4 column" style="vertical-align:bottom">
+								<div class="col-md-4 column" >
 									<div class="row clearfix">
 										<div class="col-md-1 column">
 										</div>
@@ -29,7 +29,7 @@
 											<div class="row">
 
 												<div class="thumbnail">
-													<a href=view?id={{$product->idProduct}}><img src={{$picture}} ></a>
+													<a href=view?id={{$product->idProduct}}><img src={{$picture}}></a>
 													<div class="caption">
 														<h3><a href=view?id={{$product->idProduct}}>{{$product->product_name}}</a></h3>
 														<p style="word-wrap: break-word;">{{$product->brand}}</p>
@@ -43,9 +43,9 @@
 															</div>
 															<div class="col-md-6 column">
 																@if($product->type == 'direct')
-																<a href="directtype.html" class="btn btn-default" style="float: right" role="button">Buy Now</a>
+																<a href=view?id={{$product->idProduct}} class="btn btn-default" style="float: right" role="button">Buy Now</a>
 																@elseif($product->type == 'auction')
-																<a href="directtype.html" class="btn btn-danger" style="float: right" role="button">Bid</a>
+																<a href=view?id={{$product->idProduct}} class="btn btn-danger" style="float: right" role="button">Bid</a>
 																
 																@endif
 															</div>

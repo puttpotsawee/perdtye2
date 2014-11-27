@@ -176,7 +176,7 @@ class MemberController extends BaseController {
                     $thisUser->save();
                 }			
 				Auth::login($thisUser);
-				return Redirect::to('/home');
+				return View::make('/perdtye/confirmsuccess')->with('email',$thisUser->email);
 			} else {
 				return "Token is invalid";
 			}

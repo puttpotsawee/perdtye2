@@ -12,7 +12,7 @@
 				<legend>
 					Welcome to Perdtye dot Com
 				</legend>
-				<h4 style="margin-top:30px; color:green;">Your email ppp@ppp.ppp was confirmed </h4>
+				<h4 style="margin-top:30px; color:green;">Your email {{$email}} was confirmed </h4>
 				<p>Follow the instructions in the email to confirm your email</p>
 
 				<p style="margin-top:20px;">Thanks for signing up for Perdtye dot Com.</p>
