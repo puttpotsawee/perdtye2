@@ -13,7 +13,7 @@
 					<div class="well-shadow">
 
 						<!-- <form action="auctiontype.html" method="get"> -->
-						{{ Form::open() }}
+						{{ Form::open(array('files'=>true)) }}
 						<legend>Auction Sell Registration form</legend>
 
 						<div class="row clearfix">
@@ -61,8 +61,14 @@
 											<div class="col-md-6 column">
 												<div class="form-group">
 													<div class="col-lg-10" style="width:100%">
+														<div class="input-group">
 														<input name="start_date" type="text" class ="form-control datepicker" data-validation="date" data-validation-format="dd/mm/yyyy" id="inputDate" name="begindate" 
 														placeholder="dd/mm/yyyy">
+														<span class="input-group-addon">
+															<i class="glyphicon glyphicon-calendar"></i>
+														</span>
+														</div>
+														
 													</div>
 												</div>
 											</div>
@@ -250,3 +256,9 @@
 		@section('footer')
 		<nav class="navbar navbar-default navbar-bottom2" role="navigation">
 			@stop
+
+		@secion('lastScript')
+		<script>
+
+		</script>
+		@stop

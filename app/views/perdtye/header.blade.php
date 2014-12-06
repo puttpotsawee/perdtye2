@@ -259,11 +259,14 @@
   </script>
   <script>
   $('.datepicker').datepicker({
-    format: "yyyy-mm-dd",
-    autoclose: true,
-    todayHighlight: true
+    format: "dd/mm/yyyy",
+    autoclose: false,
+    todayHighlight: true,
+    forceParse :true
   });
   </script>
   <!-- SCRIPT -->
+
+  @yield('lastScript')
 </body>
 </html>

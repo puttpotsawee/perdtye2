@@ -12,7 +12,7 @@ class SellerController extends BaseController {
 		$filename = 'img_'.$insertedId."_".uniqid().".".$file->getClientOriginalExtension();
 
         $file->move(public_path('pic'), $filename);
-        return '/pic/'.$filename;
+        return 'pic/'.$filename;
 	}
 
 	// search product_name
@@ -66,7 +66,7 @@ class SellerController extends BaseController {
 			$newPath = $this->saveFile($file,$insertedId);
 			$newProduct = new Productpicture;
 			$newProduct->idProduct = $insertedId;
-			$newProduct->picture_url = App::make('url')->to('/').$newPath;
+			$newProduct->picture_url = $newPath;
 			$newProduct->save();
    //          }else{
    //              //Does not pass validation
@@ -81,7 +81,7 @@ class SellerController extends BaseController {
 		}
 
 		
-		return Redirect::To('/');
+		return Redirect::To('view?id='.$insertedId);
 
 	}
 	public function auctionsell(){
@@ -124,7 +124,39 @@ class SellerController extends BaseController {
 		$product_auction->current_price = Input::get('minimum_bid');
 		$product_auction->save();
 
-		return "done";
+		$files = Input::file('pic');
+		// echo var_dump($files);
+		foreach($files as $file){
+			// $rules = array(
+   //              'file' => 'required|mimes:png,gif,jpeg|max:20000'
+   //          );
+   //          $validator = Validator::make(array('file'=> $file), $rules);
+   //          if($validator->passes()){
+   //              $ext = $file->guessClientExtension(); // (Based on mime type)
+   //              //$ext = $file->getClientOriginalExtension(); // (Based on filename)
+   //              $filename = $file->getClientOriginalName();
+
+   //              $file->move(public_path('pic'), $filename);
+			$newPath = $this->saveFile($file,$insertedId);
+			$newProduct = new Productpicture;
+			$newProduct->idProduct = $insertedId;
+			$newProduct->picture_url = $newPath;
+			$newProduct->save();
+   //          }else{
+   //              //Does not pass validation
+   //              $errors = $validator->errors();
+   //              return Redirect::back()->withInput()->withErrors($validator);
+   //          }
+			
+			
+
+			
+
+		}
+
+		
+		return Redirect::To('view?id='.$insertedId);
+
 
 
 		
