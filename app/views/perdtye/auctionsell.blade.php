@@ -94,8 +94,13 @@
 											<div class="col-md-6 column">
 												<div class="form-group">
 													<div class="col-lg-10" style="width:100%">
+													<div class="input-group">
 														<input name='end_date' type="text" class ="form-control datepicker" data-validation="date" data-validation-format="dd/mm/yyyy" id="inputDate" name="enddate" 
 														placeholder="dd/mm/yyyy">
+														<span class="input-group-addon">
+															<i class="glyphicon glyphicon-calendar"></i>
+														</span>
+													</div>
 													</div>
 												</div>
 											</div>
@@ -258,9 +263,6 @@
 		<nav class="navbar navbar-default navbar-bottom2" role="navigation">
 			@stop
 
-
-			@secion('lastScript')
-
 			<script>
 				function readURL(input) {
 					if (input.files && input.files[0]) {
@@ -279,4 +281,3 @@
 				<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 				<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
 
-				@stop
