@@ -36,7 +36,7 @@ class AuctionController extends BaseController {
 		$idProduct = Input::get('idProduct');
 		$product = Product_auction::find($idProduct);
 
-
+	}
 	
 
 }
