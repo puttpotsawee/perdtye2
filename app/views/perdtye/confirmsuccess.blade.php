@@ -21,7 +21,7 @@
 
 					<div class="form-group" style="margin-top:30px;">
 						<div class=" col-sm-12">
-							<a href="/index.php" class="btn btn-info" style="width:100%">Go to Home</a>
+							<a href="/" class="btn btn-info" style="width:100%">Go to Home</a>
 						</div>
 					</div>
 				</form>

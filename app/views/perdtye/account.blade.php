@@ -358,10 +358,8 @@
 		<table class="table"  style="table-layout: fixed; width: 100%">
 			<thead>
 				<tr>
-					<th width="5%">
-						#
-					</th>
-					<th width="25%">
+
+					<th width="30%">
 						Product
 					</th>
 					<th width="20%">
@@ -379,11 +377,9 @@
 			<tbody>
 				@foreach($question as $q)
 				<tr class="active">
+
 					<td>
-						<?php echo $x ?>
-					</td>
-					<td>
-						<img src="img/iphone6 icon.jpg" width="100%"/>
+						<img src={{$q->picture_url}} width="100%"/>
 						<p style="margin-top:15px;"><center>{{$q->product_name}}</center></p>
 					</td>
 					<td style="word-wrap: break-word;">

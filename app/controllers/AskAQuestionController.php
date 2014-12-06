@@ -21,7 +21,7 @@ class AskAQuestionController extends BaseController {
         return View::make('/perdtye/qa')->with(array('product'=>$product,'seller'=>$seller,'picture'=>$picture->picture_url));
 	}
 
-	public function storeAQustion()
+	public function storeAQuestion()
 	{
 		$idmember = Auth::user()->idmember;
 		$topic = Input::get('topic');

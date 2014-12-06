@@ -82,6 +82,7 @@ Route::get('reportgood', 'ReportController@reportgood');
 Route::get('reportsubmit', 'ReportController@reportsubmit');
 // Ask and answer a Question
 Route::get('qa', 'AskAQuestionController@createQAForm');
+Route::post('qa', 'AskAQuestionController@storeAQuestion');
 Route::get('answer', 'AccountController@answer');
 // Give Feedback
 Route::get('feedback','GiveFeedbackController@seeFeedback')->before('auth');
