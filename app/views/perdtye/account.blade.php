@@ -270,8 +270,8 @@
 								<p style="color:black">{{$h->price}}</p>
 							</td>
 							<td>
-								<a href="/feddback" method="post" class="btn btn-success" style="width:100%;">Give Feedback</a>
-								<p><a href="#" class="btn btn-info" style="width:100%; margin-top:10px;">Report</a></p>
+								<a href="feedback" method="post" class="btn btn-success" style="width:100%;">Give Feedback</a>
+								<p><a href="reportgood" class="btn btn-info" style="width:100%; margin-top:10px;">Report</a></p>
 							</td>
 						</tr>
 						@endforeach

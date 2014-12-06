@@ -23,7 +23,7 @@
 							</div>
 							<!-- <label for="inputAbout" class="col-lg-3 control-label">About :</label> -->
 							<div class="col-lg-9">
-								<h4 style="color:grey;">Apple iPhone6 64gb Gold</h4>
+								<h4 style="color:grey;">iPhone6</h4>
 							</div>
 						</div>
 					</div>  

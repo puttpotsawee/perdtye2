@@ -21,17 +21,7 @@
 							<input type="text" name="topic" data-validation="required" class="form-control" id="inputSubject" placeholder="Subject">
 						</div>
 					</div>
-					
-					<div class="form-group">
-						<label for="inputAbout" class="col-lg-3 control-label">About :</label>
-						<div class="col-lg-6">
-							<select data-validation="required" name="type" class="form-control" id="inputAbout">
-								<option value="1">Web Complaint</option>
-								<option value="1">Bug Report</option>
-								<option value="1">Others</option>
-							</select>
-						</div>
-					</div>         
+					      
 					<div class="form-group">
 						<label for="textArea" class="col-lg-3 control-label" >Descriptions :</label>
 						<div class="col-lg-6">
