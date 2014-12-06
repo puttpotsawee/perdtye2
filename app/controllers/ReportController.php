@@ -20,6 +20,21 @@ class ReportController extends BaseController {
 	{
 		return View::make('/perdtye/report');
 	}
+	public function storeReport()
+	{
+		$topic =  Input::get('topic');
+		$content = Input::get('content');
+		$member = Auth::user();
+		$idmember = $member->idmember;
+
+		$report = new Report;
+		$report->topic = $topic;
+		$report->content = $content;
+		$report->idmember = $idmember;
+		$report->save();
+
+		return Redirect::To('/account');
+	}
 	public function reportgood()
 	{
 		return View::make('/perdtye/reportgood');
