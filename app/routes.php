@@ -79,6 +79,8 @@ Route::post('confirm', 'PaymentController@confirm');
 // Route associated with Support Package -------------------------------------
 // Report a Problem
 Route::get('report', 'ReportController@report')->before('auth');
+Route::post('report', 'ReportController@storeReport')->before('auth');
+
 Route::get('reportgood', 'ReportController@reportgood');
 Route::get('reportsubmit', 'ReportController@reportsubmit');
 // Ask and answer a Question

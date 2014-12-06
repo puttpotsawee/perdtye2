@@ -8,7 +8,7 @@
 	</div>
 	<div class="col-sm-8">
 		<div class="well-shadow" style="margin-top:60px">
-			<form class="form-horizontal" action="reportsubmit.html" method="get">
+			<form class="form-horizontal" action="report" method="post">
 				
 				
 				<fieldset>
