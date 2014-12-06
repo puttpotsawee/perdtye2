@@ -20,7 +20,7 @@ class MemberController extends BaseController {
 		$thisUser = Member::where('username','=',$username)->get()->first();
 		if($thisUser->count()==0){
 			//user not found
-			return "Token is invalid";
+			return Redirect::to('/');
 		} else {
 			$thisToken = $thisUser->confirm_token;
 			if($token==$thisToken){
@@ -37,5 +37,20 @@ class MemberController extends BaseController {
 				return "Token is invalid";
 			}
 		}
+	}
+	
+
+	public function forgotPassword()
+	{
+		return View::make('/perdtye/forgot');
+	}
+	public function statusforgot()
+	{
+		return View::make('/perdtye/forgotconfirm');
+	}
+
+	public function resetPassword($username,$token)
+	{
+
 	}
 }

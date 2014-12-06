@@ -26,13 +26,14 @@ Route::get('signup', 'SignupController@index');
 Route::post('signup','SignupController@signup');
 // Activate Member
 Route::get('account/activate/{username}/{token}','MemberController@activateMember');
+Route::get('account/resetpass/{username}/{token}','MemberController@resetPassword');
 // Log in
 Route::get('login','SessionController@create');
 Route::get('logout', 'SessionController@destroy');
 Route::resource('session','SessionController');
 // Forgot Password
-Route::get('forgot', 'ForgotPassController@forgot');
-Route::get('statusforgot', 'ForgotPassController@statusforgot');
+Route::get('forgot', 'MemberController@forgotPassword');
+Route::post('statusforgot', 'ForgotPassController@statusforgot');
 // View Account
 Route::get('account','AccountController@showAccount')->before('auth');
 // Edit Account
@@ -95,6 +96,9 @@ Route::get('feedback','GiveFeedbackController@seeFeedback')->before('auth');
 Route::get('users', function()
 {
     return View::make('users');
+});
+Route::get('html', function(){
+    return View::make('perdtye/resetPassword');
 });
 
 Route::get('pae', function()
@@ -167,6 +171,7 @@ Route::get('transaction',function()
 
     return Transaction::all();
 });
+
 
 Route::post('paynow', 'PaymentController@paynow');
 Route::post('confirm', 'PaymentController@confirm');

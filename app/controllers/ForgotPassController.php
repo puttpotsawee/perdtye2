@@ -18,7 +18,7 @@ class ForgotPassController extends BaseController {
 	}
 	public function statusforgot()
 	{
-		return View::make('/perdtye/statusforgot');
+		return View::make('/perdtye/forgotconfirm');
 	}
 	
 }
