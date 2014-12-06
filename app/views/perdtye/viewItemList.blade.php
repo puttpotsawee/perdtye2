@@ -28,15 +28,17 @@
 										<div class="col-md-11 column">
 											<div class="row">
 
-												<div class="thumbnail" >
-													<a href=view?id={{$product->idProduct}}><div style="width:100%;height:300px;overflow:hidden;margin:0px;position: relative;"><img src={{$picture}} style="position:absolute;left: 0%;right: 0%;top: 0%;bottom: 0%;max-height: 100%;min-width: 100%;"></div></a>
+												<div class="thumbnail" id="picture" >
+													<a href=view?id={{$product->idProduct}}><div id="pic2" style="width:100%;height:300px;overflow:hidden;margin:0px;position: relative;"><img src={{$picture}} style="position:absolute;left: 0%;right: 0%;top: 0%;bottom: 0%;max-height: 100%;min-width: 100%;"></div></a>
 													<div class="caption" style="margin-bottom:0px;">
 														<h4><a href=view?id={{$product->idProduct}}>{{$product->product_name}}</a></h4>
-														<p style="word-wrap: break-word;">{{$product->brand}}</p>
-														<p style="word-wrap: break-word;">{{$product->model}}</p>
-														<p style="word-wrap: break-word;">{{$product->property}}</p>
-														<p style="word-wrap: break-word;">{{$product->condition}}</p>
-														<p style="word-wrap: break-word;">{{$product->defect}}</p>
+			<!-- 											<p style="word-wrap: break-word;">- {{$product->brand}}</p>
+														<p style="word-wrap: break-word;">- {{$product->model}}</p>
+														<p style="word-wrap: break-word;">- {{$product->property}}</p>
+														<p style="word-wrap: break-word;">- {{$product->condition}}</p>
+														<p style="word-wrap: break-word;">- {{$product->defect}}</p> -->
+														<p style="word-wrap: break-word;">{{$product->brand}} {{$product->model}} {{$product->property}} {{$product->condition}} {{$product->defect}}</p>
+
 														<div class="row clearfix">
 															<div class="col-md-6 column">
 																<h4 style="color:red;">Price : {{$price}}</h4>
