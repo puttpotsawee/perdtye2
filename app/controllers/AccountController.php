@@ -39,13 +39,13 @@ class AccountController extends BaseController {
         	->select('product.product_name', 'productpicture.picture_url', 'member.username', 'answer.content as answer', 'question.content as question')
         	->get();
 
-        $history = DB::table('transaction')
+        $buy_history = DB::table('transaction')
 			->where('transaction.idmember', '=', $idmember)
         	->join('product', 'transaction.idproduct', '=', 'product.idProduct')
         	->join('productpicture', 'product.idproduct', '=', 'productpicture.idproduct')  	
         	->join('seller', 'product.idseller', '=', 'seller.idseller')
         	->join('member', 'member.idmember', '=', 'seller.idseller')
-        	->select('product.product_name', 'productpicture.picture_url', 'member.username', 'transaction.timestamp', 'transaction.price')
+        	->select('transaction.idTransaction', 'product.product_name', 'productpicture.picture_url', 'member.username', 'transaction.timestamp', 'transaction.price')
         	->groupBy('transaction.idTransaction')
         	->get();
 
@@ -65,7 +65,7 @@ class AccountController extends BaseController {
 				'neutral' => $neutral,
 				'positive' => $positive,
 				'question' => $question,
-				'history' => $history,
+				'buy_history' => $buy_history,
 				'sell' => $sell
 
 			));

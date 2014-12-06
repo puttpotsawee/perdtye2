@@ -88,7 +88,9 @@ Route::get('qa', 'AskAQuestionController@createQAForm');
 Route::post('qa', 'AskAQuestionController@storeAQuestion');
 Route::get('answer', 'AccountController@answer');
 // Give Feedback
-Route::get('feedback','GiveFeedbackController@seeFeedback')->before('auth');
+Route::get('feedback','GiveFeedbackController@giveFeedback')->before('auth');
+Route::post('feedback','GiveFeedbackController@storeFeedback')->before('auth');
+
 // --------------------------------------------------------------------------
 
 

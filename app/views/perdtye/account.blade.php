@@ -70,8 +70,8 @@
 			<ul class="nav nav-tabs">
 				<li class="active"><a href="#bidding" data-toggle="tab" aria-expanded="true">Bidding</a></li>
 				<li class=""><a href="#didntwin" data-toggle="tab" aria-expanded="true">Didn't Win</a></li>
-				<li class=""><a href="#history" data-toggle="tab" aria-expanded="true">History Buy</a></li>
-				<li class=""><a href="#historys" data-toggle="tab" aria-expanded="true">History Sell</a></li>
+				<li class=""><a href="#history" data-toggle="tab" aria-expanded="true">Buy History</a></li>
+				<li class=""><a href="#historys" data-toggle="tab" aria-expanded="true">Sell History</a></li>
 				<li class=""><a href="#sell" data-toggle="tab" aria-expanded="true">Sell</a></li>
 				<li class=""><a href="#qa" data-toggle="tab" aria-expanded="true">Q/A</a></li>
 				
@@ -231,7 +231,7 @@
 			<div class="col-md-12 column">
 				<p>&nbsp;</p>
 				<h4>
-					History Buy
+					Buy History
 				</h4>
 				<table class="table" style="table-layout: fixed; width: 100%">
 					<thead>
@@ -255,7 +255,7 @@
 					</thead>
 
 					<tbody>
-						@foreach($history as $h)
+						@foreach($buy_history as $h)
 						<tr class="active">
 							<td>
 								<img src={{$h->picture_url}} width="100%"/>
@@ -271,7 +271,7 @@
 								<p style="color:black">{{$h->price}}</p>
 							</td>
 							<td>
-								<a href="feedback" method="post" class="btn btn-success" style="width:100%;">Give Feedback</a>
+								<a href=feedback?id={{$h->idTransaction}} class="btn btn-success" style="width:100%;">Give Feedback</a>
 								<p><a href="reportgood" class="btn btn-info" style="width:100%; margin-top:10px;">Report</a></p>
 							</td>
 						</tr>
@@ -311,7 +311,7 @@
 					</thead>
 
 					<tbody>
-						@foreach($history as $h)
+						@foreach($buy_history as $h)
 						<tr class="active">
 							<td>
 								<img src={{$h->picture_url}} width="100%"/>
@@ -327,7 +327,7 @@
 								<p style="color:black">{{$h->price}}</p>
 							</td>
 							<td>
-								<a href="feedback" method="post" class="btn btn-success" style="width:100%;">Give Feedback</a>
+								<a href=feedback?id={{$h->idTransaction}} class="btn btn-success" style="width:100%;">Give Feedback</a>
 								<p><a href="reportgood" class="btn btn-info" style="width:100%; margin-top:10px;">Report</a></p>
 							</td>
 						</tr>
