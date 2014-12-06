@@ -37,7 +37,8 @@
 									</div>
 									<div class="col-md-9 column">
 										<input type="file" data-validation="mime size" data-validation-allowing="jpg, png, gif" 
-										data-validation-max-size="2M" id="exampleInputFile" name="pic[]" multiple=""/>
+										data-validation-max-size="2M" id="exampleInputFile" name="pic[]" multiple="" onchange="readURL(this);"/>
+										<img style="margin-top:15px;" id="blah" src=""  />
 									</div>
 								</div>
 
@@ -250,3 +251,22 @@
 		@section('footer')
 		<nav class="navbar navbar-default navbar-bottom2" role="navigation">
 			@stop
+
+
+		<script>
+function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#blah')
+                    .attr('src', e.target.result)
+                    .width(300)            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+<link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
