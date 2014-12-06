@@ -235,9 +235,6 @@
 				<table class="table" style="table-layout: fixed; width: 100%">
 					<thead>
 						<tr>
-							<th width="5%">
-								#
-							</th>
 							<th width="25%">
 								Product
 							</th>
@@ -260,10 +257,7 @@
 						@foreach($history as $h)
 						<tr class="active">
 							<td>
-								<?php echo $x ?>
-							</td>
-							<td>
-								<img src="img/iphone6 icon.jpg" width="100%"/>
+								<img src={{$h->picture_url}} width="100%"/>
 								<p style="margin-top:15px;"><center>{{$h->product_name}}</center></p>
 							</td>
 							<td>
@@ -276,7 +270,7 @@
 								<p style="color:black">{{$h->price}}</p>
 							</td>
 							<td>
-								<a href="#" class="btn btn-success" style="width:100%;">Give Feedback</a>
+								<a href="/feddback" method="post" class="btn btn-success" style="width:100%;">Give Feedback</a>
 								<p><a href="#" class="btn btn-info" style="width:100%; margin-top:10px;">Report</a></p>
 							</td>
 						</tr>
@@ -297,9 +291,6 @@
 			<table class="table" style="table-layout: fixed; width: 100%">
 				<thead>
 					<tr>
-						<th width="5%">
-							#
-						</th>
 						<th width="25%">
 							Product
 						</th>
@@ -322,10 +313,7 @@
 					@foreach($sell as $s)
 					<tr class="active">
 						<td>
-							<?php echo $x ?>
-						</td>
-						<td>
-							<img src="img/iphone6 icon.jpg" width="100%"/>
+							<img src={{$s->picture_url}} width="100%"/>
 							<p style="margin-top:15px;"><center>{{$s->product_name}}</center></p>
 						</td>
 						<td>

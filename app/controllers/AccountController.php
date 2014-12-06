@@ -42,15 +42,19 @@ class AccountController extends BaseController {
         $history = DB::table('transaction')
 			->where('transaction.idmember', '=', $idmember)
         	->join('product', 'transaction.idproduct', '=', 'product.idProduct')
+        	->join('productpicture', 'product.idproduct', '=', 'productpicture.idproduct')  	
         	->join('seller', 'product.idseller', '=', 'seller.idseller')
         	->join('member', 'member.idmember', '=', 'seller.idseller')
-        	->select('product.product_name', 'member.username', 'transaction.timestamp', 'transaction.price')
+        	->select('product.product_name', 'productpicture.picture_url', 'member.username', 'transaction.timestamp', 'transaction.price')
+        	->groupBy('transaction.idTransaction')
         	->get();
 
        	$sell = DB::table('product')
 			->where('product.idseller', '=', $idmember)
         	->join('product_direct', 'product_direct.idproduct_direct', '=', 'product.idProduct')
-        	->select('product.product_name', 'product_direct.quantity', 'product_direct.remaining', 'product_direct.price')
+        	->join('productpicture', 'product.idproduct', '=', 'productpicture.idproduct')
+        	->select('product.product_name', 'productpicture.picture_url', 'product_direct.quantity', 'product_direct.remaining', 'product_direct.price')
+        	->groupBy('product.idProduct')
         	->get();
 
 		return View::Make('perdtye/account')->with(
