@@ -66,7 +66,7 @@ class SellerController extends BaseController {
 			$newPath = $this->saveFile($file,$insertedId);
 			$newProduct = new Productpicture;
 			$newProduct->idProduct = $insertedId;
-			$newProduct->picture_url = $newPath;
+			$newProduct->picture_url = App::make('url')->to('/').$newPath;
 			$newProduct->save();
    //          }else{
    //              //Does not pass validation
