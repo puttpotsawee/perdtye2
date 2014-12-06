@@ -16,7 +16,11 @@
 				<div class="col-md-2 column">
 				</div>
 				<div class="col-md-8 column">
+					@if ($details->remaining > 0)
 					<legend> {{$product->product_name}} </legend>
+					@else
+					<legend> [SOLD OUT] {{$product->product_name}} </legend>
+					@endif
 					<div class="row clearfix" style="margin-top:30px;">
 						<div class="col-md-6 column">
 							<div class="thumbnail">
@@ -83,13 +87,21 @@
 										<label>({{$details->remaining}} in stock)</label>
 									</div>
 									<div class="col-md-7" >
+										@if ($details->remaining > 0)
 										<input name="quantity_input" type="text" data-validation="number" data-validation-allowing=range[1;{{$details->remaining}}] class="form-control" style="width:100%; float:right;"></input>
+										@else
+										<input disabled name="quantity_input" type="text" data-validation="number" data-validation-allowing=range[1;{{$details->remaining}}] class="form-control" style="width:100%; float:right;"></input>
+										@endif
 										<input name="idProduct" type="hidden" value={{$product->idProduct}}/>
 									</div>  
 								</div>
 								<div class="row" style="margin-top:20px;">
 									<div class="col-md-12">
+										@if ($details->remaining > 0)
 										<button type="submit" class="btn btn-info"style="width:100%">Buy now </button>
+										@else
+										<button disabled type="submit" class="btn btn-info"style="width:100%">Buy now </button>
+										@endif
 									</div>
 								</div>
 							</form>
@@ -104,7 +116,11 @@
 							</div>
 							<div class="row" style="margin-top:20px;">
 								<div class="col-md-12">
+									@if ($details->remaining > 0)
 									<a href=qa?id={{$product->idProduct}} class="btn btn-default"style="width:100%">Ask a question </a>
+									@else
+									<a disabled href=qa?id={{$product->idProduct}} class="btn btn-default"style="width:100%">Ask a question </a>
+									@endif
 								</div>
 							</div>
 						</div>

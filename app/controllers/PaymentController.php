@@ -27,7 +27,7 @@ class PaymentController extends BaseController {
 		$transaction->status = 'paid';
 		$transaction->save();
 
-		return View::make('/');
+		return Redirect::back()->with('message','Payment made successfully !');
 			
 	}
 
@@ -55,7 +55,7 @@ class PaymentController extends BaseController {
 		$transaction->status = 'waiting';
 		$transaction->save();
 
-		return View::make('/');
+		return Redirect::back()->with('message','Payment pending !');
 			
 	}
 
