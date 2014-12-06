@@ -40,6 +40,8 @@ class EmailController extends BaseController {
 		});
 	}
 	
-	
+	public static function sendBidLostEmail($user)
+	{
+	}
 	
 }

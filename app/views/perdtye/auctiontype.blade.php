@@ -11,6 +11,11 @@
 
 @section('content')
 <!-- auction -->
+@if(Session::has('message'))
+    <div class="col-md-14 column" id="alert-box success">
+        {{ Session::get('message') }}
+    </div>
+@endif
 <div class="container">
 	<div class="row clearfix" style="margin-top:30px;">
 		<div class="col-md-12 column">
