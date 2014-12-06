@@ -29,7 +29,7 @@
 											<div class="row">
 
 												<div class="thumbnail" >
-													<a href=view?id={{$product->idProduct}}><div style="width:288px;height:300px;overflow:hidden;margin:0px;position: relative;"><img src={{$picture}} style="position:absolute;left: 0%;right: 0%;top: 0%;bottom: 0%;max-height: 100%;min-width: 100%;"></div></a>
+													<a href=view?id={{$product->idProduct}}><div style="width:100%;height:300px;overflow:hidden;margin:0px;position: relative;"><img src={{$picture}} style="position:absolute;left: 0%;right: 0%;top: 0%;bottom: 0%;max-height: 100%;min-width: 100%;"></div></a>
 													<div class="caption" style="margin-bottom:0px;">
 														<h4><a href=view?id={{$product->idProduct}}>{{$product->product_name}}</a></h4>
 														<p style="word-wrap: break-word;">{{$product->brand}}</p>
