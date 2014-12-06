@@ -70,7 +70,8 @@
 			<ul class="nav nav-tabs">
 				<li class="active"><a href="#bidding" data-toggle="tab" aria-expanded="true">Bidding</a></li>
 				<li class=""><a href="#didntwin" data-toggle="tab" aria-expanded="true">Didn't Win</a></li>
-				<li class=""><a href="#history" data-toggle="tab" aria-expanded="true">History</a></li>
+				<li class=""><a href="#history" data-toggle="tab" aria-expanded="true">History Buy</a></li>
+				<li class=""><a href="#historys" data-toggle="tab" aria-expanded="true">History Sell</a></li>
 				<li class=""><a href="#sell" data-toggle="tab" aria-expanded="true">Sell</a></li>
 				<li class=""><a href="#qa" data-toggle="tab" aria-expanded="true">Q/A</a></li>
 				
@@ -225,12 +226,12 @@
 				</table>
 			</div>
 		</div>
-		<!-- history -->
+		<!-- history buy-->
 		<div class="tab-pane fade" id="history">
 			<div class="col-md-12 column">
 				<p>&nbsp;</p>
 				<h4>
-					History
+					History Buy
 				</h4>
 				<table class="table" style="table-layout: fixed; width: 100%">
 					<thead>
@@ -240,6 +241,62 @@
 							</th>
 							<th width="17%">
 								Shop
+							</th>
+							<th width="17%">
+								Order Time
+							</th>
+							<th width="18%">
+								Price
+							</th>
+							<th width="18%">
+								Status
+							</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						@foreach($history as $h)
+						<tr class="active">
+							<td>
+								<img src={{$h->picture_url}} width="100%"/>
+								<p style="margin-top:15px;"><center>{{$h->product_name}}</center></p>
+							</td>
+							<td>
+								<text>{{$h->username}}</text>
+							</td>
+							<td>
+								<text>{{$h->timestamp}}</text>
+							</td>
+							<td>
+								<p style="color:black">{{$h->price}}</p>
+							</td>
+							<td>
+								<a href="feedback" method="post" class="btn btn-success" style="width:100%;">Give Feedback</a>
+								<p><a href="reportgood" class="btn btn-info" style="width:100%; margin-top:10px;">Report</a></p>
+							</td>
+						</tr>
+						@endforeach
+					
+					
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<!-- history sell-->
+		<div class="tab-pane fade" id="historys">
+			<div class="col-md-12 column">
+				<p>&nbsp;</p>
+				<h4>
+					History Sell
+				</h4>
+				<table class="table" style="table-layout: fixed; width: 100%">
+					<thead>
+						<tr>
+							<th width="25%">
+								Product
+							</th>
+							<th width="17%">
+								Buyer
 							</th>
 							<th width="17%">
 								Order Time
