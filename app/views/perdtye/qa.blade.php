@@ -2,7 +2,15 @@
 
 @section('content')
 <!-- QA -->
-<div class="container">  
+
+<div class="container"> 
+				@if(Session::has('flash_message'))
+				<div class="alert alert-dismissable alert-success" id ="flash_error" >
+					<button type="button" class="close" data-dismiss="alert">×</button>
+					<h4>Successful</h4>
+					<p>{{ Session::get('flash_message') }}</p>
+				</div>
+				@endif 
 	<div class="col-md-2"> 
 	</div> 
 	<div class="col-md-8" style="margin-top:30px;"> 
@@ -34,8 +42,8 @@
 
 			<div class="col-sm-12" style="margin: 15px">
 				<div class="well-shadow">
-					<form class="form-horizontal" action="account.php" method="get">
-
+					<form class="form-horizontal" action="qa" method="post">
+						<input type="hidden" class="form-control" id="inputID" name="idproduct" value={{$product->idProduct}}>
 
 						<fieldset>
 							<legend>Q/A</legend>
