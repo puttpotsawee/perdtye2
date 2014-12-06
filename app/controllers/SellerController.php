@@ -81,7 +81,7 @@ class SellerController extends BaseController {
 		}
 
 		
-		return ;
+		return Redirect::To('/');
 
 	}
 	public function auctionsell(){

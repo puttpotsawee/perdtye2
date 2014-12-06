@@ -36,8 +36,8 @@ Route::get('statusforgot', 'ForgotPassController@statusforgot');
 // View Account
 Route::get('account','AccountController@showAccount')->before('auth');
 // Edit Account
-Route::get('editaccount', 'EditProfileController@editAccount')->before('auth');
-Route::post('editaccount', 'EditProfileController@saveEditedAccount')->before('auth');
+Route::get('editaccount', 'AccountController@editAccount')->before('auth');
+Route::post('editaccount', 'AccountController@saveEditedAccount')->before('auth');
 // Upgrade to seller
 Route::get('sellregister', 'SignupController@sellregister')->before('auth');;
 // ---------------------------------------------------------------------------
