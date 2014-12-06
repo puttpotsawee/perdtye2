@@ -52,27 +52,37 @@ return array(
 			'prefix'   => '',
 		),
 
+		// 'mysql' => array(
+		// 	'driver'    => 'mysql',
+		// 	'host'      => 'db4free.net',
+		// 	'database'  => 'perdtye',
+		// 	'username'  => 'perdtye',
+		// 	'password'  => 'se2014',
+		// 	'charset'   => 'utf8',
+		// 	'collation' => 'utf8_unicode_ci',
+		// 	'prefix'    => '',
+		// ),
+
+		// 'mysql' => array(
+		// 	'driver'    => 'mysql',
+		// 	'host'      => 'localhost',
+		// 	'database'  => 'perdtye',
+		// 	'username'  => 'root',
+		// 	'password'  => '',
+		// 	'charset'   => 'utf8',
+		// 	'collation' => 'utf8_unicode_ci',
+		// 	'prefix'    => '',
+		// ),
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'db4free.net',
-			'database'  => 'perdtye',
-			'username'  => 'perdtye',
+			'host'      => '93.188.161.247',
+			'database'  => 'perdtye_data',
+			'username'  => 'perdtye_data',
 			'password'  => 'se2014',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
 		),
-
-/*		'mysql' => array(
-			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'perdtye',
-			'username'  => 'root',
-			'password'  => '',
-			'charset'   => 'utf8',
-			'collation' => 'utf8_unicode_ci',
-			'prefix'    => '',
-		),*/
 
 		'pgsql' => array(
 			'driver'   => 'pgsql',

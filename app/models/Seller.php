@@ -18,6 +18,8 @@ use Illuminate\Auth\Reminders\RemindableInterface;
  * @method static \Illuminate\Database\Query\Builder|\Seller whereIdcardnumber($value)
  * @method static \Illuminate\Database\Query\Builder|\Seller whereIdcardcopy($value)
  */
+
+
 class Seller extends Eloquent implements UserInterface, RemindableInterface {
 
 	use UserTrait, RemindableTrait;

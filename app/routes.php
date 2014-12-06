@@ -12,10 +12,7 @@
 */
 
 // Route to Home Page --------------------------------------------------------
-Route::get('/', function()
-{
-    return View::make('/perdtye/index');
-});
+Route::get('/', 'BrowseController@viewTopItem');
 Route::get('home',function()
 {
     return Redirect::to('/');
@@ -154,7 +151,7 @@ Route::get('confirmsuccess',function()
     return View::make('/perdtye/confirmsuccess');
 });
 
-<<<<<<< HEAD
+
 //Route to search
 Route::get('search', 'SearchController@failed');
 Route::post('search', 'SearchController@search');
@@ -172,8 +169,7 @@ Route::get('transaction',function()
 
 Route::post('paynow', 'PaymentController@paynow');
 Route::post('confirm', 'PaymentController@confirm');
-=======
->>>>>>> origin/master
+
 Route::get('date',function()
 {
     date_default_timezone_set('Asia/Singapore');

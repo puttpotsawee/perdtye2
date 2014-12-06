@@ -3,9 +3,7 @@
 class AuctionController extends BaseController {
 
 	
-<<<<<<< HEAD
-	
-=======
+
 	public function maxBid()
 	{
 		$user = Auth::user();
@@ -37,7 +35,7 @@ class AuctionController extends BaseController {
 
 		$idProduct = Input::get('idProduct');
 		$product = Product_auction::find($idProduct);
->>>>>>> origin/master
+
 
 	
 
