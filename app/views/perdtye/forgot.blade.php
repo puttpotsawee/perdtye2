@@ -12,11 +12,12 @@
 					Reset Your Password
 				</legend>
 				<p style="margin-top:30px;">Enter your registered email. If you don't remember your registered email, enter your username.</p>
-				<form class="form-horizontal" role="form" action="statusforgot.html" method="get">
+				<!-- <form class="form-horizontal" role="form" action="statusforgot.html" method="get"> -->
+				{{Form::open(array('class'=>'form-horizontal','role'=>'form'))}}
 					<div class="form-group">
 
 						<div class="col-sm-12">
-							<input name="email" data-validation="email" type="text" class="form-control" id="inputEU" style="margin-top:20px;"/>
+							<input name="email" data-validation="email" placeholder='youremail@mail.com' type="text" class="form-control" id="inputEU" style="margin-top:20px;"/>
 						</div>
 					</div>
 					<div class="form-group" style="margin-top:30px;">

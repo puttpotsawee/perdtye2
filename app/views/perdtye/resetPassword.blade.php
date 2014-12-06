@@ -12,7 +12,7 @@
 					Creating new Password
 				</legend>
 				<p style="margin-top:30px;">Please Enter your new password.</p>
-				<form class="form-horizontal" role="form" action="statusforgot.html" method="get">
+				<form class="form-horizontal" role="form" action="" method="get">
 					<div class="form-group">
 							<label for="inputPassword" class="col-lg-3 control-label">Create your password</label>
 							<div class="col-lg-9">

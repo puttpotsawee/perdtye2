@@ -29,6 +29,7 @@ class MemberController extends BaseController {
                     return Redirect::to('home');
                 } else {
                     $thisUser->status = 'buyer';
+                    $thisUser->confirm_token = null;
                     $thisUser->save();
                 }			
 				Auth::login($thisUser);
@@ -44,8 +45,10 @@ class MemberController extends BaseController {
 	{
 		return View::make('/perdtye/forgot');
 	}
-	public function statusforgot()
+	public function sendEmailResetPassword()
 	{
+		
+
 		return View::make('/perdtye/forgotconfirm');
 	}
 
