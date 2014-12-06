@@ -114,6 +114,24 @@ Route::get('member',function()
     return Member::all();
 });
 
+Route::get('product',function()
+{
+
+    return Product::all();
+});
+
+Route::get('product_direct',function()
+{
+
+    return Product_direct::all();
+});
+
+Route::get('product_auction',function()
+{
+
+    return Product_auction::all();
+});
+
 Route::get('transaction',function()
 {
     return Transaction::all();
