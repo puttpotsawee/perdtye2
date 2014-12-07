@@ -39,7 +39,23 @@ class EmailController extends BaseController {
 			$message->to($email, $name)->subject('Email Confirmation from PerdTye.com');
 		});
 	}
-	
+	public static function sendResetPasswordEmail($user)
+	{
+		$username = $user->username;
+		$name = $user->name;
+		$token = $user->confirm_token;
+		$email = $user->email;
+
+		$link = App::make('url')->to('/')."/account/resetpass/".$username."/".$token;
+		$data = array('name'=>$name,'link'=>$link);
+
+		Mail::send('emails.mailResetPassword', $data, function($message)	use ($email,$name)
+		{
+			$message->to($email, $name)->subject('Resetting password for your PerdTye.com account');
+		});
+	}
+
+
 	public static function sendBidLostEmail($user)
 	{
 	}

@@ -33,9 +33,11 @@ class MemberController extends BaseController {
                     $thisUser->save();
                 }			
 				Auth::login($thisUser);
-				return View::make('/perdtye/confirmsuccess')->with('email',$thisUser->email);
+				// return $thisUser->email;
+				return View::make('index');
+				// return View::make('perdtye/confirmsuccess')->with('email',$thisUser->email);
 			} else {
-				return "Token is invalid";
+				return Redirect::to('/');
 			}
 		}
 	}
@@ -47,13 +49,45 @@ class MemberController extends BaseController {
 	}
 	public function sendEmailResetPassword()
 	{
-		
+		$inputEmail = Input::get('email');
+		$validator = Validator::make(
+			array('email'=>$inputEmail),
+			array('email'=>'exists:member,email'));
 
-		return View::make('/perdtye/forgotconfirm');
+		if(!$validator->fails()){
+			$user = Member::where('email','=',$inputEmail)->get();
+			if ($user->count() >0){
+				$thisUser = $user->first();
+				$confirm_code = str_random(45);
+
+				$thisUser->confirm_token = $confirm_code;
+				$thisUser->save();
+
+				EmailController::sendResetPasswordEmail($thisUser);
+			}
+
+		}
+
+		return View::make('/perdtye/forgotconfirm')->with('email',$inputEmail);
 	}
 
 	public function resetPassword($username,$token)
 	{
-
+		$thisUser = Member::where('username','=',$username)->get()->first();
+		if($thisUser->count()==0){
+			//user not found
+			return Redirect::to('/');
+		} else {
+			$thisToken = $thisUser->confirm_token;
+			if($token==$thisToken){
+				// this mean the token is correct
+                $thisUser->confirm_token = null;
+                $thisUser->save();		
+				
+				return View::make('/perdtye/resetPassword');
+			} else {
+				return Redirect::to('/');
+			}
+		}
 	}
 }

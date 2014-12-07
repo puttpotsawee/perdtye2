@@ -37,4 +37,4 @@
 @stop
 @section('footer')
 <nav class="navbar navbar-default navbar-bottom2" style="bottom:0%;position: fixed;" role="navigation">
-	@stop
+@stop

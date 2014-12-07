@@ -101,8 +101,9 @@ Route::get('users', function()
 {
     return View::make('users');
 });
-Route::get('html', function(){
-    return View::make('perdtye/resetPassword');
+Route::get('html/{dwgeg}', function(){
+    return View::make('index');
+    // return View::make('perdtye/confirmsuccess')->with('email','ppp@g.com');
 });
 
 Route::get('pae', function()
@@ -151,7 +152,7 @@ Route::get('try',function()
 
 Route::get('email',function()
 {
-    return View::make('emails.welcome')->with('name','Potsawee Vechpanich');
+    return View::make('emails.mailResetPassword')->with('name','Potsawee Vechpanich')->with('link','http://www.google.co.th');
 });
 
 Route::get('sendMail',function()
