@@ -9,17 +9,17 @@
 		<!-- picture -->
 		<div class="row clearfix ">	
 			<div class="col-md-3"> 
-				<img alt="140x140" width="150px" src="img/i6.png"></img>
+				<img alt="140x140" width="150px" src={{$picture}}></img>
 			</div>
 			<div class="col-md-7"> 
 				<p>&nbsp;</p>
 
 				<h4>
-					IPhone 6 Plus  - Gold (AIS) - 16 GB
+					{{$product->product_name}}
 				</h4>
 				<p>&nbsp;</p>
 				<p>
-					Seller : John
+					Seller : {{$seller->name}}
 				</p>
 
 			</div>
@@ -37,14 +37,14 @@
 
 					<div class="well-shadow">
 						<fieldset>
-							<legend>Subject..........</legend>
+							<legend>{{$question->topic}}</legend>
 
 							<div class="row clearfix" >
 								<div class="form-group">
 									<div class="col-md-1 column">
 									</div>
 									<div class="col-md-10 column">
-										<h5 class="control-label" style="text-align:left;">ckjsdnclnsdcknsd;kna;djvavnadojvna;jnv;nva jaoisjfn;asdn asj oisjfao sko jiofjaio ;sj;oiajiavjiodji aj isoijfo;skfmeoirfjoiwjjacnasdkj</h5>
+										<h5 class="control-label" style="text-align:left;">{{$question->content}}</h5>
 									</div>
 									<div class="col-md-1 column">
 									</div>
