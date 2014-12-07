@@ -211,3 +211,5 @@ Route::get('webboard',function()
 {
     return View::make('/perdtye/webboard');
 });
+
+Route::get('webboard/','AskAQuestionController@answerQuestion');
