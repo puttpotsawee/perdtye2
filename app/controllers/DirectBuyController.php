@@ -4,7 +4,10 @@ class DirectBuyController extends BaseController {
 
 	public function buy()
 	{
-		$user = Auth::user();
+		if(!Auth::check())
+            return View::make("perdtye/login");
+        
+        $user = Auth::user();
 		if($user->status == 'blacklist') {
 			return Redirect::back()->with('message','Error you are blacklisted');
 		}
