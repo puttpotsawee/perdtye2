@@ -82,10 +82,11 @@
 		<div class="col-md-8 column">
 			<ul class="nav nav-tabs">
 				<li class="active"><a href="#bidding" data-toggle="tab" aria-expanded="true">Bidding</a></li>
-				<li class=""><a href="#didntwin" data-toggle="tab" aria-expanded="true">Didn't Win</a></li>
+				<!-- <li class=""><a href="#didntwin" data-toggle="tab" aria-expanded="true">Didn't Win</a></li> -->
 				<li class=""><a href="#history" data-toggle="tab" aria-expanded="true">Buy History</a></li>
 				<li class=""><a href="#historys" data-toggle="tab" aria-expanded="true">Sell History</a></li>
-				<li class=""><a href="#sell" data-toggle="tab" aria-expanded="true">Sell</a></li>
+				<li class=""><a href="#directsell" data-toggle="tab" aria-expanded="true">Direct Sell</a></li>
+				<li class=""><a href="#auctionsell" data-toggle="tab" aria-expanded="true">Auction Sell</a></li>
 				<li class=""><a href="#qa" data-toggle="tab" aria-expanded="true">Q/A</a></li>
 				
 				
@@ -161,7 +162,7 @@
 				</div>
 			</div>
 			<!-- Didntwin -->
-			<div class="tab-pane fade" id="didntwin">
+			<!-- <div class="tab-pane fade" id="didntwin">
 				<div class="col-md-12 column">
 					<p>&nbsp;</p>
 					<h4>Didn't Win</h4>
@@ -220,8 +221,8 @@
 					</tbody>
 				</table>
 			</div>
-		</div>
-		<!-- history buy-->
+		</div> -->
+		<!-- buy history-->
 		<div class="tab-pane fade" id="history">
 			<div class="col-md-12 column">
 				<p>&nbsp;</p>
@@ -235,18 +236,21 @@
 							<th width="25%">
 								Product
 							</th>
-							<th width="17%">
+							<th width="15%">
 								Shop
 							</th>
-							<th width="17%">
+							<th width="15%">
 								Order Time
 							</th>
-							<th width="18%">
+							<th width="10%">
 								Price
 							</th>
+							<th width="13%">
+								Payment Status
+							</th>
 							@if($flag == 'true')
-							<th width="18%">
-								Status
+							<th width="17%">
+								Feedback
 							</th>
 							@endif
 						</tr>
@@ -260,13 +264,22 @@
 								<p style="margin-top:15px;"><center>{{$h->product_name}}</center></p>
 							</td>
 							<td>
-								<text>{{$h->username}}</text>
+								<a href=account?id={{$h->idmember}}>{{$h->name}} {{$h->surname}}</a>
 							</td>
 							<td>
 								<text>{{$h->timestamp}}</text>
 							</td>
 							<td>
-								<p style="color:black">{{$h->price}}</p>
+								<text>{{$h->price}}</text>
+							</td>
+							<td>
+								@if($h->status == 'waiting')
+									<p style="color:red"> {{$h->status}} </p>
+								@endif
+
+								@if($h->status == 'paid')
+									<p style="color:green"> {{$h->status}} </p>
+								@endif
 							</td>
 							@if($flag == 'true')
 							<td>
@@ -281,12 +294,12 @@
 			</table>
 		</div>
 	</div>
-	<!-- history sell-->
+	<!-- sell history-->
 		<div class="tab-pane fade" id="historys">
 			<div class="col-md-12 column">
 				<p>&nbsp;</p>
 				<h4>
-					History Sell
+					Sell History
 				</h4>
 				<table class="table" style="table-layout: fixed; width: 100%">
 					<thead>
@@ -294,18 +307,22 @@
 							<th width="25%">
 								Product
 							</th>
-							<th width="17%">
+							<th width="15%">
 								Buyer
 							</th>
-							<th width="17%">
+							<th width="15%">
 								Order Time
 							</th>
-							<th width="18%">
+							<th width="10%">
 								Price
 							</th>
+							<th width="13%">
+								Payment Status
+							</th>
+
 							@if($flag == 'true')
-							<th width="18%">
-								Status
+							<th width="17%">
+								Feedback
 							</th>
 							@endif
 						</tr>
@@ -319,13 +336,22 @@
 								<p style="margin-top:15px;"><center>{{$h->product_name}}</center></p>
 							</td>
 							<td>
-								<text>{{$h->username}}</text>
+								<a href=account?id={{$h->idmember}}>{{$h->name}} {{$h->surname}}</a>
 							</td>
 							<td>
 								<text>{{$h->timestamp}}</text>
 							</td>
 							<td>
-								<p style="color:black">{{$h->price}}</p>
+								<text>{{$h->price}}</text>
+							</td>
+							<td>
+								@if($h->status == 'waiting')
+									<p style="color:red"> {{$h->status}} </p>
+								@endif
+
+								@if($h->status == 'paid')
+									<p style="color:green"> {{$h->status}} </p>
+								@endif							
 							</td>
 							@if($flag == 'true')
 							<td>
@@ -340,8 +366,8 @@
 			</table>
 		</div>
 	</div>
-	<!-- Sell-->
-	<div class="tab-pane fade" id="sell">
+	<!-- direct Sell-->
+	<div class="tab-pane fade" id="directsell">
 		<div class="col-md-12 column">
 			<p>&nbsp;</p>
 			<h4>
@@ -363,16 +389,14 @@
 							Price(Bath)
 						</th>
 						@if($flag == 'true')
-
 						<th width="20%">
-							
 						</th>
 						@endif
 					</tr>
 				</thead>
 
 				<tbody>
-					@foreach($sell as $s)
+					@foreach($direct_sell as $s)
 					<tr class="active">
 						<td>
 							<img src={{$s->picture_url}} width="100%"/>
@@ -389,6 +413,77 @@
 						</td>
 						@if($flag == 'true')
 
+						<td>
+							<a href="editdirectsell.html" class="btn btn-success" style="width:100%;">edit sell</a>
+						</td>
+						@endif
+					</tr>
+					@endforeach
+				
+				
+			</tbody>
+		</table>
+	</div>
+</div>
+
+<!-- auction Sell-->
+	<div class="tab-pane fade" id="auctionsell">
+		<div class="col-md-12 column">
+			<p>&nbsp;</p>
+			<h4>
+				Sell
+			</h4>
+			<table class="table" style="table-layout: fixed; width: 100%">
+				<thead>
+					<tr>
+						<th width="25%">
+							Product
+						</th>
+						<th width="15%">
+							End time
+						</th>
+						<th width="10%">
+							Minimum Bid
+						</th>
+						<th width="10%">
+							Range
+						</th>
+						<th width="10%">
+							Current Price
+						</th>
+						<th width="15%">
+							Current Winner
+						</th>
+						@if($flag == 'true')
+						<th width="15%">
+						</th>
+						@endif
+					</tr>
+				</thead>
+
+				<tbody>
+					@foreach($auction_sell as $s)
+					<tr class="active">
+						<td>
+							<img src={{$s->picture_url}} width="100%"/>
+							<p style="margin-top:15px;"><center>{{$s->product_name}}</center></p>
+						</td>
+						<td>
+							<text>{{$s->end_time}}</text>
+						</td>
+						<td>
+							<text>{{$s->minimum_bid}}</text>
+						</td>
+						<td>
+							<text>{{$s->bidding_range}}</text>
+						</td>
+						<td>
+							<text>{{$s->current_price}}</text>
+						</td>
+						<td>
+						<a href=account?id={{$s->current_winner}}>{{$s->name}} {{$s->surname}}</a>
+						</td>
+						@if($flag == 'true')
 						<td>
 							<a href="editdirectsell.html" class="btn btn-success" style="width:100%;">edit sell</a>
 						</td>

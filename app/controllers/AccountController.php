@@ -51,7 +51,8 @@ class AccountController extends BaseController {
         	->join('member', 'member.idmember', '=', 'seller.idseller')
         	->leftjoin('answer', 'question.idQuestion', '=', 'answer.idquestion')
         	->groupBy('question.idQuestion')
-        	->select('product.product_name', 'productpicture.picture_url', 'member.username', 'answer.content as answer', 'question.content as question')
+        	->select('product.product_name', 'productpicture.picture_url', 'member.username', 'answer.content as answer', 
+        			'question.content as question')
         	->get();
 
         $buy_history = DB::table('transaction')
@@ -60,7 +61,8 @@ class AccountController extends BaseController {
         	->join('productpicture', 'product.idproduct', '=', 'productpicture.idproduct')  	
         	->join('seller', 'product.idseller', '=', 'seller.idseller')
         	->join('member', 'member.idmember', '=', 'seller.idseller')
-        	->select('transaction.idTransaction', 'product.product_name', 'productpicture.picture_url', 'member.username', 'transaction.timestamp', 'transaction.price')
+        	->select('transaction.idTransaction', 'product.product_name', 'productpicture.picture_url', 'member.idmember', 
+        			'transaction.status', 'member.name', 'member.surname', 'transaction.timestamp', 'transaction.price')
         	->groupBy('transaction.idTransaction')
         	->get();
 
@@ -69,17 +71,32 @@ class AccountController extends BaseController {
         	->join('product', 'transaction.idproduct', '=', 'product.idProduct')
         	->join('productpicture', 'product.idproduct', '=', 'productpicture.idproduct')  	
         	->join('member', 'member.idmember', '=', 'transaction.idmember')
-        	->select('transaction.idTransaction', 'product.product_name', 'productpicture.picture_url', 'member.username', 'transaction.timestamp', 'transaction.price')
+        	->select('transaction.idTransaction', 'product.product_name', 'productpicture.picture_url', 'member.idmember', 
+        		'transaction.status', 'member.name', 'member.surname', 'transaction.timestamp', 'transaction.price')
         	->groupBy('transaction.idTransaction')
         	->get();
 
-       	$sell = DB::table('product')
+       	$direct_sell = DB::table('product')
 			->where('product.idseller', '=', $idmember)
         	->join('product_direct', 'product_direct.idproduct_direct', '=', 'product.idProduct')
         	->join('productpicture', 'product.idproduct', '=', 'productpicture.idproduct')
-        	->select('product.product_name', 'productpicture.picture_url', 'product_direct.quantity', 'product_direct.remaining', 'product_direct.price')
+        	->select('product.product_name', 'productpicture.picture_url', 'product_direct.quantity', 'product_direct.remaining', 
+        			'product_direct.price')
         	->groupBy('product.idProduct')
         	->get();
+
+        $auction_sell = DB::table('product')
+			->where('product.idseller', '=', $idmember)
+        	->join('product_auction', 'product_auction.idproduct_auction', '=', 'product.idProduct')
+        	->join('productpicture', 'product.idproduct', '=', 'productpicture.idproduct')
+        	->leftjoin('member', 'member.idmember', '=', 'product_auction.current_winner')
+        	->select('product.product_name', 'productpicture.picture_url', 'product_auction.end_time', 'product_auction.minimum_bid', 
+        			'product_auction.bidding_range', 'product_auction.current_price', 'product_auction.current_winner',
+        			'member.name', 'member.surname')
+        	->groupBy('product_auction.idproduct_auction')
+        	->get();
+
+
 
 		return View::Make('perdtye/account')->with(
 			array(
@@ -91,7 +108,8 @@ class AccountController extends BaseController {
 				'question' => $question,
 				'buy_history' => $buy_history,
 				'sell_history' => $sell_history,
-				'sell' => $sell,
+				'direct_sell' => $direct_sell,
+				'auction_sell' => $auction_sell,
 				'flag' => $flag
 
 			));

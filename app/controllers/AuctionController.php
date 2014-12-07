@@ -61,7 +61,8 @@ class AuctionController extends BaseController {
 		
 
 		if ($bid_list->count() == 1) {	
-			$product = Product_auction::find($idProduct);
+			$winner = Auth::user();
+            $product = Product_auction::find($idProduct);
 			$product->current_price = $product->current_price + $product->bidding_range;
 	        $product->current_winner = Auth::user()->idmember;
 	        $product->save();
