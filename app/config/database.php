@@ -74,6 +74,7 @@ return array(
 		// 	'prefix'    => '',
 		// ),
 
+<<<<<<< HEAD
 		// 'mysql' => array(
 		// 	'driver'    => 'mysql',
 		// 	'host'      => 'localhost',
@@ -84,6 +85,18 @@ return array(
 		// 	'collation' => 'utf8_unicode_ci',
 		// 	'prefix'    => '',
 		// ),
+=======
+/*		'mysql' => array(
+			'driver'    => 'mysql',
+			'host'      => 'localhost',
+			'database'  => 'perdtye',
+			'username'  => 'root',
+			'password'  => '',
+			'charset'   => 'utf8',
+			'collation' => 'utf8_unicode_ci',
+			'prefix'    => '',
+		),*/
+>>>>>>> FETCH_HEAD
 		'mysql' => array(
 			'driver'    => 'mysql',
 			'host'      => '93.188.161.247',

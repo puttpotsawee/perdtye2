@@ -43,6 +43,20 @@ class AccountController extends BaseController {
             ->whereIn('score', array(4, 5))
 			->count();
 
+		$bidding_product = DB::table('auction_list')
+			->where('auction_list.idmember', '=', $idmember)
+			->groupBy('auction_list.idproduct_auction')
+        	->join('product', 'auction_list.idproduct_auction', '=', 'product.idProduct')
+        	->join('product_auction', 'product_auction.idproduct_auction', '=', 'product.idProduct')
+        	->join('member as member1', 'member1.idmember', '=', 'product.idseller')
+        	->join('member as member2', 'member2.idmember', '=', 'product_auction.current_winner')
+        	->join('productpicture', 'product.idproduct', '=', 'productpicture.idproduct')
+        	->leftjoin('transaction', 'transaction.idproduct', '=', 'product_auction.idproduct_auction')
+        	->select('product.idProduct','product.product_name', 'productpicture.picture_url', 'member1.idmember', 'member1.name', 'member1.surname',
+        			'product_auction.isend','product_auction.end_time','product_auction.current_price', 'member2.name as c_name', 'member2.surname as c_surname')
+			->get();
+
+
 		$question = DB::table('question')
 			->where('question.idmember', '=', $idmember)
         	->join('product', 'question.idproduct', '=', 'product.idProduct')
@@ -97,7 +111,6 @@ class AccountController extends BaseController {
         	->get();
 
 
-
 		return View::Make('perdtye/account')->with(
 			array(
 				'name'=> $name, 
@@ -110,6 +123,7 @@ class AccountController extends BaseController {
 				'sell_history' => $sell_history,
 				'direct_sell' => $direct_sell,
 				'auction_sell' => $auction_sell,
+				'bidding_product' => $bidding_product,
 				'flag' => $flag
 
 			));

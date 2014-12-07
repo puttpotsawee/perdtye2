@@ -206,6 +206,9 @@ Route::get('date',function()
 });
 
 Route::get('testClass','MemberController@showProfile');
+
+// Backgroud service: End Auction
+Route::get('endauction', 'AuctionController@endAuction');
 //---------------------------------------------------------------------------
 Route::get('webboard',function()
 {
