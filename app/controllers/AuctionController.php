@@ -100,14 +100,14 @@ class AuctionController extends BaseController {
 	        }
 	        $product->current_winner = $winner->idmember;
 	        $product->save();
-		}
+	       EmailController::sendBidLostEmail($runnerup);
+        }
 
 		if($winner->idmember == Auth::user()->idmember)
 			return Redirect::back()->with('message','Placed bid successfully. You win !');
 		else
 		{	
 			// send email to previous winner
-			EmailController::sendBidLostEmail($runnerup);			
 			return Redirect::back()->with('message','Placed bid successfully. You lose !');
 		}
 	}
