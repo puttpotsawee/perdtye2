@@ -535,7 +535,8 @@
 						{{$q->question}}						
 					</td>
 					<td style="word-wrap: break-word;">
-						{{$q->answer}}						
+						{{$q->answer}}	
+						<a href=webboard?idQ={{$q->idQuestion}} class="btn btn-success" style="width:100%;">Answer</a>					
 					</td>
 				</tr>
 				@endforeach
