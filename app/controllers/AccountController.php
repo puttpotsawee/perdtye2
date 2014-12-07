@@ -50,7 +50,7 @@ class AccountController extends BaseController {
         	->join('product_auction', 'product_auction.idproduct_auction', '=', 'product.idProduct')
         	->join('member as member1', 'member1.idmember', '=', 'product.idseller')
         	->join('member as member2', 'member2.idmember', '=', 'product_auction.current_winner')
-        	->join('productpicture', 'product.idproduct', '=', 'productpicture.idproduct')
+        	->leftjoin('productpicture', 'product.idproduct', '=', 'productpicture.idproduct')
         	->leftjoin('transaction', 'transaction.idproduct', '=', 'product_auction.idproduct_auction')
         	->select('product.idProduct','product.product_name', 'productpicture.picture_url', 'member1.idmember', 'member1.name', 'member1.surname',
         			'product_auction.isend','product_auction.end_time','product_auction.current_price', 'member2.name as c_name', 'member2.surname as c_surname')
