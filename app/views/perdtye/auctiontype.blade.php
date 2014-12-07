@@ -25,7 +25,11 @@
 							<p>{{ Session::get('message') }}</p>
 						</div>
 					@endif
+					@if($details->isend == 0)
 					<legend> {{$product->product_name}} </legend>
+					@else
+					<legend> [Closed] {{$product->product_name}} </legend>
+					@endif
 					<div class="row clearfix" style="margin-top:30px;">
 						<div class="col-md-6 column">
 							<div class="thumbnail">
@@ -97,7 +101,11 @@
 								</div>
 								<div class="row" style="margin-top:20px;">
 									<div class="col-md-12">
+										@if($details->isend == 0)
 										<button type="submit" class="btn btn-info"style="width:100%">Place bid at {{$details->bidding_range+$details->current_price}} Baht </button>
+										@else
+										<button disabled type="submit" class="btn btn-info"style="width:100%">Place bid at {{$details->bidding_range+$details->current_price}} Baht </button>
+										@endif
 										<input name="idProduct" type="hidden" value={{$product->idProduct}}/>
 
 									</div>
@@ -109,12 +117,20 @@
 							<form action="maxbid" method="post">
 								<div class="row" style="margin-top:20px;">
 									<div class="col-md-6">
+										@if($details->isend == 0)
 										<input name="maxbid_input" type="text" data-validation="number" data-validation-allowing=range[{{$details->bidding_range}};999999999999] class="form-control" style="width:100%;"></input>
+										@else
+										<input disabled name="maxbid_input" type="text" data-validation="number" data-validation-allowing=range[{{$details->bidding_range}};999999999999] class="form-control" style="width:100%;"></input>
+										@endif
 										<input name="idProduct" type="hidden" value={{$product->idProduct}}/>
 										<p><center>specify your maximum bid</center></p>
 									</div>
 									<div class="col-md-6" >
+										@if($details->isend == 0)
 										<button type="submit" class="btn btn-primary"style="width:100%">Place bid</button>
+										@else
+										<button disabled type="submit" class="btn btn-primary"style="width:100%">Place bid</button>
+										@endif
 									</div>  
 								</div>
 
