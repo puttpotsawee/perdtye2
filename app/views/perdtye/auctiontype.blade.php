@@ -146,7 +146,11 @@
 							</div>
 							<div class="row" style="margin-top:20px;">
 								<div class="col-md-12">
+									@if($details->isend == 0)
 									<a href=qa?id={{$product->idProduct}} class="btn btn-default"style="width:100%">Ask a question </a>
+									@else
+									<a disabled href=qa?id={{$product->idProduct}} class="btn btn-default"style="width:100%">Ask a question </a>
+									@endif
 								</div>
 							</div>
 						</div>
