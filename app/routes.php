@@ -211,10 +211,7 @@ Route::get('testClass','MemberController@showProfile');
 // Backgroud service: End Auction
 Route::get('endauction', 'AuctionController@endAuction');
 //---------------------------------------------------------------------------
-Route::get('webboard',function()
-{
-    return View::make('/perdtye/webboard');
-});
-Route::get('webboard/','AskAQuestionController@answerQuestion');
-Route::post('webboard/','AskAQuestionController@answerAnsQuestion');
+
+Route::get('webboard/','AskAQuestionController@answerQuestion')->before('auth');
+Route::post('webboard/','AskAQuestionController@answerAnsQuestion')->before('auth');
 

@@ -65,8 +65,8 @@ class AccountController extends BaseController {
         	->join('member', 'member.idmember', '=', 'seller.idseller')
         	->leftjoin('answer', 'question.idQuestion', '=', 'answer.idquestion')
         	->groupBy('question.idQuestion')
-        	->select('question.idQuestion as idQuestion', 'product.product_name', 'productpicture.picture_url', 'member.username', 'answer.content as answer', 
-        			'question.content as question')
+        	->select('question.idQuestion as idQuestion', 'product.product_name', 'productpicture.picture_url', 'member.name','member.username', 'answer.content as answer', 
+        			'question.topic as topic','question.content as question')
         	->get();
 
         $productAns = Product::join('question', 'product.idProduct', '=', 'question.idproduct')

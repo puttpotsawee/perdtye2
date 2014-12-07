@@ -21,8 +21,8 @@
 				<form class="form-horizontal" role="form">
 
 					<div class="form-group" style="margin-top:30px;">
-						<div class=" col-sm-4">
-						{{HTML::link('/','Continue shopping',array('class'=>'btn btn-default','style'=>'margin-left:0px;'))}}
+						<div class=" col-sm-12">
+						{{HTML::link('/','Continue shopping',array('class'=>'btn btn-primary','style'=>'margin-left:0px; width:100%;'))}}
 							<!-- <a href="home" class="btn btn-default" style="margin-left:0px;">Continue shopping</a> -->
 						
 						

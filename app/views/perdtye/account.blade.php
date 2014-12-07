@@ -538,10 +538,11 @@
 						<p style="margin-top:15px;"><center>{{$q->product_name}}</center></p>
 					</td>
 					<td style="word-wrap: break-word;">
-						<text>{{$q->username}}</text>
+						<text>{{$q->name}}</text>
 					</td>
 					<td style="word-wrap: break-word;">
-						{{$q->question}}						
+						<p>{{$q->topic}}	</p>
+						<p>{{$q->question}}	</p>					
 					</td>
 					<td style="word-wrap: break-word;">
 						
@@ -561,7 +562,8 @@
 						<text>{{$q->name}}</text>
 					</td>
 					<td style="word-wrap: break-word;">
-						{{$q->content}}						
+						<p>{{$q->topic}}	</p>
+						<p>{{$q->content}}	</p>				
 					</td>
 					<td style="word-wrap: break-word;">
 						

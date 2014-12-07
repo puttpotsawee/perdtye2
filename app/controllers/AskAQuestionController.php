@@ -49,15 +49,16 @@ class AskAQuestionController extends BaseController {
 		// $idmember = Auth::user()->idmember;
 		$questionid = Input::get('idQ');
 		$question = Question::find($questionid);
+		// $question = Question::join('member','Question.idmember','=','member.idmember')->where('idQuestion','=',$questionid)->get()
 		$member = Member::find($question->idmember);
 		$product = Product::find($question->idproduct);
 		$seller = Member::find($product->idseller);
 		$picture = Productpicture::where('idProduct','=',$product->idProduct)->get()->first();
-		$answer = Answer::where('idquestion','=',$questionid)->get();
+		$answer = Answer::join('member','answer.idmember','=','member.idmember')->where('idquestion','=',$questionid)->get();
 		// $ansmember = Member::find($answer->idmember);
 		// return $answer;
 		if((Auth::user()->idmember==$member->idmember||Auth::user()->idmember==$seller->idmember)){
-			return View::make('/perdtye/webboard')->with(array('product'=>$product,'seller'=>$seller,'question'=>$question,'picture'=>$picture->picture_url,'answer'=>$answer));
+			return View::make('/perdtye/webboard')->with(array('member'=>$member,'product'=>$product,'seller'=>$seller,'question'=>$question,'picture'=>$picture->picture_url,'answer'=>$answer));
 		} else {
 			// return Redirect::back()->with('flash_message','Your question has been sent.');
 			return Redirect::to('/');

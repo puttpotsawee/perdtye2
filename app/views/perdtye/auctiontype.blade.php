@@ -136,7 +136,7 @@
 
 							</form>
 
-							<div class="row" style="margin-top:80px;">
+							<div class="row" style="margin-top:50px;">
 								<div class="col-md-5" >
 									<h4>Seller: </h4>
 								</div>
