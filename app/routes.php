@@ -41,7 +41,7 @@ Route::get('account','AccountController@showAccount')->before('auth');
 Route::get('editaccount', 'AccountController@editAccount')->before('auth');
 Route::post('editaccount', 'AccountController@saveEditedAccount')->before('auth');
 // Upgrade to seller
-Route::get('sellregister', 'SignupController@sellregister')->before('auth');;
+Route::get('sellregister', 'SignupController@sellregister')->before('auth');
 // ---------------------------------------------------------------------------
 
 
