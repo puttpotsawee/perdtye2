@@ -216,3 +216,4 @@ Route::get('webboard',function()
 });
 
 Route::get('webboard/','AskAQuestionController@answerQuestion');
+Route::post('webboard/','AskAQuestionController@answerAnsQuestion');

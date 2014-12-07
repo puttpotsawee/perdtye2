@@ -53,12 +53,26 @@ class AskAQuestionController extends BaseController {
 		$seller = Member::find($product->idseller);
 		$picture = Productpicture::where('idProduct','=',$product->idProduct)->get()->first();
 		$answer = Answer::where('idquestion','=',$questionid)->get();
+		// $ansmember = Member::find($answer->idmember);
+		// return $answer;
 		if((Auth::user()->idmember==$member->idmember||Auth::user()->idmember==$seller->idseller)){
-			return View::make('/perdtye/webboard')->with(array('product'=>$product,'seller'=>$seller,'question'=>$question,'picture'=>$picture->picture_url));
+			return View::make('/perdtye/webboard')->with(array('product'=>$product,'seller'=>$seller,'question'=>$question,'picture'=>$picture->picture_url,'answer'=>$answer));
 		} else {
 			return Redirect::back()->with('flash_message','Your question has been sent.');
 		}
 		
 
+	}
+	public function answerAnsQuestion(){
+		$idmember = Auth::user()->idmember;
+		$content = Input::get('content');
+		$idquestion = Input::get('idquestion');
+
+		$answer = new Answer;
+		$answer->idmember = $idmember;
+		$answer->idquestion = $idquestion;
+		$answer->content = $content;
+		$answer->save();
+		return Redirect::to('/webboard?idQ='.$idquestion);
 	}
 }

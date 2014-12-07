@@ -13,7 +13,6 @@
 			</div>
 			<div class="col-md-7"> 
 				<p>&nbsp;</p>
-				<p>&nbsp;</p>
 
 				<h4>
 					{{$product->product_name}}
@@ -34,7 +33,7 @@
 
 			<div class="col-sm-12" style="margin: 15px">
 				
-				<form class="form-horizontal" action="account.php" method="get">
+				<form class="form-horizontal" action="webboard" method="post">
 
 					<div class="well-shadow">
 						<fieldset>
@@ -57,9 +56,8 @@
 					<!-- <div class="well-shadow-wb">
 						<fieldset> -->
 					<div class="well-shadow-wbout">		
-								<?php 
-								for($i=1;$i<=10;$i++){ 
-									?>
+								
+								@foreach($answer as $ans)
 								
 								<div class="well-shadow-wb">
 						<fieldset>
@@ -68,8 +66,8 @@
 										<div class="col-md-1 column">
 										</div>
 										<div class="col-md-10 column">
-											<legend style="margin-top:0px;">Answer <?php echo $i; ?></legend>
-											<h5 class="control-label" style="text-align:left;">ckjsdnclnsdcknsd;kna;djvavnadojvna;jnv;nva jaoisjfn;asdn asj oisjfao sko jiofjaio ;sj;oiajiavjiodji aj isoijfo;skfmeoirfjoiwjjacnasdkj</h5>
+											<legend style="margin-top:0px;"> Answer : {{$ans->idmember}} Time : {{$ans->timestamp}} </legend>
+											<h5 class="control-label" style="text-align:left;">{{$ans->content}}</h5>
 										</div>
 										<div class="col-md-1 column">
 										</div>
@@ -77,7 +75,7 @@
 								</div>
 								</fieldset>
 					</div>
-								<?php } ?>
+								@endforeach
 
 						<div class="well-shadow-wb">
 						<fieldset>
@@ -90,8 +88,8 @@
 									<!-- <label for="textArea" class="col-lg-3 control-label">Answers<text style="color:red">*</text> :</label> -->
 									<div class="col-md-10 column">
 
-										<textarea class="form-control" data-validation="required" rows="3" id="textArea" style="height:200px" name="answer" placeholder="Answers"></textarea>
-
+										<textarea class="form-control" data-validation="required" rows="3" id="textArea" style="height:200px" name="content" placeholder="Answers"></textarea>
+										<input type="hidden" name="idquestion" value={{$question->idQuestion}} />
 									</div>
 									<div class="col-md-1 column">
 									</div>
