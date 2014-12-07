@@ -215,9 +215,6 @@ Route::get('webboard',function()
 {
     return View::make('/perdtye/webboard');
 });
-<<<<<<< HEAD
-
 Route::get('webboard/','AskAQuestionController@answerQuestion');
 Route::post('webboard/','AskAQuestionController@answerAnsQuestion');
-=======
->>>>>>> FETCH_HEAD
+
