@@ -25,7 +25,7 @@
 						<div class="col-md-6 column">
 							<div class="thumbnail">
 								<!-- <img src="img/i6.png" width="100%"/> -->
-								<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="height:395px;">
+								<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="max-height:395px;">
 									<!-- Indicators -->
 									<!-- <ol class="carousel-indicators">
 										<li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>

@@ -33,13 +33,15 @@
 									<div class="col-md-3 column">
 										<h5>Upload image :</h5>
 									</div>
-									<div class="col-md-9 column">
+									<div id="inputpic" class="col-md-9 column">
 										<input id="files" type="file" data-validation="mime size" data-validation-allowing="jpg, png, gif" 
 										data-validation-max-size="2M" id="exampleInputFile" name="pic[]" multiple="true" />
     									<!-- <img style="margin-top:15px;" id="blah" src=""  /> -->
     									<output id="result" />
 										<!-- {{Form::file('pic[]', array('multiple'=>true));}} -->
+
 									</div>
+
 								</div>
 
 						<!-- <div class="row clearfix" style="margin-top:10px">
@@ -218,6 +220,7 @@ window.onload = function(){
         filesInput.addEventListener("change", function(event){
             var files = event.target.files; //FileList object
             var output = document.getElementById("result");
+            
             for(var i = 0; i< files.length; i++)
             {
                 var file = files[i];
@@ -228,14 +231,25 @@ window.onload = function(){
                 picReader.addEventListener("load",function(event){
                     var picFile = event.target;
                     var div = document.createElement("div");
+                    div.className="item";
                     div.innerHTML = "<img class='thumbnail' style='width:100%' src='" + picFile.result + "'" + "title='" + picFile.name + "'/>";
                     output.insertBefore(div,null);
                 });
                 //Read the image
                 picReader.readAsDataURL(file);
             }
+
             // filesInput.disabled=true;
+           // alert(document.getElementById("inputpic").innerHTML);
+            
         });
+ 
+        // document.getElementById("inputpic").innerHTML=document.getElementById("inputpic").innerHTML+"<a class='left carousel-control' href='#carousel-example-generic' role='button' data-slide='prev'>
+								// 		<span class='glyphicon glyphicon-chevron-left'></span>
+								// 	</a>
+								// 	<a class='right carousel-control' href='#carousel-example-generic' role='button' data-slide='next'>
+								// 		<span class='glyphicon glyphicon-chevron-right'></span>
+								// 	</a>";
         
     }
     else
