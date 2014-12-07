@@ -207,4 +207,7 @@ Route::get('date',function()
 
 Route::get('testClass','MemberController@showProfile');
 //---------------------------------------------------------------------------
-
+Route::get('webboard',function()
+{
+    return View::make('/perdtye/webboard');
+});

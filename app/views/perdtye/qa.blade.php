@@ -21,7 +21,6 @@
 			</div>
 			<div class="col-md-7"> 
 				<p>&nbsp;</p>
-				<p>&nbsp;</p>
 
 				<h4>
 					{{$product->product_name}}
