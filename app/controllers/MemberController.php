@@ -71,7 +71,7 @@ class MemberController extends BaseController {
 		return View::make('/perdtye/forgotconfirm')->with('email',$inputEmail);
 	}
 
-	public function resetPassword($username,$token)
+	public function resetPasswordForm($username,$token)
 	{
 		$thisUser = Member::where('username','=',$username)->get()->first();
 		if($thisUser->count()==0){
@@ -84,10 +84,30 @@ class MemberController extends BaseController {
                 $thisUser->confirm_token = null;
                 $thisUser->save();		
 				
-				return View::make('/perdtye/resetPassword');
+				Session::flash('resetpass',$thisUser->idmember);
+				return View::make('perdtye/resetPassword');
 			} else {
 				return Redirect::to('/');
 			}
 		}
 	}
+
+	public function resetPassword(){
+		if(Session::has('resetpass')){
+			$id = Session::get('resetpass');
+			$thisUser = Member::find($id);
+			$newPass = Input::get('password');
+			$thisUser->password = Hash::make($newPass);
+			$thisUser->save();
+
+			Auth::login($thisUser);
+			return View::make('perdtye/resetPasswordConfirm')->with('name',$thisUser->name);
+
+
+		} else {
+			return Redirect::to('/');
+		}
+
+	}
+
 }
