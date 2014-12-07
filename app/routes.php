@@ -33,7 +33,7 @@ Route::get('logout', 'SessionController@destroy');
 Route::resource('session','SessionController');
 // Forgot Password
 Route::get('forgot', 'MemberController@forgotPassword');
-Route::post('statusforgot', 'ForgotPassController@statusforgot');
+Route::post('forgot', 'MemberController@sendEmailResetPassword');
 // View Account
 Route::get('account','AccountController@showAccount')->before('auth');
 // Edit Account
@@ -102,7 +102,7 @@ Route::get('users', function()
     return View::make('users');
 });
 Route::get('html/{dwgeg}', function(){
-    return View::make('index');
+    return View::make('perdtye/index');
     // return View::make('perdtye/confirmsuccess')->with('email','ppp@g.com');
 });
 

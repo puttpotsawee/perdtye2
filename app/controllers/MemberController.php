@@ -34,8 +34,8 @@ class MemberController extends BaseController {
                 }			
 				Auth::login($thisUser);
 				// return $thisUser->email;
-				return View::make('index');
-				// return View::make('perdtye/confirmsuccess')->with('email',$thisUser->email);
+				// return View::make('index');
+				return View::make('perdtye/confirmsuccess')->with('email',$thisUser->email);
 			} else {
 				return Redirect::to('/');
 			}

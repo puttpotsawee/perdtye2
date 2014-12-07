@@ -22,10 +22,14 @@
  <meta name="description" content="">
  <meta name="author" content="">
  <!-- CSS -->
- <link href="css/bootstrap.min.css" rel="stylesheet">
+ {{ HTML::style('css/bootstrap.min.css'); }}
+  {{ HTML::style('css/bootstrap.css'); }}
+  {{ HTML::style('css/style.css'); }}
+  {{ HTML::style('css/datepicker.css');}}
+<!--  <link href="css/bootstrap.min.css" rel="stylesheet">
  <link href="css/bootstrap.css" rel="stylesheet">
  <link href="css/style.css" rel="stylesheet">
- <link href="css/datepicker.css" rel="stylesheet">
+ <link href="css/datepicker.css" rel="stylesheet"> -->
  <!-- Fav and touch icons -->
  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="img/apple-touch-icon-144-precomposed.png">
  <link rel="apple-touch-icon-precomposed" sizes="114x114" href="img/apple-touch-icon-114-precomposed.png">
@@ -33,11 +37,13 @@
  <link rel="apple-touch-icon-precomposed" href="img/apple-touch-icon-57-precomposed.png">
  <link rel="shortcut icon" href="img/favicon.png">
  <!-- JS -->
- <script type="text/javascript" src="js/jquery.min.js"></script>
- <script type="text/javascript" src="js/bootstrap.min.js"></script>
- <script type="text/javascript" src="js/scripts.js"></script>
- <script src="js/form-validator/jquery.form-validator.min.js"></script>
- <script src="js/bootstrap-datepicker.js"></script>
+ {{ HTML::script('js/jquery.min.js'); }}
+  {{ HTML::script('js/bootstrap.min.js'); }}
+  {{ HTML::script('js/scripts.js'); }}
+  {{ HTML::script('js/form-validator/jquery.form-validator.min.js'); }}
+  {{ HTML::script('js/bootstrap-datepicker.js')}}
+
+
 </head>
 
 <body>
@@ -92,7 +98,7 @@
    <div class="row clearfix">
     <div class="col-md-3 column">
       <div class="row clearfix">
-        <a href={{App::make('url')->to('/')}}><img src="img/logo.png" width="100%"/></a>
+        <a href={{App::make('url')->to('/')}}>{{ HTML::image('img/logo.png','',array('width'=>'100%')) }}</a>
       </div></div>
 
       <div class="col-md-9 column search" >
@@ -171,7 +177,7 @@
    <div class="row clearfix">
     <div class="col-md-3 column">
       <div class="row clearfix">
-        <a href={{App::make('url')->to('/')}}><img src="img/logo.png" width="100%"/></a>
+        <a href={{App::make('url')->to('/')}}>{{ HTML::image('img/logo.png','',array('width'=>'100%')) }}</a>
       </div></div>
 
       <div class="col-md-9 column search" >
