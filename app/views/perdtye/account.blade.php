@@ -117,9 +117,12 @@
 									<th width="15%">
 										Price
 									</th>
+									@if($flag == 'true')
+
 									<th width="25%">
 										Status
 									</th>
+									@endif
 								</tr>
 							</thead>
 							<tbody>
@@ -143,36 +146,15 @@
 										<p style="color:red">THB 14,532</p>
 										<p>21 bids</p>
 									</td>
+									@if($flag == 'true')
 									<td>
 										<a href="#" class="btn btn-success" style="width:100%;">Increase Max Bid</a>
 									</td>
+									@endif
 								</tr>
 								<?php
 							}
 							?>
-							<tr class="success">
-								<td>
-									<?php echo $x ?>
-								</td>
-								<td>
-									<img src="img/iphone6 icon.jpg" width="100%"/>
-									<p style="margin-top:15px;"><center>Iphone6</center></p>
-								</td>
-								<td>
-									<text>Shop1</text>
-									<text>(feedback)</text>
-								</td>
-								<td>
-									<text>4h 42m left</text>
-								</td>
-								<td>
-									<p style="color:#33AA00">THB 14,532</p>
-									<p>21 bids</p>
-								</td>
-								<td>
-									<a href="#" class="btn btn-info" style="width:100%;">View seller's other item</a>
-								</td>
-							</tr>
 							
 						</tbody>
 					</table>
@@ -262,9 +244,11 @@
 							<th width="18%">
 								Price
 							</th>
+							@if($flag == 'true')
 							<th width="18%">
 								Status
 							</th>
+							@endif
 						</tr>
 					</thead>
 
@@ -284,10 +268,12 @@
 							<td>
 								<p style="color:black">{{$h->price}}</p>
 							</td>
+							@if($flag == 'true')
 							<td>
 								<a href=feedback?id={{$h->idTransaction}} class="btn btn-success" style="width:100%;">Give Feedback</a>
 								<p><a href="reportgood" class="btn btn-info" style="width:100%; margin-top:10px;">Report</a></p>
 							</td>
+							@endif
 						</tr>
 						@endforeach
 					
@@ -318,9 +304,11 @@
 							<th width="18%">
 								Price
 							</th>
+							@if($flag == 'true')
 							<th width="18%">
 								Status
 							</th>
+							@endif
 						</tr>
 					</thead>
 
@@ -340,10 +328,12 @@
 							<td>
 								<p style="color:black">{{$h->price}}</p>
 							</td>
+							@if($flag == 'true')
 							<td>
 								<a href=feedback?id={{$h->idTransaction}} class="btn btn-success" style="width:100%;">Give Feedback</a>
 								<p><a href="reportgood" class="btn btn-info" style="width:100%; margin-top:10px;">Report</a></p>
 							</td>
+							@endif
 						</tr>
 						@endforeach
 					
@@ -374,9 +364,12 @@
 						<th width="20%">
 							Price(Bath)
 						</th>
+						@if($flag == 'true')
+
 						<th width="20%">
 							
 						</th>
+						@endif
 					</tr>
 				</thead>
 
@@ -396,9 +389,12 @@
 						<td>
 							<p style="color:black">{{$s->price}}</p>
 						</td>
+						@if($flag == 'true')
+
 						<td>
 							<a href="editdirectsell.html" class="btn btn-success" style="width:100%;">edit sell</a>
 						</td>
+						@endif
 					</tr>
 					@endforeach
 				

@@ -106,12 +106,11 @@
 								</div>
 							</form>
 							<div class="row" style="margin-top:80px;">
-								<div class="col-md-6" >
-									<p>Sell information : {{$seller->name}} {{$seller->surname}}</p>
-									<p>100% positive feedback</p>
+								<div class="col-md-5" >
+									<h4>Seller: </h4>
 								</div>
-								<div class="col-md-6" >
-									<h3 style="color:#3399FF;">&#9733; &#9733; &#9733; &#9733; &#9734;</h3>
+								<div class="col-md-5" >
+									<h4><a href=account?id={{$seller->idmember}}>{{$seller->username}}</a></h4>
 								</div>
 							</div>
 							<div class="row" style="margin-top:20px;">

@@ -8,10 +8,25 @@ class AccountController extends BaseController {
 	}
 	public static function showAccount()
 	{
-		$name = Auth::user()->name;
-		$surname = Auth::user()->surname;
-		$receiver = Auth::user()->idmember;
-		$idmember = Auth::user()->idmember;
+		if(Input::has('id'))
+		{
+			$idmember = Input::get('id');
+			$member = Member::find($idmember);
+
+			$name = $member->name;
+			$surname = $member->surname;
+			$receiver = $member->idmember;
+			$idmember = $member->idmember;
+			$flag = 'false';
+		}
+		else
+		{
+			$name = Auth::user()->name;
+			$surname = Auth::user()->surname;
+			$receiver = Auth::user()->idmember;
+			$idmember = Auth::user()->idmember;
+			$flag = 'true';
+		}
 
 		$negative = DB::table('feedback')
 			->where('idreceiver', '=', $receiver)
@@ -76,8 +91,8 @@ class AccountController extends BaseController {
 				'question' => $question,
 				'buy_history' => $buy_history,
 				'sell_history' => $sell_history,
-
-				'sell' => $sell
+				'sell' => $sell,
+				'flag' => $flag
 
 			));
 			
