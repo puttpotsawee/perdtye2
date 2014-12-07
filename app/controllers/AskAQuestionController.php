@@ -40,7 +40,6 @@ class AskAQuestionController extends BaseController {
 		return Redirect::back()->with('flash_message','Your question has been sent.');
 
 	}
-<<<<<<< HEAD
 	public function answerQuestion()
 	{
 		if(!Input::has('idQ')){
@@ -76,6 +75,4 @@ class AskAQuestionController extends BaseController {
 		$answer->save();
 		return Redirect::to('/webboard?idQ='.$idquestion);
 	}
-=======
->>>>>>> FETCH_HEAD
 }
