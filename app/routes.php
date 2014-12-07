@@ -26,7 +26,8 @@ Route::get('signup', 'SignupController@index');
 Route::post('signup','SignupController@signup');
 // Activate Member
 Route::get('account/activate/{username}/{token}','MemberController@activateMember');
-Route::get('account/resetpass/{username}/{token}','MemberController@resetPassword');
+Route::get('account/resetpass/{username}/{token}','MemberController@resetPasswordForm');
+Route::post('account/resetpass','MemberController@resetPassword');
 // Log in
 Route::get('login','SessionController@create');
 Route::get('logout', 'SessionController@destroy');
@@ -101,8 +102,8 @@ Route::get('users', function()
 {
     return View::make('users');
 });
-Route::get('html/{dwgeg}', function(){
-    return View::make('perdtye/index');
+Route::get('html', function(){
+    return View::make('perdtye/resetPasswordConfirm')->with('name','pot');
     // return View::make('perdtye/confirmsuccess')->with('email','ppp@g.com');
 });
 
