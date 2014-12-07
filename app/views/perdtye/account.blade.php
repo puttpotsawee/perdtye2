@@ -103,9 +103,6 @@
 						<table class="table" style="table-layout: fixed; width: 100%">
 							<thead>
 								<tr>
-									<th width="5%">
-										#
-									</th>
 									<th width="25%">
 										Product
 									</th>
@@ -113,49 +110,50 @@
 										Shop
 									</th>
 									<th width="15%">
-										Time
+										End Time
+									</th>
+									<th width="10%">
+										Current Price
 									</th>
 									<th width="15%">
-										Price
+										Current Winner
 									</th>
 									@if($flag == 'true')
 
-									<th width="25%">
+									<th width="20%">
 										Status
 									</th>
 									@endif
 								</tr>
 							</thead>
 							<tbody>
-								<?php for($x=1;$x<=2;$x++){?>
+							@foreach($bidding_product as $b)
+								@if($b->isend == 0)
 								<tr class="active">
 									<td>
-										<?php echo $x ?>
+										<img src={{$b->picture_url}} width="100%"/>
+										<p style="margin-top:15px;"><center>{{$b->product_name}}</center></p>
 									</td>
 									<td>
-										<img src="img/iphone6 icon.jpg" width="100%"/>
-										<p style="margin-top:15px;"><center>Iphone6</center></p>
+										<a href=account?id={{$b->idmember}}>{{$b->name}} {{$b->surname}}</a>
 									</td>
 									<td>
-										<text>Shop1</text>
-										<text>(feedback)</text>
+										<text>{{$b->end_time}}</text>
 									</td>
 									<td>
-										<text>4h 42m left</text>
+										<text>{{$b->current_price}}</text>
 									</td>
 									<td>
-										<p style="color:red">THB 14,532</p>
-										<p>21 bids</p>
+										<text>{{$b->c_name}} {{$b->c_surname}}</text>
 									</td>
 									@if($flag == 'true')
 									<td>
-										<a href="#" class="btn btn-success" style="width:100%;">Increase Max Bid</a>
+										<a href=view?id={{$b->idProduct}} class="btn btn-success" style="width:100%;">Increase Max Bid</a>
 									</td>
 									@endif
 								</tr>
-								<?php
-							}
-							?>
+								@endif
+							@endforeach
 							
 						</tbody>
 					</table>
