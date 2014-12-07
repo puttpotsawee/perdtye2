@@ -49,6 +49,15 @@ class AccountController extends BaseController {
         	->groupBy('transaction.idTransaction')
         	->get();
 
+        $sell_history = DB::table('transaction')
+			->where('transaction.idseller', '=', $idmember)
+        	->join('product', 'transaction.idproduct', '=', 'product.idProduct')
+        	->join('productpicture', 'product.idproduct', '=', 'productpicture.idproduct')  	
+        	->join('member', 'member.idmember', '=', 'transaction.idmember')
+        	->select('transaction.idTransaction', 'product.product_name', 'productpicture.picture_url', 'member.username', 'transaction.timestamp', 'transaction.price')
+        	->groupBy('transaction.idTransaction')
+        	->get();
+
        	$sell = DB::table('product')
 			->where('product.idseller', '=', $idmember)
         	->join('product_direct', 'product_direct.idproduct_direct', '=', 'product.idProduct')
@@ -66,6 +75,8 @@ class AccountController extends BaseController {
 				'positive' => $positive,
 				'question' => $question,
 				'buy_history' => $buy_history,
+				'sell_history' => $sell_history,
+
 				'sell' => $sell
 
 			));

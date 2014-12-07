@@ -2,6 +2,19 @@
 
 @section('content')
 <div class="container" style="margin-top:30px">
+				@if(Session::has('flash_msg'))
+				<div class="alert alert-dismissable alert-warning" id ="flash_error" >
+					<button type="button" class="close" data-dismiss="alert">×</button>
+					<p>{{ Session::get('flash_msg') }}</p>
+				</div>
+				@endif
+
+				@if(Session::has('flash_success'))
+				<div class="alert alert-dismissable alert-success" id ="flash_error" >
+					<button type="button" class="close" data-dismiss="alert">×</button>
+					<p>{{ Session::get('flash_success') }}</p>
+				</div>
+				@endif
 	
 	<div class="row clearfix" style="height:200px">
 		<div class="col-md-1 column">
@@ -233,6 +246,7 @@
 				<h4>
 					Buy History
 				</h4>
+
 				<table class="table" style="table-layout: fixed; width: 100%">
 					<thead>
 						<tr>
@@ -311,7 +325,7 @@
 					</thead>
 
 					<tbody>
-						@foreach($buy_history as $h)
+						@foreach($sell_history as $h)
 						<tr class="active">
 							<td>
 								<img src={{$h->picture_url}} width="100%"/>

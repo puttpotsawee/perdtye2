@@ -30,11 +30,11 @@
 					<div class="form-group" >
 						<div style="margin-top:15px;">
 							<div class="col-lg-3" >
-								<h5 style="float:right;">Seller :</h5>
+								<h5 style="float:right;">Member :</h5>
 							</div>
 							<!-- <label for="inputAbout" class="col-lg-3 control-label">About :</label> -->
 							<div class="col-lg-9">
-								<h4 style="color:grey;">{{$seller_name}}</h4>
+								<h4 style="color:grey;">{{$member_username}}</h4>
 							</div>
 						</div>
 					</div>     

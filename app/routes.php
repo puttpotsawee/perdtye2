@@ -33,7 +33,7 @@ Route::get('logout', 'SessionController@destroy');
 Route::resource('session','SessionController');
 // Forgot Password
 Route::get('forgot', 'MemberController@forgotPassword');
-Route::post('forgot', 'MemberController@sendEmailResetPassword');
+Route::post('statusforgot', 'ForgotPassController@statusforgot');
 // View Account
 Route::get('account','AccountController@showAccount')->before('auth');
 // Edit Account
