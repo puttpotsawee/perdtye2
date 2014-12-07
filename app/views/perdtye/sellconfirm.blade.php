@@ -24,7 +24,7 @@
 							<div class="row clearfix" style="margin-top:30px;">
 								<div class="col-md-3 column">
 									<div class="thumbnail">
-										<img src="img/i6.png" width="100%"/>
+										<img src={{$picture->picture_url}} width="100%"/>
 										
 									</div>
 									<center><label>({{$details->remaining}} in stock)</label></center>
@@ -91,7 +91,7 @@
 									</form>
 									<div class="row" style="margin-top:20px;">
 										<div class="col-md-6" >
-											<a href={{$product->type}}?id={{$product->idProduct}} class="btn btn-default"style="width:100%">Cancel </a>
+											<a href=view?id={{$product->idProduct}} class="btn btn-default"style="width:100%">Cancel </a>
 										</div>
 										<form action="confirm" method="post">
 											<div class="col-md-6" >

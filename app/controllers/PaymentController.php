@@ -55,7 +55,8 @@ class PaymentController extends BaseController {
 		$transaction->status = 'waiting';
 		$transaction->save();
 
-		return Redirect::back()->with('message','Payment pending !');
+		// return Redirect::back()->with('message','Payment pending !');
+		return Redirect::To('account')->with('message','Payment pending !');
 			
 	}
 
