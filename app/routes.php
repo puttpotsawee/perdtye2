@@ -26,7 +26,8 @@ Route::get('signup', 'SignupController@index');
 Route::post('signup','SignupController@signup');
 // Activate Member
 Route::get('account/activate/{username}/{token}','MemberController@activateMember');
-Route::get('account/resetpass/{username}/{token}','MemberController@resetPassword');
+Route::get('account/resetpass/{username}/{token}','MemberController@resetPasswordForm');
+Route::post('account/resetpass','MemberController@resetPassword');
 // Log in
 Route::get('login','SessionController@create');
 Route::get('logout', 'SessionController@destroy');
@@ -52,27 +53,27 @@ Route::post('directsell','SellerController@submitDirectsell')->before('auth')->b
 Route::get('auctionsell','SellerController@auctionsell')->before('auth')->before("seller");
 Route::post('auctionsell','SellerController@submitAuctionsell')->before('auth')->before("seller");
 //Edit Direct-Type Item
-Route::get('editdirectsell', 'EditSellController@editdirectsell');
+Route::get('editdirectsell', 'EditSellController@editdirectsell')->before('auth')->before("seller");
 //Edit Auction-Type Item
-Route::get('editauctionsell', 'EditSellController@editauctionsell');
+Route::get('editauctionsell', 'EditSellController@editauctionsell')->before('auth')->before("seller");
 // Search for Item
 Route::get('search', 'SearchController@failed');
 Route::post('search', 'SearchController@search');
 // View Item Details
 Route::get('view', 'BrowseController@view');
 // Place Bid
-Route::post('placebid', 'AuctionController@placeBid');
+Route::post('placebid', 'AuctionController@placeBid')->before('auth');
 // Set Max Bid
-Route::post('maxbid', 'AuctionController@maxBid');
+Route::post('maxbid', 'AuctionController@maxBid')->before('auth');
 // Buy Item
-Route::post('direct', 'DirectBuyController@buy');
+Route::post('direct', 'DirectBuyController@buy')->before('auth');
 
 
 // Route associated with Transaction Package ---------------------------------
 // Make Payment
-Route::post('paynow', 'PaymentController@paynow');
+Route::post('paynow', 'PaymentController@paynow')->before('auth');
 // Pospone Payment
-Route::post('confirm', 'PaymentController@confirm');
+Route::post('confirm', 'PaymentController@confirm')->before('auth');
 // ---------------------------------------------------------------------------
 
 
@@ -101,8 +102,8 @@ Route::get('users', function()
 {
     return View::make('users');
 });
-Route::get('html/{dwgeg}', function(){
-    return View::make('perdtye/index');
+Route::get('html', function(){
+    return View::make('perdtye/resetPasswordConfirm')->with('name','pot');
     // return View::make('perdtye/confirmsuccess')->with('email','ppp@g.com');
 });
 
@@ -214,6 +215,9 @@ Route::get('webboard',function()
 {
     return View::make('/perdtye/webboard');
 });
+<<<<<<< HEAD
 
 Route::get('webboard/','AskAQuestionController@answerQuestion');
 Route::post('webboard/','AskAQuestionController@answerAnsQuestion');
+=======
+>>>>>>> FETCH_HEAD

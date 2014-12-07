@@ -51,7 +51,7 @@ class SessionController extends BaseController {
 	{
 		//this is used when user's logging out
 		Auth::logout();
-		return Redirect::to('/');
+		return Redirect::to('/login');
 	}
 	
 	public function index()

@@ -57,7 +57,7 @@
 						<button type="submit" class="btn btn-default">Login</button>
 					</div>
 					<div class="col-sm-6">
-						<a href="signup1.html" type="submit" class="btn btn-primary" style="float:right;">Sign Up</a>
+						<a href="signup" type="submit" class="btn btn-primary" style="float:right;">Sign Up</a>
 					</div>
 					<div class="col-sm-3">
 					</div>

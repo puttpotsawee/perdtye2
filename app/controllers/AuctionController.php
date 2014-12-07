@@ -5,6 +5,8 @@ class AuctionController extends BaseController {
 	
 	public function placeBid()
     {
+        if(!Auth::check())
+            return View::make("perdtye/login");
         // Check if blacklisted
         if(Auth::user()->status == 'blacklist') {
             return Redirect::back()->with('message','Error you are blacklisted');
@@ -34,6 +36,8 @@ class AuctionController extends BaseController {
 
     public function maxBid()
     {
+        if(!Auth::check())
+            return View::make("perdtye/login");
         // Check if blacklisted
         if(Auth::user()->status == 'blacklist') {
             return Redirect::back()->with('message','Error: you are blacklisted');

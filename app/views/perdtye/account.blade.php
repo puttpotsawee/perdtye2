@@ -103,6 +103,9 @@
 						<table class="table" style="table-layout: fixed; width: 100%">
 							<thead>
 								<tr>
+									<th width="5%">
+										#
+									</th>
 									<th width="25%">
 										Product
 									</th>
@@ -110,50 +113,49 @@
 										Shop
 									</th>
 									<th width="15%">
-										End Time
-									</th>
-									<th width="10%">
-										Current Price
+										Time
 									</th>
 									<th width="15%">
-										Current Winner
+										Price
 									</th>
 									@if($flag == 'true')
 
-									<th width="20%">
+									<th width="25%">
 										Status
 									</th>
 									@endif
 								</tr>
 							</thead>
 							<tbody>
-							@foreach($bidding_product as $b)
-								@if($b->isend == 0)
+								<?php for($x=1;$x<=2;$x++){?>
 								<tr class="active">
 									<td>
-										<img src={{$b->picture_url}} width="100%"/>
-										<p style="margin-top:15px;"><center>{{$b->product_name}}</center></p>
+										<?php echo $x ?>
 									</td>
 									<td>
-										<a href=account?id={{$b->idmember}}>{{$b->name}} {{$b->surname}}</a>
+										<img src="img/iphone6 icon.jpg" width="100%"/>
+										<p style="margin-top:15px;"><center>Iphone6</center></p>
 									</td>
 									<td>
-										<text>{{$b->end_time}}</text>
+										<text>Shop1</text>
+										<text>(feedback)</text>
 									</td>
 									<td>
-										<text>{{$b->current_price}}</text>
+										<text>4h 42m left</text>
 									</td>
 									<td>
-										<text>{{$b->c_name}} {{$b->c_surname}}</text>
+										<p style="color:red">THB 14,532</p>
+										<p>21 bids</p>
 									</td>
 									@if($flag == 'true')
 									<td>
-										<a href=view?id={{$b->idProduct}} class="btn btn-success" style="width:100%;">Increase Max Bid</a>
+										<a href="#" class="btn btn-success" style="width:100%;">Increase Max Bid</a>
 									</td>
 									@endif
 								</tr>
-								@endif
-							@endforeach
+								<?php
+							}
+							?>
 							
 						</tbody>
 					</table>
@@ -454,6 +456,7 @@
 						</th>
 						@if($flag == 'true')
 						<th width="15%">
+							Status
 						</th>
 						@endif
 					</tr>
@@ -481,11 +484,19 @@
 						<td>
 						<a href=account?id={{$s->current_winner}}>{{$s->name}} {{$s->surname}}</a>
 						</td>
-						@if($flag == 'true')
+						@if($flag == 'true' && $s->isend == 0)
 						<td>
 							<a href="editdirectsell.html" class="btn btn-success" style="width:100%;">edit sell</a>
 						</td>
 						@endif
+
+						@if($flag == 'true' && $s->isend == 1)
+						<td>
+							<text>Time out</text>
+						</td>
+						@endif
+
+
 					</tr>
 					@endforeach
 				
@@ -535,8 +546,7 @@
 						{{$q->question}}						
 					</td>
 					<td style="word-wrap: break-word;">
-						{{$q->answer}}	
-						<a href=webboard?idQ={{$q->idQuestion}} class="btn btn-success" style="width:100%;">Answer</a>					
+						{{$q->answer}}						
 					</td>
 				</tr>
 				@endforeach
