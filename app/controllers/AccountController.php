@@ -102,14 +102,13 @@ class AccountController extends BaseController {
         $auction_sell = DB::table('product')
 			->where('product.idseller', '=', $idmember)
         	->join('product_auction', 'product_auction.idproduct_auction', '=', 'product.idProduct')
-        	->join('productpicture', 'product.idproduct', '=', 'productpicture.idproduct')
+        	->leftjoin('productpicture', 'product.idproduct', '=', 'productpicture.idproduct')
         	->leftjoin('member', 'member.idmember', '=', 'product_auction.current_winner')
         	->select('product.product_name', 'productpicture.picture_url', 'product_auction.end_time', 'product_auction.minimum_bid', 
         			'product_auction.bidding_range', 'product_auction.current_price', 'product_auction.current_winner',
-        			'member.name', 'member.surname')
+        			'member.name', 'member.surname', 'product_auction.isend')
         	->groupBy('product_auction.idproduct_auction')
         	->get();
-
 
 		return View::Make('perdtye/account')->with(
 			array(

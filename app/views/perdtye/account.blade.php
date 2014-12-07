@@ -454,6 +454,7 @@
 						</th>
 						@if($flag == 'true')
 						<th width="15%">
+							Status
 						</th>
 						@endif
 					</tr>
@@ -481,11 +482,19 @@
 						<td>
 						<a href=account?id={{$s->current_winner}}>{{$s->name}} {{$s->surname}}</a>
 						</td>
-						@if($flag == 'true')
+						@if($flag == 'true' && $s->isend == 0)
 						<td>
 							<a href="editdirectsell.html" class="btn btn-success" style="width:100%;">edit sell</a>
 						</td>
 						@endif
+
+						@if($flag == 'true' && $s->isend == 1)
+						<td>
+							<text>Time out</text>
+						</td>
+						@endif
+
+
 					</tr>
 					@endforeach
 				
