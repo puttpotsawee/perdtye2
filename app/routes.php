@@ -33,7 +33,7 @@ Route::get('logout', 'SessionController@destroy');
 Route::resource('session','SessionController');
 // Forgot Password
 Route::get('forgot', 'MemberController@forgotPassword');
-Route::post('forgot', 'MemberController@sendEmailResetPassword');
+Route::post('statusforgot', 'ForgotPassController@statusforgot');
 // View Account
 Route::get('account','AccountController@showAccount')->before('auth');
 // Edit Account
@@ -88,7 +88,9 @@ Route::get('qa', 'AskAQuestionController@createQAForm');
 Route::post('qa', 'AskAQuestionController@storeAQuestion');
 Route::get('answer', 'AccountController@answer');
 // Give Feedback
-Route::get('feedback','GiveFeedbackController@seeFeedback')->before('auth');
+Route::get('feedback','GiveFeedbackController@giveFeedback')->before('auth');
+Route::post('feedback','GiveFeedbackController@storeFeedback')->before('auth');
+
 // --------------------------------------------------------------------------
 
 

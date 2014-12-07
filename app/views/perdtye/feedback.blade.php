@@ -9,8 +9,7 @@
 	</div>
 	<div class="col-sm-8">
 		<div class="well-shadow" style="margin-top:60px; ">
-			<form class="form-horizontal" method="get" action="index.php">
-				
+			<form class="form-horizontal" method="post" action="feedback">
 				
 				<fieldset>
 					<legend>Feedback</legend>
@@ -23,43 +22,22 @@
 							</div>
 							<!-- <label for="inputAbout" class="col-lg-3 control-label">About :</label> -->
 							<div class="col-lg-9">
-								<h4 style="color:grey;">iPhone6</h4>
+								<h4 style="color:grey;">{{$product_name}}</h4>
 							</div>
 						</div>
-					</div>  
-					
-					<div class="form-group">
-						<div class="col-lg-3">
-							<h5 style="float:right;">Satisfaction :</h5>
-						</div>
-						<!-- <label for="inputAbout" class="col-lg-3 control-label">About :</label> -->
-						<div class="col-lg-9">
+					</div>   
 
-							<div class="form-group">
-								<div class="col-lg-12">
-									<div class="radio">
-										<label>
-											<input type="radio" name="satisfaction" id="optionsRadios1" value="1" checked="">
-											Positive
-										</label>
-									</div>
-									<div class="radio">
-										<label>
-											<input type="radio" name="satisfaction" id="optionsRadios2" value="2">
-											Neutral
-										</label>
-									</div>
-									<div class="radio">
-										<label>
-											<input type="radio" name="satisfaction" id="optionsRadios3" value="3">
-											Negative
-										</label>
-									</div>
-								</div>
+					<div class="form-group" >
+						<div style="margin-top:15px;">
+							<div class="col-lg-3" >
+								<h5 style="float:right;">Member :</h5>
 							</div>
-
+							<!-- <label for="inputAbout" class="col-lg-3 control-label">About :</label> -->
+							<div class="col-lg-9">
+								<h4 style="color:grey;">{{$member_username}}</h4>
+							</div>
 						</div>
-					</div>         
+					</div>     
 					
 					<div class="form-group" >
 						<div class="col-lg-3" >
@@ -69,27 +47,12 @@
 						<div class="col-lg-9">
 							<h5 class="choice" style="color:grey;">Item is good as described</h5>
 							<span class="star-rating">
-								<input type="radio" name="itemgood" data-validation="required" value="1"><i></i>
-								<input type="radio" name="itemgood" value="2"><i></i>
-								<input type="radio" name="itemgood" value="3"><i></i>
-								<input type="radio" name="itemgood" value="4"><i></i>
-								<input type="radio" name="itemgood" value="5"><i></i>
-							</span>
-							<h5 class="choice" style="color:grey;">Fast delivery</h5>
-							<span class="star-rating">
-								<input type="radio" name="fastdeli" data-validation="required" value="1"><i></i>
-								<input type="radio" name="fastdeli" value="2"><i></i>
-								<input type="radio" name="fastdeli" value="3"><i></i>
-								<input type="radio" name="fastdeli" value="4"><i></i>
-								<input type="radio" name="fastdeli" value="5"><i></i>
-							</span>
-							<h5 class="choice" style="color:grey;">Seller service</h5>
-							<span class="star-rating">
-								<input type="radio" name="sellser" data-validation="required" value="1"><i></i>
-								<input type="radio" name="sellser" value="2"><i></i>
-								<input type="radio" name="sellser" value="3"><i></i>
-								<input type="radio" name="sellser" value="4"><i></i>
-								<input type="radio" name="sellser" value="5"><i></i>
+								<input type="radio" name="score" data-validation="required" value="1"><i></i>
+								<input type="radio" name="score" value="2"><i></i>
+								<input type="radio" name="score" value="3"><i></i>
+								<input type="radio" name="score" value="4"><i></i>
+								<input type="radio" name="score" value="5"><i></i>
+								<input type="hidden" name="idTransaction" value={{$idTransaction}}><i></i>
 							</span>
 						</div>
 					</div>
@@ -102,7 +65,7 @@
 						</div>
 						<!-- <label for="inputAbout" class="col-lg-3 control-label">About :</label> -->
 						<div class="col-lg-6">
-							<textarea class="form-control" data-validation="required" name="comment" rows="3" id="textArea" style="height:250px"></textarea>
+							<textarea class="form-control" data-validation="required" name="content" rows="3" id="textArea" style="height:250px"></textarea>
 							
 						</div>
 						<div class="col-lg-2">

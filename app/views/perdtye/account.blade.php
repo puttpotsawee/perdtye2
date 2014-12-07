@@ -2,6 +2,19 @@
 
 @section('content')
 <div class="container" style="margin-top:30px">
+				@if(Session::has('flash_msg'))
+				<div class="alert alert-dismissable alert-warning" id ="flash_error" >
+					<button type="button" class="close" data-dismiss="alert">×</button>
+					<p>{{ Session::get('flash_msg') }}</p>
+				</div>
+				@endif
+
+				@if(Session::has('flash_success'))
+				<div class="alert alert-dismissable alert-success" id ="flash_error" >
+					<button type="button" class="close" data-dismiss="alert">×</button>
+					<p>{{ Session::get('flash_success') }}</p>
+				</div>
+				@endif
 	
 	<div class="row clearfix" style="height:200px">
 		<div class="col-md-1 column">
@@ -70,8 +83,8 @@
 			<ul class="nav nav-tabs">
 				<li class="active"><a href="#bidding" data-toggle="tab" aria-expanded="true">Bidding</a></li>
 				<li class=""><a href="#didntwin" data-toggle="tab" aria-expanded="true">Didn't Win</a></li>
-				<li class=""><a href="#history" data-toggle="tab" aria-expanded="true">History Buy</a></li>
-				<li class=""><a href="#historys" data-toggle="tab" aria-expanded="true">History Sell</a></li>
+				<li class=""><a href="#history" data-toggle="tab" aria-expanded="true">Buy History</a></li>
+				<li class=""><a href="#historys" data-toggle="tab" aria-expanded="true">Sell History</a></li>
 				<li class=""><a href="#sell" data-toggle="tab" aria-expanded="true">Sell</a></li>
 				<li class=""><a href="#qa" data-toggle="tab" aria-expanded="true">Q/A</a></li>
 				
@@ -104,9 +117,12 @@
 									<th width="15%">
 										Price
 									</th>
+									@if($flag == 'true')
+
 									<th width="25%">
 										Status
 									</th>
+									@endif
 								</tr>
 							</thead>
 							<tbody>
@@ -130,36 +146,15 @@
 										<p style="color:red">THB 14,532</p>
 										<p>21 bids</p>
 									</td>
+									@if($flag == 'true')
 									<td>
 										<a href="#" class="btn btn-success" style="width:100%;">Increase Max Bid</a>
 									</td>
+									@endif
 								</tr>
 								<?php
 							}
 							?>
-							<tr class="success">
-								<td>
-									<?php echo $x ?>
-								</td>
-								<td>
-									<img src="img/iphone6 icon.jpg" width="100%"/>
-									<p style="margin-top:15px;"><center>Iphone6</center></p>
-								</td>
-								<td>
-									<text>Shop1</text>
-									<text>(feedback)</text>
-								</td>
-								<td>
-									<text>4h 42m left</text>
-								</td>
-								<td>
-									<p style="color:#33AA00">THB 14,532</p>
-									<p>21 bids</p>
-								</td>
-								<td>
-									<a href="#" class="btn btn-info" style="width:100%;">View seller's other item</a>
-								</td>
-							</tr>
 							
 						</tbody>
 					</table>
@@ -231,8 +226,9 @@
 			<div class="col-md-12 column">
 				<p>&nbsp;</p>
 				<h4>
-					History Buy
+					Buy History
 				</h4>
+
 				<table class="table" style="table-layout: fixed; width: 100%">
 					<thead>
 						<tr>
@@ -248,14 +244,16 @@
 							<th width="18%">
 								Price
 							</th>
+							@if($flag == 'true')
 							<th width="18%">
 								Status
 							</th>
+							@endif
 						</tr>
 					</thead>
 
 					<tbody>
-						@foreach($history as $h)
+						@foreach($buy_history as $h)
 						<tr class="active">
 							<td>
 								<img src={{$h->picture_url}} width="100%"/>
@@ -270,10 +268,12 @@
 							<td>
 								<p style="color:black">{{$h->price}}</p>
 							</td>
+							@if($flag == 'true')
 							<td>
-								<a href="feedback" method="post" class="btn btn-success" style="width:100%;">Give Feedback</a>
+								<a href=feedback?id={{$h->idTransaction}} class="btn btn-success" style="width:100%;">Give Feedback</a>
 								<p><a href="reportgood" class="btn btn-info" style="width:100%; margin-top:10px;">Report</a></p>
 							</td>
+							@endif
 						</tr>
 						@endforeach
 					
@@ -304,14 +304,16 @@
 							<th width="18%">
 								Price
 							</th>
+							@if($flag == 'true')
 							<th width="18%">
 								Status
 							</th>
+							@endif
 						</tr>
 					</thead>
 
 					<tbody>
-						@foreach($history as $h)
+						@foreach($sell_history as $h)
 						<tr class="active">
 							<td>
 								<img src={{$h->picture_url}} width="100%"/>
@@ -326,10 +328,12 @@
 							<td>
 								<p style="color:black">{{$h->price}}</p>
 							</td>
+							@if($flag == 'true')
 							<td>
-								<a href="feedback" method="post" class="btn btn-success" style="width:100%;">Give Feedback</a>
+								<a href=feedback?id={{$h->idTransaction}} class="btn btn-success" style="width:100%;">Give Feedback</a>
 								<p><a href="reportgood" class="btn btn-info" style="width:100%; margin-top:10px;">Report</a></p>
 							</td>
+							@endif
 						</tr>
 						@endforeach
 					
@@ -360,9 +364,12 @@
 						<th width="20%">
 							Price(Bath)
 						</th>
+						@if($flag == 'true')
+
 						<th width="20%">
 							
 						</th>
+						@endif
 					</tr>
 				</thead>
 
@@ -382,9 +389,12 @@
 						<td>
 							<p style="color:black">{{$s->price}}</p>
 						</td>
+						@if($flag == 'true')
+
 						<td>
 							<a href="editdirectsell.html" class="btn btn-success" style="width:100%;">edit sell</a>
 						</td>
+						@endif
 					</tr>
 					@endforeach
 				

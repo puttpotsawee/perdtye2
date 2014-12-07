@@ -26,7 +26,6 @@
 							</div>
 						</div>
 					<div class="form-group" >
-						
 						<div class="col-sm-3" style="float:right;">
 							<button type="submit" class="btn btn-default">Continue</button>
 						</div>

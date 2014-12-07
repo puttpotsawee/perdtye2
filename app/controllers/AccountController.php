@@ -8,10 +8,25 @@ class AccountController extends BaseController {
 	}
 	public static function showAccount()
 	{
-		$name = Auth::user()->name;
-		$surname = Auth::user()->surname;
-		$receiver = Auth::user()->idmember;
-		$idmember = Auth::user()->idmember;
+		if(Input::has('id'))
+		{
+			$idmember = Input::get('id');
+			$member = Member::find($idmember);
+
+			$name = $member->name;
+			$surname = $member->surname;
+			$receiver = $member->idmember;
+			$idmember = $member->idmember;
+			$flag = 'false';
+		}
+		else
+		{
+			$name = Auth::user()->name;
+			$surname = Auth::user()->surname;
+			$receiver = Auth::user()->idmember;
+			$idmember = Auth::user()->idmember;
+			$flag = 'true';
+		}
 
 		$negative = DB::table('feedback')
 			->where('idreceiver', '=', $receiver)
@@ -39,13 +54,22 @@ class AccountController extends BaseController {
         	->select('product.product_name', 'productpicture.picture_url', 'member.username', 'answer.content as answer', 'question.content as question')
         	->get();
 
-        $history = DB::table('transaction')
+        $buy_history = DB::table('transaction')
 			->where('transaction.idmember', '=', $idmember)
         	->join('product', 'transaction.idproduct', '=', 'product.idProduct')
         	->join('productpicture', 'product.idproduct', '=', 'productpicture.idproduct')  	
         	->join('seller', 'product.idseller', '=', 'seller.idseller')
         	->join('member', 'member.idmember', '=', 'seller.idseller')
-        	->select('product.product_name', 'productpicture.picture_url', 'member.username', 'transaction.timestamp', 'transaction.price')
+        	->select('transaction.idTransaction', 'product.product_name', 'productpicture.picture_url', 'member.username', 'transaction.timestamp', 'transaction.price')
+        	->groupBy('transaction.idTransaction')
+        	->get();
+
+        $sell_history = DB::table('transaction')
+			->where('transaction.idseller', '=', $idmember)
+        	->join('product', 'transaction.idproduct', '=', 'product.idProduct')
+        	->join('productpicture', 'product.idproduct', '=', 'productpicture.idproduct')  	
+        	->join('member', 'member.idmember', '=', 'transaction.idmember')
+        	->select('transaction.idTransaction', 'product.product_name', 'productpicture.picture_url', 'member.username', 'transaction.timestamp', 'transaction.price')
         	->groupBy('transaction.idTransaction')
         	->get();
 
@@ -65,8 +89,10 @@ class AccountController extends BaseController {
 				'neutral' => $neutral,
 				'positive' => $positive,
 				'question' => $question,
-				'history' => $history,
-				'sell' => $sell
+				'buy_history' => $buy_history,
+				'sell_history' => $sell_history,
+				'sell' => $sell,
+				'flag' => $flag
 
 			));
 			

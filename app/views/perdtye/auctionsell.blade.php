@@ -13,7 +13,7 @@
 					<div class="well-shadow">
 
 						<!-- <form action="auctiontype.html" method="get"> -->
-						{{ Form::open() }}
+						{{ Form::open(array('files'=>true)) }}
 						<legend>Auction Sell Registration form</legend>
 
 						<div class="row clearfix">
@@ -36,9 +36,10 @@
 										<h5>Upload image :</h5>
 									</div>
 									<div class="col-md-9 column">
-										<input type="file" data-validation="mime size" data-validation-allowing="jpg, png, gif" 
-										data-validation-max-size="2M" id="exampleInputFile" name="pic[]" multiple="" onchange="readURL(this);"/>
-										<img style="margin-top:15px;" id="blah" src=""  />
+										<input id="files" type="file" data-validation="mime size" data-validation-allowing="jpg, png, gif" 
+										data-validation-max-size="2M" id="exampleInputFile" name="pic[]" multiple=""/>
+										<!-- <img style="margin-top:15px;" id="blah" src=""  /> -->
+										<output id="result" />
 									</div>
 								</div>
 
@@ -62,8 +63,14 @@
 											<div class="col-md-6 column">
 												<div class="form-group">
 													<div class="col-lg-10" style="width:100%">
+														<div class="input-group">
 														<input name="start_date" type="text" class ="form-control datepicker" data-validation="date" data-validation-format="dd/mm/yyyy" id="inputDate" name="begindate" 
 														placeholder="dd/mm/yyyy">
+														<span class="input-group-addon">
+															<i class="glyphicon glyphicon-calendar"></i>
+														</span>
+														</div>
+														
 													</div>
 												</div>
 											</div>
@@ -88,8 +95,13 @@
 											<div class="col-md-6 column">
 												<div class="form-group">
 													<div class="col-lg-10" style="width:100%">
+													<div class="input-group">
 														<input name='end_date' type="text" class ="form-control datepicker" data-validation="date" data-validation-format="dd/mm/yyyy" id="inputDate" name="enddate" 
 														placeholder="dd/mm/yyyy">
+														<span class="input-group-addon">
+															<i class="glyphicon glyphicon-calendar"></i>
+														</span>
+													</div>
 													</div>
 												</div>
 											</div>
@@ -252,21 +264,38 @@
 		<nav class="navbar navbar-default navbar-bottom2" role="navigation">
 			@stop
 
-
-		<script>
-function readURL(input) {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-
-            reader.onload = function (e) {
-                $('#blah')
-                    .attr('src', e.target.result)
-                    .width(300)            };
-
-            reader.readAsDataURL(input.files[0]);
-        }
+			<script>
+window.onload = function(){
+    //Check File API support
+    if(window.File && window.FileList && window.FileReader)
+    {
+        var filesInput = document.getElementById("files");
+        filesInput.addEventListener("change", function(event){
+            var files = event.target.files; //FileList object
+            var output = document.getElementById("result");
+            for(var i = 0; i< files.length; i++)
+            {
+                var file = files[i];
+                //Only pics
+                if(!file.type.match('image'))
+                    continue;
+                var picReader = new FileReader();
+                picReader.addEventListener("load",function(event){
+                    var picFile = event.target;
+                    var div = document.createElement("div");
+                    div.innerHTML = "<img class='thumbnail' style='width:100%' src='" + picFile.result + "'" + "title='" + picFile.name + "'/>";
+                    output.insertBefore(div,null);
+                });
+                //Read the image
+                picReader.readAsDataURL(file);
+            }
+            // filesInput.disabled=true;
+        });
+        
     }
+    else
+    {
+        console.log("Your browser does not support File API");
+    }
+}
 </script>
-<link class="jsbin" href="http://ajax.googleapis.com/ajax/libs/jqueryui/1/themes/base/jquery-ui.css" rel="stylesheet" type="text/css" />
-<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
