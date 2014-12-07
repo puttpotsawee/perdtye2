@@ -52,27 +52,27 @@ Route::post('directsell','SellerController@submitDirectsell')->before('auth')->b
 Route::get('auctionsell','SellerController@auctionsell')->before('auth')->before("seller");
 Route::post('auctionsell','SellerController@submitAuctionsell')->before('auth')->before("seller");
 //Edit Direct-Type Item
-Route::get('editdirectsell', 'EditSellController@editdirectsell');
+Route::get('editdirectsell', 'EditSellController@editdirectsell')->before('auth')->before("seller");
 //Edit Auction-Type Item
-Route::get('editauctionsell', 'EditSellController@editauctionsell');
+Route::get('editauctionsell', 'EditSellController@editauctionsell')->before('auth')->before("seller");
 // Search for Item
 Route::get('search', 'SearchController@failed');
 Route::post('search', 'SearchController@search');
 // View Item Details
 Route::get('view', 'BrowseController@view');
 // Place Bid
-Route::post('placebid', 'AuctionController@placeBid');
+Route::post('placebid', 'AuctionController@placeBid')->before('auth');
 // Set Max Bid
-Route::post('maxbid', 'AuctionController@maxBid');
+Route::post('maxbid', 'AuctionController@maxBid')->before('auth');
 // Buy Item
-Route::post('direct', 'DirectBuyController@buy');
+Route::post('direct', 'DirectBuyController@buy')->before('auth');
 
 
 // Route associated with Transaction Package ---------------------------------
 // Make Payment
-Route::post('paynow', 'PaymentController@paynow');
+Route::post('paynow', 'PaymentController@paynow')->before('auth');
 // Pospone Payment
-Route::post('confirm', 'PaymentController@confirm');
+Route::post('confirm', 'PaymentController@confirm')->before('auth');
 // ---------------------------------------------------------------------------
 
 
