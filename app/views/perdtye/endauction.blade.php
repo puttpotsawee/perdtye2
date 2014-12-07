@@ -1,6 +1,6 @@
 @extends('perdtye/header')
 
-<meta http-equiv="refresh" content="10" url="endauction">
+<meta http-equiv="refresh" content="5" url="endauction">
 @section('content')
 	<h1> Perdtye: End Auction service </h1>
 	@if($open_auctions->count() == 0)
