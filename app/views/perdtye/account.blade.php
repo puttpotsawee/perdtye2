@@ -549,8 +549,27 @@
 					</td>
 				</tr>
 				@endforeach
-			
-			
+
+				@foreach($questionseller as $q)
+				<tr class="active">
+
+					<td>
+						<img src={{$q->picture_url}} width="100%"/>
+						<p style="margin-top:15px;"><center>{{$q->product_name}}</center></p>
+					</td>
+					<td style="word-wrap: break-word;">
+						<text>{{$q->name}}</text>
+					</td>
+					<td style="word-wrap: break-word;">
+						{{$q->content}}						
+					</td>
+					<td style="word-wrap: break-word;">
+						
+						<a href=webboard?idQ={{$q->idQuestion}} class="btn btn-success" style="width:100%;">Answer</a>						
+					</td>
+				</tr>
+				@endforeach
+
 		</tbody>
 	</table>
 </div>

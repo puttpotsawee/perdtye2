@@ -69,6 +69,16 @@ class AccountController extends BaseController {
         			'question.content as question')
         	->get();
 
+        $productAns = Product::join('question', 'product.idProduct', '=', 'question.idproduct')
+        ->join('member', 'question.idmember','=', 'member.idmember')
+        ->where('idseller','=',$idmember)
+        ->get();
+        	// $questionseller = Question::where('')
+        // return $productAns;
+        // $questionseller = Question::where('idproduct','=',$product->idProduct);
+        // return $questionseller;
+
+
         $buy_history = DB::table('transaction')
 			->where('transaction.idmember', '=', $idmember)
         	->join('product', 'transaction.idproduct', '=', 'product.idProduct')
@@ -123,6 +133,7 @@ class AccountController extends BaseController {
 				'direct_sell' => $direct_sell,
 				'auction_sell' => $auction_sell,
 				'bidding_product' => $bidding_product,
+				'questionseller'=>$productAns,
 				'flag' => $flag
 
 			));

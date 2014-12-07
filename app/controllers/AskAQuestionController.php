@@ -56,10 +56,12 @@ class AskAQuestionController extends BaseController {
 		$answer = Answer::where('idquestion','=',$questionid)->get();
 		// $ansmember = Member::find($answer->idmember);
 		// return $answer;
-		if((Auth::user()->idmember==$member->idmember||Auth::user()->idmember==$seller->idseller)){
+		if((Auth::user()->idmember==$member->idmember||Auth::user()->idmember==$seller->idmember)){
 			return View::make('/perdtye/webboard')->with(array('product'=>$product,'seller'=>$seller,'question'=>$question,'picture'=>$picture->picture_url,'answer'=>$answer));
 		} else {
-			return Redirect::back()->with('flash_message','Your question has been sent.');
+			// return Redirect::back()->with('flash_message','Your question has been sent.');
+			return Redirect::to('/');
+			// return Auth::user()->idmember."-".$seller->idmember;
 		}
 		
 

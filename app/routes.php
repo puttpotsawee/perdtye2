@@ -85,9 +85,9 @@ Route::post('report', 'ReportController@storeReport')->before('auth');
 Route::get('reportgood', 'ReportController@reportgood');
 Route::get('reportsubmit', 'ReportController@reportsubmit');
 // Ask and answer a Question
-Route::get('qa', 'AskAQuestionController@createQAForm');
-Route::post('qa', 'AskAQuestionController@storeAQuestion');
-Route::get('answer', 'AccountController@answer');
+Route::get('qa', 'AskAQuestionController@createQAForm')->before('auth');
+Route::post('qa', 'AskAQuestionController@storeAQuestion')->before('auth');
+Route::get('answer', 'AccountController@answer')->before('auth');
 // Give Feedback
 Route::get('feedback','GiveFeedbackController@giveFeedback')->before('auth');
 Route::post('feedback','GiveFeedbackController@storeFeedback')->before('auth');

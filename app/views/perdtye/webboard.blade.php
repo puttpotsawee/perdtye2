@@ -45,6 +45,7 @@
 									</div>
 									<div class="col-md-10 column">
 										<h5 class="control-label" style="text-align:left;">{{$question->content}}</h5>
+										<h6 style="margin-bottom:0px;text-align:right;margin-top:30px;">{{$question->timestamp}}</h6>
 									</div>
 									<div class="col-md-1 column">
 									</div>
@@ -66,8 +67,9 @@
 										<div class="col-md-1 column">
 										</div>
 										<div class="col-md-10 column">
-											<legend style="margin-top:0px;"> Answer : {{$ans->idmember}} Time : {{$ans->timestamp}} </legend>
-											<h5 class="control-label" style="text-align:left;">{{$ans->content}}</h5>
+											<legend style="margin-top:0px;"> Answer : {{$ans->idmember}}</legend>
+											<h5 class="control-label" style="text-align:left; word-wrap: break-word;">{{$ans->content}}</h5>
+											<h6 style="margin-bottom:0px;text-align:right;margin-top:30px;">{{$ans->timestamp}}</h6>
 										</div>
 										<div class="col-md-1 column">
 										</div>
