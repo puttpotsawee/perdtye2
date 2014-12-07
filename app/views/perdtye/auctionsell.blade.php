@@ -36,7 +36,7 @@
 										<h5>Upload image :</h5>
 									</div>
 									<div class="col-md-9 column">
-										<input id="files" type="file" data-validation="mime size" data-validation-allowing="jpg, png, gif" 
+										<input id="files" type="file" data-validation="required mime size" data-validation-allowing="jpg, png, gif" 
 										data-validation-max-size="2M" id="exampleInputFile" name="pic[]" multiple=""/>
 										<!-- <img style="margin-top:15px;" id="blah" src=""  /> -->
 										<output id="result" />

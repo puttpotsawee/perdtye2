@@ -40,7 +40,7 @@ class SignupController extends BaseController {
  			$user->name = Input::get('name');
  			$user->surname = Input::get('surname');
  			$user->phonenumber = Input::get('phonenumber');
- 			$user->birthdate = Input::get('birthdate');
+ 			$user->birthdate =  DateTime::createFromFormat('d/m/Y', Input::get('birthdate'))->format('Y-m-d');
  			$user->confirm_token = $confirm_code;
  			$user->save();
 
