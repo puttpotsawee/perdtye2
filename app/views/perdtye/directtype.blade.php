@@ -110,7 +110,7 @@
 									<h4>Seller: </h4>
 								</div>
 								<div class="col-md-5" >
-									<h4><a href=account?id={{$seller->idmember}}>{{$seller->username}}</a></h4>
+									<h4><a href=account?id={{$seller->idmember}}>{{$seller->name}} {{$seller->surname}}</a></h4>
 								</div>
 							</div>
 							<div class="row" style="margin-top:20px;">

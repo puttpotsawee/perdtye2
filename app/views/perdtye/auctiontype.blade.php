@@ -11,11 +11,7 @@
 
 @section('content')
 <!-- auction -->
-@if(Session::has('message'))
-    <div class="col-md-14 column" id="alert-box success">
-        {{ Session::get('message') }}
-    </div>
-@endif
+
 <div class="container">
 	<div class="row clearfix" style="margin-top:30px;">
 		<div class="col-md-12 column">
@@ -23,6 +19,12 @@
 				<div class="col-md-2 column">
 				</div>
 				<div class="col-md-8 column">
+					@if(Session::has('message'))
+						<div class="alert alert-dismissable alert-info" id ="flash_error" >
+							<button type="button" class="close" data-dismiss="alert">×</button>
+							<p>{{ Session::get('message') }}</p>
+						</div>
+					@endif
 					<legend> {{$product->product_name}} </legend>
 					<div class="row clearfix" style="margin-top:30px;">
 						<div class="col-md-6 column">
@@ -118,13 +120,12 @@
 
 							</form>
 
-							<div class="row" style="margin-top:40px;">
-								<div class="col-md-6" >
-									<p>Sell information : {{$seller->name}} {{$seller->surname}}</p>
-									<p>100% positive feedback</p>
+							<div class="row" style="margin-top:80px;">
+								<div class="col-md-5" >
+									<h4>Seller: </h4>
 								</div>
-								<div class="col-md-6" >
-									<h3 style="color:#3399FF;">&#9733; &#9733; &#9733; &#9733; &#9734;</h3>
+								<div class="col-md-5" >
+									<h4><a href=account?id={{$seller->idmember}}>{{$seller->name}} {{$seller->surname}}</a></h4>
 								</div>
 							</div>
 							<div class="row" style="margin-top:20px;">

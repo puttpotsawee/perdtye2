@@ -271,7 +271,6 @@
 							@if($flag == 'true')
 							<td>
 								<a href=feedback?id={{$h->idTransaction}} class="btn btn-success" style="width:100%;">Give Feedback</a>
-								<p><a href="reportgood" class="btn btn-info" style="width:100%; margin-top:10px;">Report</a></p>
 							</td>
 							@endif
 						</tr>
@@ -331,7 +330,6 @@
 							@if($flag == 'true')
 							<td>
 								<a href=feedback?id={{$h->idTransaction}} class="btn btn-success" style="width:100%;">Give Feedback</a>
-								<p><a href="reportgood" class="btn btn-info" style="width:100%; margin-top:10px;">Report</a></p>
 							</td>
 							@endif
 						</tr>
@@ -356,7 +354,7 @@
 							Product
 						</th>
 						<th width="15%">
-							Order
+							Ordered
 						</th>
 						<th width="15%">
 							Available

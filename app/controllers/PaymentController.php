@@ -27,7 +27,7 @@ class PaymentController extends BaseController {
 		$transaction->status = 'paid';
 		$transaction->save();
 
-		return Redirect::back()->with('message','Payment made successfully !');
+		return Redirect::To('account');
 			
 	}
 
