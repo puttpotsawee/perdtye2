@@ -14,6 +14,12 @@ class AuctionController extends BaseController {
         $idProduct = Input::get('idProduct');
         $product = Product_auction::find($idProduct);
         
+        // Check if auction has been closed
+        if($product->isend == true)
+        {
+            return Redirect::back()->with('message','Error: auction has been closed');
+        }
+
         // Create new Auction_list for specified product
         $auction = new Auction_list;
         $auction->idproduct_auction = $idProduct;
@@ -30,13 +36,19 @@ class AuctionController extends BaseController {
     {
         // Check if blacklisted
         if(Auth::user()->status == 'blacklist') {
-            return Redirect::back()->with('message','Error you are blacklisted');
+            return Redirect::back()->with('message','Error: you are blacklisted');
         }
 
         // Read values from input
         $bid = Input::get('maxbid_input');
         $idProduct = Input::get('idProduct');
         $product = Product_auction::find($idProduct);
+
+        // Check if auction has been closed
+        if($product->isend == true)
+        {
+            return Redirect::back()->with('message','Error: auction has been closed');
+        }
 
         // Create new Auction_list for specified product
         if($product->current_price + $product->bidding_range < $bid) {
@@ -95,4 +107,31 @@ class AuctionController extends BaseController {
 			return Redirect::back()->with('message','Placed bid successfully. You lose !');
 		}
 	}
+
+    public function endAuction()
+    {   
+        // Take 5 due to closed auctions a time to avoid session timeout
+        $open_auctions = Product_auction::whereRaw('TIME_TO_SEC(TIMEDIFF(now(), end_time)) > 0')->where('isend','=',false)->get()->take(5);
+        foreach ($open_auctions as $el)
+        {
+            // Verify if there is winner
+            if($el->current_winner != null)
+            {
+                $transaction = new Transaction;
+                $transaction->idseller = Product::find($el->idproduct_auction)->idseller;
+                $transaction->idmember = $el->current_winner;
+                $transaction->idproduct = $el->idproduct_auction;
+                $transaction->price = $el->current_price;
+                $transaction->quantity = 1;
+                $transaction->status = 'waiting';
+                $transaction->save();
+            }
+            // Close auction
+            $el->isend = true;
+            $el->save();
+        }
+        // Refresh the page
+        return View::make('perdtye/endauction')->with('open_auctions', $open_auctions);
+    }
+
 }
