@@ -37,7 +37,8 @@ class AskAQuestionController extends BaseController {
 		$question->idproduct = $idproduct;
 		$question->save();
 
-		return Redirect::back()->with('flash_message','Your question has been sent.');
+		// return Redirect::back()->with('flash_message','Your question has been sent.');
+		return Redirect::to('/view?id='.$idproduct);
 
 	}
 	public function answerQuestion()
