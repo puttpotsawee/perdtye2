@@ -1,11 +1,12 @@
 	@extends('perdtye/header')
 
-<!-- parameter received from BrowseController:
+<!-- parameter received from DirectBuyController:
 		$product
 		$details
 		$seller
 		$quantity
 		$user
+		$address
 	-->
 
 	@section('content')
@@ -43,8 +44,8 @@
 												<h5>Address: </h5>
 											</div>
 											<div class="col-md-8" >
-												<h5>xxxxxxxxxxxxxxxxxxxxx</h5>
-												<h5>xxxxxxxxxxxxxxxxxxxxx</h5>
+												<h5>{{$address->house_number}} {{$address->road}}, {{$address->district}} </h5>
+												<h5>{{$address->city}}, {{$address->province}} {{$address->zipcode}} {{$address->country}} </h5>
 											</div>  
 										</div>
 										<div class="row" style="margin-top:20px;">

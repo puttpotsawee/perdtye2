@@ -17,10 +17,11 @@ class DirectBuyController extends BaseController {
 		$product = Product::find($idProduct);
 		$details = Product_direct::find($idProduct);
 		$seller = Member::find($product->idseller);
+		$address = Address::find($Auth::user()->idmember);
 
 		if($details->remaining >= $quantity) {
 			return View::make('perdtye/sellconfirm')
-			->with(array('user' => $user, 'product' => $product, 'details' => $details, 'seller' => $seller, 'quantity' => $quantity));
+			->with(array('user' => $user, 'product' => $product, 'details' => $details, 'seller' => $seller, 'quantity' => $quantity, 'address' => $address));
 			//return Redirect::back()->with('message','Purchase successful');
 		}
 		else {
