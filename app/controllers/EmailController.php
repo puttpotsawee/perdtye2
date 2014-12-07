@@ -56,8 +56,28 @@ class EmailController extends BaseController {
 	}
 
 
-	public static function sendBidLostEmail($user)
+	public static function sendBidLostEmail($idMember,$product_auction)
 	{
+		$user = Member::find($idMember);
+		$username = $user->username;
+		$name = $user->name;
+		$token = $user->confirm_token;
+		$email = $user->email;
+
+
+		// echo $user;
+		$product = Product::find($product_auction->idproduct_auction);
+		// echo $product;
+		// echo $product_auction;
+
+
+		$link = App::make('url')->to('/')."/view?id=".$product->idProduct;
+		$data = array('name'=>$name,'link'=>$link,'product'=>$product,'product_auction'=>$product_auction);
+		Mail::send('emails.notifyOutbid', $data, function($message)	use ($email,$name)
+		{
+			$message->to($email, $name)->subject('You have been outbidded');
+		});
+	
 	}
 	
 	

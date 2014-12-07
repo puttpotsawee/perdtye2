@@ -22,6 +22,7 @@ class AuctionController extends BaseController {
             return Redirect::back()->with('message','Error: auction has been closed');
         }
 
+
         // Create new Auction_list for specified product
         $auction = new Auction_list;
         $auction->idproduct_auction = $idProduct;
@@ -88,28 +89,33 @@ class AuctionController extends BaseController {
 			$win_list = $bid_list->take(2);
 			$winner = $win_list->first();
 			$runnerup = $win_list->last();
+
+            if($winner->idmember != $runnerup->idmember){
+                $product = Product_auction::find($idProduct);
+                if($runnerup->bid_price + $product->bidding_range > $winner->bid_price)
+                {
+                    $product->current_price = $winner->bid_price;
+                }
+                else
+                {
+                    $product->current_price = $runnerup->bid_price + $product->bidding_range;
+                }
+                $product->current_winner = $winner->idmember;
+                $product->save();
+                EmailController::sendBidLostEmail($runnerup->idmember,$product);
+            }
 			
-			$product = Product_auction::find($idProduct);
-			if($runnerup->bid_price + $product->bidding_range > $winner->bid_price)
-			{
-				$product->current_price = $winner->bid_price;
-			}
-			else
-			{
-				$product->current_price = $runnerup->bid_price + $product->bidding_range;
-	        }
-	        $product->current_winner = $winner->idmember;
-	        $product->save();
-	       EmailController::sendBidLostEmail($runnerup);
+            
         }
 
-		if($winner->idmember == Auth::user()->idmember)
-			return Redirect::back()->with('message','Placed bid successfully. You win !');
-		else
-		{	
+        if($winner->idmember == Auth::user()->idmember){
+           return Redirect::back()->with('message','Placed bid successfully. You win !');
+       }
+       else
+       {	
 			// send email to previous winner
-			return Redirect::back()->with('message','Placed bid successfully. You lose !');
-		}
+           return Redirect::back()->with('message','Placed bid successfully. You lose !');
+       }
 	}
 
     public function endAuction()
