@@ -94,7 +94,7 @@ class EmailController extends BaseController {
 		$link = App::make('url')->to('/')."/view?id=".$product->idProduct;
 		$data = array('name'=>$name,'link'=>$link,'product'=>$product,'product_auction'=>$product_auction);
 		echo 'email winner:'.$user;
-		Mail::send('emails.notifyOutbid', $data, function($message)	use ($email,$name)
+		Mail::send('emails.win', $data, function($message)	use ($email,$name)
 		{
 			$message->to($email, $name)->subject('You have won the item');
 		});
@@ -113,7 +113,7 @@ class EmailController extends BaseController {
 		
 		$link = App::make('url')->to('/')."/view?id=".$product->idProduct;
 		$data = array('name'=>$name,'link'=>$link,'product'=>$product,'product_auction'=>$product_auction);
-		Mail::send('emails.notifyOutbid', $data, function($message)	use ($email,$name)
+		Mail::send('emails.loose', $data, function($message)	use ($email,$name)
 		{
 			$message->to($email, $name)->subject('You loose the item');
 		});
@@ -125,11 +125,13 @@ class EmailController extends BaseController {
 		$product = Product::find($idProduct);
 		foreach ($looser_list as $looser_id) {
 			# code...
-			// sendAuctionEndLooserEmail($looser_id,$product);
-			echo 'email '.$looser_id.' product:'.$product;
+			sendAuctionEndLooserEmail($looser_id,$product);
+			// echo 'email '.$looser_id.' product:'.$product;
 			
 		}
 	}
+
+	public static function sendInvoice($)
 		
 	
 	

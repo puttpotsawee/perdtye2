@@ -723,7 +723,7 @@ blockquote{border-left:4px solid #f5f5d0}.wrapper .three-col blockquote,.wrapper
                 <td class="padded" style="width:60%; padding: 0;vertical-align: top;">
 
                  
-                  <p style="text-align:left; float:left;">dfddsfasjdfsan;fjanfafknljfk</p>
+                  <p style="text-align:left; float:left;">{{$member->name}}</p>
                 </td>
              
               </tr>
@@ -736,7 +736,7 @@ blockquote{border-left:4px solid #f5f5d0}.wrapper .three-col blockquote,.wrapper
                 <td class="padded" style="width:60%; padding: 0;vertical-align: top;">
 
                  
-                  <p style="text-align:left; float:left;">dfddsfasjdfsan;fjanfafknljfk</p>
+                  <p style="text-align:left; float:left;">{{$address}}</p>
                 </td>
              
               </tr>
@@ -749,7 +749,7 @@ blockquote{border-left:4px solid #f5f5d0}.wrapper .three-col blockquote,.wrapper
                 <td class="padded" style="width:60%; padding: 0;vertical-align: top;">
 
                  
-                  <p style="text-align:left; float:left;">dfddsfasjdfsan;fjanfafknljfk</p>
+                  <p style="text-align:left; float:left;">{{$product->product_name}}</p>
                 </td>
              
               </tr>
@@ -762,7 +762,7 @@ blockquote{border-left:4px solid #f5f5d0}.wrapper .three-col blockquote,.wrapper
                 <td class="padded" style="width:60%; padding: 0;vertical-align: top;">
 
                  
-                  <p style="text-align:left; float:left;">dfddsfasjdfsan;fjanfafknljfk</p>
+                  <p style="text-align:left; float:left;">{{$quantity}}</p>
                 </td>
              
               </tr>
@@ -775,7 +775,7 @@ blockquote{border-left:4px solid #f5f5d0}.wrapper .three-col blockquote,.wrapper
                 <td class="padded" style="width:60%; padding: 0;vertical-align: top;">
 
                  
-                  <p style="text-align:left; float:left;">dfddsfasjdfsan;fjanfafknljfk</p>
+                  <p style="text-align:left; float:left;">{{$total_price}}</p>
                 </td>
              
               </tr>
@@ -788,7 +788,7 @@ blockquote{border-left:4px solid #f5f5d0}.wrapper .three-col blockquote,.wrapper
                 <td class="padded" style="width:60%; padding: 0;vertical-align: top;">
 
                  
-                  <p style="text-align:left; float:left;">dfddsfasjdfsan;fjanfafknljfk</p>
+                  <p style="text-align:left; float:left;">{{$seller}}</p>
                 </td>
              
               </tr>
@@ -798,7 +798,7 @@ blockquote{border-left:4px solid #f5f5d0}.wrapper .three-col blockquote,.wrapper
                 <div class="btn btn-info" style="Margin-bottom: 27px">
                   <a style="width:100%;mso-hide: all;border: 0;border-radius: 4px;display: inline-block;font-size: 14px;font-weight: 700;line-height: 21px;padding: 9px 22px 8px 22px;text-align: center;text-decoration: none;color: #fff;background-color: #444;box-shadow: 0 3px 0 #363636;font-family: sans-serif" 
                   href={{$link}}>
-                  Shop now</a>
+                  Veiw item</a>
                   </div>
                   </td>
                 </tr>
