@@ -44,6 +44,7 @@ class BrowseController extends BaseController {
 		$sendProduct = new SplFixedArray(9);
 		$i=0;
 		$productList = Product::orderBy('idProduct', 'desc')->get()->take(9);
+		// echo $productList;
 		foreach($productList as $product){
 			$idProduct = $product->idProduct;
 				$picture = Productpicture::where('idProduct','=',$idProduct);
@@ -59,12 +60,14 @@ class BrowseController extends BaseController {
 				$price = Product_auction::find($product->idProduct)->current_price;
 			}
 			$send = array('product'=>$product,'price'=>$price,'picture'=>$pictureURL);
+			
 			// $product['price'] = $price;
 			// $product['picture'] = $pictureURL;
 			$sendProduct[$i]=$send;
+			// echo $i;
 			$i++;
 		}
-		// return $productList;
+		// return dd($sendProduct);
 		return View::make('perdtye/viewItemList')->with('sendProduct',$sendProduct);
 
 	}

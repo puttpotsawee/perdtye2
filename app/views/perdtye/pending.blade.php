@@ -21,7 +21,7 @@
 
 					<div class="form-group" style="margin-top:30px;">
 						<div class=" col-sm-12">
-							<a href="signup1.html" class="btn btn-primary" style="width:100%">Login</a>
+							<a href="login" class="btn btn-primary" style="width:100%">Login</a>
 						</div>
 					</div>
 				</form>

@@ -16,7 +16,8 @@
 
 							<?php
 							for ($y = 0; $y < 3; $y++) {
-								$item = $sendProduct[$x+$y];
+
+								$item = $sendProduct[(3*$x)+$y];
 								$product = $item['product'];
 								$price = $item['price'];
 								$picture = $item['picture'];
