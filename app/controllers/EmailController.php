@@ -133,9 +133,13 @@ class EmailController extends BaseController {
 
 	public static function sendInvoice($buyer,$idProduct,$quantity,$total_price,$idSeller)
 	{
+		$name = $buyer->name;
+		// echo $buyer->idmember;
+		$email = $buyer->email;	
 		$product = Product::find($idProduct);
 		$seller = Member::find($idSeller);
 		$address = Address::where('idmember','=',$buyer->idmember)->get()->first();
+		// echo $address;
 
 		$link = App::make('url')->to('/')."/view?id=".$product->idProduct;
 		$data = array('name'=>$name,'link'=>$link,'product'=>$product,'address'=>$address,'quantity'=>$quantity,'total_price'=>$total_price,'seller'=>$seller);

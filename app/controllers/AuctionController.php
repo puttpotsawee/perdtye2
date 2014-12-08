@@ -137,9 +137,15 @@ class AuctionController extends BaseController {
                 $transaction->status = 'waiting';
                 $transaction->save();
 
-                EmailController::sendAuctionEndWinnerEmail($el->current_winner,$el->idproduct_auction);
-                EmailController::sendInvoice(Member::find($el->current_winner,$el->idproduct_auction,1,$el->current_price,$transaction->idseller);
-
+                // EmailController::sendAuctionEndWinnerEmail($el->current_winner,$el->idproduct_auction);
+                EmailController::sendInvoice(Member::find($transaction->idmember),$transaction->idproduct,1,$transaction->price,$transaction->idseller);
+                // echo Member::find($transaction->idmember);
+                // echo '<br><br>';
+                // echo $transaction->idproduct;
+                // echo '<br><br>';
+                // echo $transaction->price;
+                // echo '<br><br>';
+                // echo $transaction->idseller;
                 // Get Looser list
                 $auction_list = Auction_list::where('idproduct_auction','=',$el->idproduct_auction)->get();
                 $looser_list = array();
@@ -149,7 +155,7 @@ class AuctionController extends BaseController {
                 $looser_send_list = array_unique($looser_list);
                 $looser_send_list = array_diff($looser_send_list, array($el->current_winner));
 
-                EmailController::sendToAllLooser($looser_send_list,$el->idproduct_auction);
+                // EmailController::sendToAllLooser($looser_send_list,$el->idproduct_auction);
             }
             // Close auction
             $el->isend = true;
