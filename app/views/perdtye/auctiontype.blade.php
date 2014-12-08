@@ -135,7 +135,16 @@
 								</div>
 
 							</form>
-
+							<div class="row" style="margin-top:50px;">
+							@if($hasCurrentWinner > 0)
+								<div class="col-md-5" >
+									<h4>Current Winner: </h4>
+								</div>
+								<div class="col-md-5" >
+									<h4><a href=account?id={{$current_winner->idmember}}> {{$current_winner->name}} {{$current_winner->surname}}</a></h4>
+								</div>
+							</div>
+							@endif
 							<div class="row" style="margin-top:50px;">
 								<div class="col-md-5" >
 									<h4>Seller: </h4>

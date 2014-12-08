@@ -18,9 +18,12 @@ class BrowseController extends BaseController {
 		if($product->type == 'auction'){
 			$moreDetails = Product_auction::find($idProduct);
 			$seller = Member::find($product->idseller);
+			$product_auction = Product_auction::where('idproduct_auction','=',$idProduct)->get()->first();
+			$current_winner = Member::find($product_auction->current_winner);
 			
+			// return $current_winner;
 			return View::make('perdtye/auctiontype')
-			->with(array('product' => $product, 'details' => $moreDetails, 'seller' => $seller,'pictures'=>$pictures));
+			->with(array('hasCurrentWinner' => $product_auction->current_winner,'current_winner' => $current_winner, 'product' => $product, 'details' => $moreDetails, 'seller' => $seller,'pictures'=>$pictures));
 			
 		} elseif($product->type == 'direct') {
 			$moreDetails = Product_direct::find($idProduct);
