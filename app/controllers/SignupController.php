@@ -76,5 +76,24 @@ class SignupController extends BaseController {
 	else
 		 	return Redirect::back()->with('message','Cannot proceed.');
 	}
+
+	public function registeringSeller()
+	{
+		$thisUser = Auth::user();
+		$idcard = Input::get('idcardnumber');
+
+		$thisUser->status = 'seller';
+		$thisUser->save();
+
+		$seller = new Seller;
+		$seller->idseller = $thisUser->idmember;
+		$seller->idcardnumber = $idcard;
+		$seller->idcardcopy = 'www.google.co.th';
+		$seller->save();
+
+		Session::flash('flash_success','You are a seller');
+
+		return Redirect::to('/account');
+	}
 	
 }

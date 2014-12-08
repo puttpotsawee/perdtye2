@@ -7,7 +7,9 @@
 	<div class="col-md-12 column">
 		<!--Profile edit-->
 		<div class="col-lg-offset-2 col-lg-8 well-shadow">
-			<form class="form-horizontal" action="account.php" method="get">
+
+			<!-- <form class="form-horizontal" action="account.php" method="get"> -->
+			{{Form::open(array('action'=>'SignupController@registeringSeller','class'=>'form-horizontal'))}}
 				<fieldset>
 					<legend>Edit Profile</legend>
 					<div class="input-group">
@@ -53,7 +55,7 @@
 						<div class="col-lg-5 form-group">
 							<label for="inputFirstname" class="control-label">ID card Number</label>
 							<div >
-								<input type="text" data-validation="number length" data-validation-length="min13" class="form-control" id="inputFirstname" placeholder="0000000000000">
+								<input name='idcardnumber' type="text" data-validation="number length" data-validation-length="min13" class="form-control" id="inputFirstname" placeholder="0000000000000">
 							</div>
 						</div>
 
