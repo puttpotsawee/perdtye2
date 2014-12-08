@@ -103,6 +103,7 @@ class AuctionController extends BaseController {
                 $product->current_winner = $winner->idmember;
                 $product->save();
                 EmailController::sendBidLostEmail($runnerup->idmember,$product);
+
             }
 			
             
@@ -135,10 +136,25 @@ class AuctionController extends BaseController {
                 $transaction->quantity = 1;
                 $transaction->status = 'waiting';
                 $transaction->save();
+
+                EmailController::sendAuctionEndWinnerEmail($el->current_winner,$el->idproduct_auction);
+
+                // Get Looser list
+                $auction_list = Auction_list::where('idproduct_auction','=',$el->idproduct_auction)->get();
+                $looser_list = array();
+                foreach ($auction_list as $auction_offer){
+                    $looser_list[] = $auction_offer->idmember;
+                }
+                $looser_send_list = array_unique($looser_list);
+                $looser_send_list = array_diff($looser_send_list, array($el->current_winner));
+
+                EmailController::sendToAllLooser($looser_send_list,$el->idproduct_auction);
             }
             // Close auction
             $el->isend = true;
             $el->save();
+            
+
         }
         // Refresh the page
         return View::make('perdtye/endauction')->with('open_auctions', $open_auctions);
