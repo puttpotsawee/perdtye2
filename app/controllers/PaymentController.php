@@ -27,6 +27,8 @@ class PaymentController extends BaseController {
 		$transaction->status = 'paid';
 		$transaction->save();
 
+		EmailController::sendInvoice(Auth::user(), $idProduct, $quantity, $moreDetails->price*$quantity, $product->idseller);
+
 		return Redirect::To('account');
 			
 	}
@@ -54,6 +56,8 @@ class PaymentController extends BaseController {
 		$transaction->quantity = $quantity;
 		$transaction->status = 'waiting';
 		$transaction->save();
+
+		EmailController::sendInvoice(Auth::user(), $idProduct, $quantity, $moreDetails->price*$quantity, $product->idseller);
 
 		// return Redirect::back()->with('message','Payment pending !');
 		return Redirect::To('account')->with('message','Payment pending !');
