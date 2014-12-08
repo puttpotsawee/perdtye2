@@ -169,7 +169,8 @@ Route::get('lose',function()
 
 Route::get('invoice',function()
 {
-    return View::make('emails.invoice')->with('name','Potsawee Vechpanich')->with('link','http://www.google.co.th');
+    return View::make('emails.invoice')->with('name','Potsawee Vechpanich')->with('link','http://www.google.co.th')
+    ->with('address',Address::find(1))->with('product',Product::find(1))->with('quantity',15)->with('total_price',500)->with('seller','fuckSeller');
 });
 
 Route::get('sendMail',function()

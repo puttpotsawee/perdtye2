@@ -138,6 +138,7 @@ class AuctionController extends BaseController {
                 $transaction->save();
 
                 EmailController::sendAuctionEndWinnerEmail($el->current_winner,$el->idproduct_auction);
+                EmailController::sendInvoice(Member::find($el->current_winner,$el->idproduct_auction,1,$el->current_price,$transaction->idseller);
 
                 // Get Looser list
                 $auction_list = Auction_list::where('idproduct_auction','=',$el->idproduct_auction)->get();

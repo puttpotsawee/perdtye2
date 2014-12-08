@@ -723,7 +723,7 @@ blockquote{border-left:4px solid #f5f5d0}.wrapper .three-col blockquote,.wrapper
                 <td class="padded" style="width:60%; padding: 0;vertical-align: top;">
 
                  
-                  <p style="text-align:left; float:left;">{{$member->name}}</p>
+                  <p style="text-align:left; float:left;">{{$name}}</p>
                 </td>
              
               </tr>
@@ -736,7 +736,8 @@ blockquote{border-left:4px solid #f5f5d0}.wrapper .three-col blockquote,.wrapper
                 <td class="padded" style="width:60%; padding: 0;vertical-align: top;">
 
                  
-                  <p style="text-align:left; float:left;">{{$address}}</p>
+                  <p style="text-align:left; float:left;">{{$address->house_number}} {{$address->road}}, {{$address->district}} </h5>
+                        {{$address->city}}, {{$address->province}} {{$address->zipcode}} {{$address->country}} </p>
                 </td>
              
               </tr>
@@ -788,7 +789,7 @@ blockquote{border-left:4px solid #f5f5d0}.wrapper .three-col blockquote,.wrapper
                 <td class="padded" style="width:60%; padding: 0;vertical-align: top;">
 
                  
-                  <p style="text-align:left; float:left;">{{$seller}}</p>
+                  <p style="text-align:left; float:left;">{{$seller->name}}</p>
                 </td>
              
               </tr>
@@ -798,7 +799,7 @@ blockquote{border-left:4px solid #f5f5d0}.wrapper .three-col blockquote,.wrapper
                 <div class="btn btn-info" style="Margin-bottom: 27px">
                   <a style="width:100%;mso-hide: all;border: 0;border-radius: 4px;display: inline-block;font-size: 14px;font-weight: 700;line-height: 21px;padding: 9px 22px 8px 22px;text-align: center;text-decoration: none;color: #fff;background-color: #444;box-shadow: 0 3px 0 #363636;font-family: sans-serif" 
                   href={{$link}}>
-                  Veiw item</a>
+                  PayNow</a>
                   </div>
                   </td>
                 </tr>
