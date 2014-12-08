@@ -8,7 +8,7 @@ class AccountController extends BaseController {
 	}
 	public static function showAccount()
 	{
-		if(Input::has('id'))
+		if(Input::has('id') && Auth::user()->idmember != Input::get('id'))
 		{
 			$idmember = Input::get('id');
 			$member = Member::find($idmember);
