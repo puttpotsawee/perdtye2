@@ -157,6 +157,21 @@ Route::get('email',function()
     return View::make('emails.mailResetPassword')->with('name','Potsawee Vechpanich')->with('link','http://www.google.co.th');
 });
 
+Route::get('win',function()
+{
+    return View::make('emails.win')->with('name','Potsawee Vechpanich')->with('link','http://www.google.co.th');
+});
+
+Route::get('lose',function()
+{
+    return View::make('emails.lose')->with('name','Potsawee Vechpanich')->with('link','http://www.google.co.th');
+});
+
+Route::get('invoice',function()
+{
+    return View::make('emails.invoice')->with('name','Potsawee Vechpanich')->with('link','http://www.google.co.th');
+});
+
 Route::get('sendMail',function()
 {
     
