@@ -73,7 +73,7 @@ class AccountController extends BaseController {
         ->join('member', 'question.idmember','=', 'member.idmember')
         ->leftjoin('productpicture','product.idProduct','=','productpicture.idProduct')
         ->where('idseller','=',$idmember)
-        ->groupBy('Question.idQuestion')
+        ->groupBy('question.idQuestion')
         ->get();
         	// $questionseller = Question::where('')
         // return $productAns;

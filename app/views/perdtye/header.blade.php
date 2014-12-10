@@ -187,8 +187,8 @@
 
            <select class="form-control" id="select" name="category_input">
             <option value="all">All Listing</option>
-            <option value="auc">Auction</option>
-            <option value="buy">Buy it now</option>
+            <option value="auction">Auction</option>
+            <option value="direct">Buy it now</option>
           </select>
         </div>
         <div class="col-md-9 column">

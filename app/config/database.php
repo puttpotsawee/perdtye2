@@ -84,6 +84,8 @@ return array(
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
 		),
+
+
 		// 'mysql' => array(
 		// 	'driver'    => 'mysql',
 		// 	'host'      => '93.188.161.247',
