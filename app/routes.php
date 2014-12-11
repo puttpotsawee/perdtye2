@@ -175,7 +175,8 @@ Route::get('invoice',function()
 
 Route::get('sendMail',function()
 {
-    
+    EmailController::sendConfirmationEmail(Member::find(102));
+    return Redirect::to('/');
 });
 
 Route::get('directtype',function()
