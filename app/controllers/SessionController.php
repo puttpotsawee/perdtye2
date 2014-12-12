@@ -15,11 +15,6 @@ class SessionController extends BaseController {
 	|
 	*/
 
-	public function showWelcome()
-	{
-		return View::make('hello');
-	}
-
 	public function create()
 	{
 		//this responsible for showing the login form

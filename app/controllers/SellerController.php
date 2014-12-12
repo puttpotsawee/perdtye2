@@ -172,6 +172,15 @@
 
  	}
 
+   public function editauctionsell()
+   {
+      return View::make('/perdtye/editauctionsell');
+   }
+   public function editdirectsell()
+   {
+      return View::make('/perdtye/editdirectsell');
+   }
+
 
 
  }

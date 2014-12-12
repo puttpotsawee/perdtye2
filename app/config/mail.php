@@ -28,8 +28,8 @@ return array(
 	|
 	*/
 
-	// 'host' => 'mail.puttpotsawee.lnw.mn',
-	'host' => 'smtp.mailgun.org',
+	// 'host' => 'mx1.hostinger.in.th',
+	'host' => 'smtp.gmail.com',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -43,6 +43,7 @@ return array(
 	*/
 
 	'port' => 587,
+	// 'port' => 2525,
 
 	/*
 	|--------------------------------------------------------------------------
@@ -55,7 +56,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => 'system@perdtye.tk', 'name' => 'System'),
+	'from' => array('address' => 'system@perdtye.com', 'name' => 'System'),
 
 	/*
 	|--------------------------------------------------------------------------
@@ -81,8 +82,8 @@ return array(
 	|
 	*/
 
-	// 'username' => "perdtye@puttpotsawee.lnw.mn",
-	'username' => "postmaster@sandboxba41df8b7b01472d98f9d883fe19870f.mailgun.org",
+	'username' => "perdtye@gmail.com",
+	// 'username' => "system@pradinan.tk",
 
 	/*
 	|--------------------------------------------------------------------------
@@ -95,8 +96,8 @@ return array(
 	|
 	*/
 
-	// 'password' => "Se2014",
-	'password' => "e6180e7b84f97476146ba4d18ec1ebaa",
+	'password' => "Perdtye2014",
+	// 'password' => "se2014",
 
 	/*
 	|--------------------------------------------------------------------------

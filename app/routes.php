@@ -18,23 +18,26 @@ Route::get('home',function()
     return Redirect::to('/');
 });
 // ---------------------------------------------------------------------------
-
+App::error(function($exception)
+{
+    return Redirect::to('/');
+});
 
 // Route associated with Member Package --------------------------------------
 // Sign Up
 Route::get('signup', 'SignupController@index');
 Route::post('signup','SignupController@signup');
 // Activate Member
-Route::get('account/activate/{username}/{token}','MemberController@activateMember');
-Route::get('account/resetpass/{username}/{token}','MemberController@resetPasswordForm');
-Route::post('account/resetpass','MemberController@resetPassword');
+Route::get('account/activate/{username}/{token}','AccountController@activateMember');
+Route::get('account/resetpass/{username}/{token}','AccountController@resetPasswordForm');
+Route::post('account/resetpass','AccountController@resetPassword');
 // Log in
 Route::get('login','SessionController@create');
 Route::get('logout', 'SessionController@destroy');
 Route::resource('session','SessionController');
 // Forgot Password
-Route::get('forgot', 'MemberController@forgotPassword');
-Route::post('forgot', 'MemberController@sendEmailResetPassword');
+Route::get('forgot', 'AccountController@forgotPassword');
+Route::post('forgot', 'AccountController@sendEmailResetPassword');
 // View Account
 Route::get('account','AccountController@showAccount')->before('auth');
 // Edit Account
@@ -54,9 +57,9 @@ Route::post('directsell','SellerController@submitDirectsell')->before('auth')->b
 Route::get('auctionsell','SellerController@auctionsell')->before('auth')->before("seller");
 Route::post('auctionsell','SellerController@submitAuctionsell')->before('auth')->before("seller");
 //Edit Direct-Type Item
-Route::get('editdirectsell', 'EditSellController@editdirectsell')->before('auth')->before("seller");
+Route::get('editdirectsell', 'SellerController@editdirectsell')->before('auth')->before("seller");
 //Edit Auction-Type Item
-Route::get('editauctionsell', 'EditSellController@editauctionsell')->before('auth')->before("seller");
+Route::get('editauctionsell', 'SellerController@editauctionsell')->before('auth')->before("seller");
 // Search for Item
 Route::get('search', 'SearchController@failed');
 Route::post('search', 'SearchController@search');
@@ -175,8 +178,7 @@ Route::get('invoice',function()
 
 Route::get('sendMail',function()
 {
-    EmailController::sendConfirmationEmail(Member::find(102));
-    return Redirect::to('/');
+    
 });
 
 Route::get('directtype',function()
@@ -224,12 +226,12 @@ Route::get('date',function()
     return $date = date('Y-m-d H:i:s', time());
 });
 
-Route::get('testClass','MemberController@showProfile');
+Route::get('testClass','AccountController@showProfile');
 
 // Backgroud service: End Auction
 Route::get('endauction', 'AuctionController@endAuction');
 //---------------------------------------------------------------------------
 
-Route::get('webboard/','AskAQuestionController@answerQuestion')->before('auth');
-Route::post('webboard/','AskAQuestionController@answerAnsQuestion')->before('auth');
+Route::get('answer/','AskAQuestionController@answerQuestion')->before('auth');
+Route::post('answer/','AskAQuestionController@answerAnsQuestion')->before('auth');
 

@@ -546,7 +546,7 @@
 					</td>
 					<td style="word-wrap: break-word;">
 						
-						<a href=webboard?idQ={{$q->idQuestion}} class="btn btn-success" style="width:100%;">Answer</a>						
+						<a href=answer?idQ={{$q->idQuestion}} class="btn btn-success" style="width:100%;">Answer</a>						
 					</td>
 				</tr>
 				@endforeach
@@ -567,7 +567,7 @@
 					</td>
 					<td style="word-wrap: break-word;">
 						
-						<a href=webboard?idQ={{$q->idQuestion}} class="btn btn-success" style="width:100%;">Answer</a>						
+						<a href=answer?idQ={{$q->idQuestion}} class="btn btn-success" style="width:100%;">Answer</a>						
 					</td>
 				</tr>
 				@endforeach

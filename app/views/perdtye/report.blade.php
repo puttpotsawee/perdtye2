@@ -7,7 +7,15 @@
 	<div class="col-sm-2">
 	</div>
 	<div class="col-sm-8">
+		@if(Session::has('flash_message'))
+		<div class="alert alert-dismissable alert-success" id ="flash_error" >
+			<button type="button" class="close" data-dismiss="alert">×</button>
+			<p>{{ Session::get('flash_message') }}</p>
+		</div>
+		@endif
 		<div class="well-shadow" style="margin-top:60px">
+
+
 			<form class="form-horizontal" action="report" method="post">
 				
 				
@@ -21,7 +29,7 @@
 							<input type="text" name="topic" data-validation="required" class="form-control" id="inputSubject" placeholder="Subject">
 						</div>
 					</div>
-					      
+					
 					<div class="form-group">
 						<label for="textArea" class="col-lg-3 control-label" >Descriptions :</label>
 						<div class="col-lg-6">

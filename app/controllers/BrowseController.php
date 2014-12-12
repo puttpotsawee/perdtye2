@@ -34,7 +34,7 @@ class BrowseController extends BaseController {
 		
 
 		} else {
-			return View::make('/');
+			return Redirect::to('/');
 		}
 		
 

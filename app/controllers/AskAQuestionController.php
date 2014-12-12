@@ -58,10 +58,11 @@ class AskAQuestionController extends BaseController {
 		// $ansmember = Member::find($answer->idmember);
 		// return $answer;
 		if((Auth::user()->idmember==$member->idmember||Auth::user()->idmember==$seller->idmember)){
-			return View::make('/perdtye/webboard')->with(array('member'=>$member,'product'=>$product,'seller'=>$seller,'question'=>$question,'picture'=>$picture->picture_url,'answer'=>$answer));
+			return View::make('/perdtye/answer')->with(array('member'=>$member,'product'=>$product,'seller'=>$seller,'question'=>$question,'picture'=>$picture->picture_url,'answer'=>$answer));
 		} else {
 			// return Redirect::back()->with('flash_message','Your question has been sent.');
-			return Redirect::to('/');
+			// return Redirect::to('/');
+			return Redirect::to('/account')->with('flash_msg','Sorry you do not have permission.');
 			// return Auth::user()->idmember."-".$seller->idmember;
 		}
 		
@@ -77,6 +78,6 @@ class AskAQuestionController extends BaseController {
 		$answer->idquestion = $idquestion;
 		$answer->content = $content;
 		$answer->save();
-		return Redirect::to('/webboard?idQ='.$idquestion);
+		return Redirect::to('/answer?idQ='.$idquestion);
 	}
 }

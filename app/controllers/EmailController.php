@@ -15,10 +15,7 @@ class EmailController extends BaseController {
 	|
 	*/
 
-	public function showWelcome()
-	{
-		return View::make('hello');
-	}
+	
 
 	public static function sendConfirmationEmail($user)
 	{
@@ -36,7 +33,7 @@ class EmailController extends BaseController {
 
 		Mail::send('emails.confirmation', $data, function($message)	use ($email,$name)
 		{
-			$message->to($email, $name)->subject('Email Confirmation from PerdTye.com');
+			$message->to($email, $name)->subject('Email Confirmation from PerdTyee.tk');
 		});
 	}
 	public static function sendResetPasswordEmail($user)
@@ -51,7 +48,7 @@ class EmailController extends BaseController {
 
 		Mail::send('emails.mailResetPassword', $data, function($message)	use ($email,$name)
 		{
-			$message->to($email, $name)->subject('Resetting password for your PerdTye.com account');
+			$message->to($email, $name)->subject('Resetting password for your PerdTyee.tk account');
 		});
 	}
 

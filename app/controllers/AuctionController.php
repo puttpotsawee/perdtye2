@@ -6,7 +6,7 @@ class AuctionController extends BaseController {
 	public function placeBid()
     {
         if(!Auth::check())
-            return View::make("perdtye/login");
+            return Redirect::to('/login');//View::make("perdtye/login");
         // Check if blacklisted
         if(Auth::user()->status == 'blacklist') {
             return Redirect::back()->with('message','Error you are blacklisted');
@@ -38,7 +38,7 @@ class AuctionController extends BaseController {
     public function maxBid()
     {
         if(!Auth::check())
-            return View::make("perdtye/login");
+            return Redirect::to('/login');//View::make("perdtye/login");
         // Check if blacklisted
         if(Auth::user()->status == 'blacklist') {
             return Redirect::back()->with('message','Error: you are blacklisted');
@@ -121,6 +121,7 @@ class AuctionController extends BaseController {
 
     public function endAuction()
     {   
+        // This method is invoked by the backend timer. for this environment we tested it by using a view call endauction
         // Take 5 due to closed auctions a time to avoid session timeout
         $open_auctions = Product_auction::whereRaw('TIME_TO_SEC(TIMEDIFF(now(), end_time)) > 0')->where('isend','=',false)->get()->take(5);
         foreach ($open_auctions as $el)
@@ -164,6 +165,7 @@ class AuctionController extends BaseController {
 
         }
         // Refresh the page
+
         return View::make('perdtye/endauction')->with('open_auctions', $open_auctions);
     }
 

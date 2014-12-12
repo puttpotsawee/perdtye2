@@ -13,7 +13,7 @@
 				</legend>
 				<p style="margin-top:30px;">Please Enter your new password.</p>
 				<!-- <form class="form-horizontal" role="form" action="" method="post" action="login"> -->
-				{{Form::open(array('action'=>'MemberController@resetPassword','class'=>'form-horizontal','role'=>'form'))}}
+				{{Form::open(array('action'=>'AccountController@resetPassword','class'=>'form-horizontal','role'=>'form'))}}
 					<div class="form-group">
 							<label for="inputPassword" class="col-lg-3 control-label">Create your password</label>
 							<div class="col-lg-9">

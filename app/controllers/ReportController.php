@@ -33,7 +33,7 @@ class ReportController extends BaseController {
 		$report->idmember = $idmember;
 		$report->save();
 
-		return Redirect::To('/account');
+		return Redirect::back()->with('flash_message','Your report has been saved.');
 	}
 	public function reportgood()
 	{
